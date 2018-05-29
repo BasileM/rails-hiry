@@ -1,13 +1,12 @@
-<%= simple_form_for [@housing, @rental] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :furnished %>
-  <%= f.input :start_date %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :monthly_rent %>
-  <%= f.input :monthly_expenses %>
-
-  <%= f.submit "Valider", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <%= simple_form_for [@housing, @rental] do |f| %>
+    <%= f.input :furnished %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :monthly_rent %>
+    <%= f.input :monthly_expenses %>
+    <%= f.submit "Valider", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
 <!-- Redirect to Renter form >
