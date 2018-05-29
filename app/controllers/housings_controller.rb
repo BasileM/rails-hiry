@@ -1,4 +1,6 @@
 class HousingsController < ApplicationController
+  def index
+    @housings = Housing.all
 
   def new
       @housing = Housing.new
