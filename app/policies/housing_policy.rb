@@ -5,19 +5,23 @@ class HousingPolicy < ApplicationPolicy
     end
   end
 
-    def create?
-      return true
-    end
+  def index
+    @housings = policy_scope(Housing).order(created_at: :desc)
+  end
 
-    def update?
-      record.user == user
-    end
+  def create?
+    return true
+  end
 
-    def show
-      record.user == user
-    end
+  def update?
+    record.user == user
+  end
 
-    def index
-      record.user == user
-    end
+  def show
+    record.user == user
+  end
+
+  def index
+    record.user == user
+  end
 end
