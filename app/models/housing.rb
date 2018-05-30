@@ -1,4 +1,11 @@
 class Housing < ApplicationRecord
+
+  def address
+    return "#{:street}, #{:zipcode}, #{:city}"
+  end
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :user
   has_many :rooms
   has_many :rentals
