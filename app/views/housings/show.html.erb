@@ -1,12 +1,44 @@
-<h1>
-  <%= @housing.street %>
-</h1>
-<ul>
-  <% @rentals.each do |rental| %>
-    <li>
-      <%= rental.monthly_rent %>
-    </li>
-  <% end %>
-</ul>
+  <h1>
+    <%= @housing.street %>
+  </h1>
 
-<%= link_to "Ajouter une nouvelle location", new_housing_rental_path(@housing), type: "button", class: "btn btn-primary" %>
+<!-- Rubrique location -->
+
+  <h2>
+    <%= "Ma location" %>
+  </h2>
+  <hr>
+  <%= link_to "Ajouter une nouvelle location", new_housing_rental_path(@housing), type: "button", class: "btn btn-primary" %>
+
+<!-- Rubrique fiche de bien -->
+
+    <h2>
+        Ma fiche de bien
+    </h2>
+      <h3>
+        Informations générales
+        </h3>
+        <%= render 'details', housing: @housing %>
+        <h3>
+        <%= "Pièces" %>
+        </h3>
+          <ul>
+            <% @housing.rooms.each do |room| %>
+            <li>
+              <%= room.type_of_room %> : <%= room.size %> m2
+            </li>
+            <% end %>
+          </ul>
+
+<%= link_to "Ajouter une nouvelle pièce", new_housing_room_path(@housing), type: "button", class: "btn btn-primary" %>
+
+<!-- Rubrique statistique -->
+
+  <h2>
+    <%= "Mes statistiques" %>
+  </h2>
+  <hr>
+
+ </div>
+
+</div>
