@@ -51,11 +51,11 @@ body {
 }
 
 a {
-  color: $blue !important;
+  color: $blue;
   font-weight: 400; //normal
   text-decoration: none;
   &:hover {
-    color: $blue-alt !important;
+    color: $blue-alt ;
     text-decoration: none; // No underline on hover
   }
 }
