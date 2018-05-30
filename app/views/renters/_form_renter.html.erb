@@ -5,9 +5,8 @@
     <%= f.input :phone_number %>
     <%= f.input :email %>
     <%= f.input :nationality %>
-    <%= f.input :date_of_birth %>
+    <%= f.input :date_of_birth, as: :string, required: false, input_html: {class: "datepicker"} %>
     <%= f.input :marital_status %>
-    <%= f.input :rental_id %>
     <%= f.submit "Valider", class: "btn btn-primary" %>
   <% end %>
 </div>
