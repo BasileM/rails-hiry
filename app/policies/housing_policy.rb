@@ -16,8 +16,4 @@ class HousingPolicy < ApplicationPolicy
   def show
     record.user == user
   end
-
-  def index
-    record.user == user
-  end
 end

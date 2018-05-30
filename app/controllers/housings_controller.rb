@@ -9,7 +9,12 @@ class HousingsController < ApplicationController
 
   def show
     authorize @housing
+
     @rentals = @housing.rentals
+    #précédente version conservée par sécurité
+    #@rentals = Rental.all
+    #@rental  = @rentals.last
+
     #change to display only rental where housing_id == housing.id
   end
 

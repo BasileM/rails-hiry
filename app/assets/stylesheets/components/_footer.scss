@@ -1,6 +1,4 @@
 .footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   padding: 2rem 4.5rem;
   line-height: 3rem;
@@ -9,4 +7,5 @@
   font-weight: 300;
   align-items: center;
   text-align: center;
+  flex-shrink: 0;
 }
