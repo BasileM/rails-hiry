@@ -1,5 +1,22 @@
-<h1> Quittance </h1>
-<%= @receipt %>
-<%= @renter %>
-<%= @housing %>
+<h1> Quittance HTML </h1>
+<ul>
+  <li>
+    Total Invoice: <%= @receipt.monthly_invoice %>
+  </li>
+  <li>
+    Date: <%= @receipt.date %>
+  </li>
+  <li>
+    Locataire: <%= @renter.first_name %>
+  </li>
+  <li>
+    Adresse: <%= @housing.street %>, <%= @housing.zip_code %>, <%= @housing.city %>
+  </li>
+  <li>
+    Regime légal: <%= @housing.legal_regime %>
+  </li>
+  <li>
+    Propriétaire: <%= @user.email %>
+  </li>
+</ul>
  <!-- To change to display the template. Make sure to get all the info (owner etc) -->

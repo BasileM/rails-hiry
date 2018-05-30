@@ -7,6 +7,8 @@
   <h2>
     <%= "Ma location" %>
   </h2>
+    <%= link_to @rental.id, rental_path(@rental), type: "button", class: "btn btn-primary" %>
+    <%= link_to "Générez une quittance", new_rental_receipt_path(@rental), type: "button", class: "btn btn-primary" %>
   <hr>
   <%= link_to "Ajouter une nouvelle location", new_housing_rental_path(@housing), type: "button", class: "btn btn-primary" %>
 
