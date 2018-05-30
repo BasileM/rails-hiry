@@ -1,17 +1,17 @@
 // Define variables for your color scheme
 
 // Default colors
-$white:  #FFFFFF;
-$red:    #ED4E37;
-$orange: #F0DA21;
-$yellow: #FDECA5;
+$white:  #FFFFFF !default;
+$red:    #ED4E37 !default;
+$orange: #F0DA21 !default;
+$yellow: #FDECA5 !default;
 
 // Primary palette (main one)
-$green:      #2FBC5C;
-$light-gray: #F5F5F5;
-$gray:       #C4C4C4;
-$black:      #333333;
-$blue:       #06B5DE;
+$green:      #2FBC5C !default;
+$light-gray: #F5F5F5 !default;
+$gray:       #C4C4C4 !default;
+$black:      #333333 !default;
+$blue:       #06B5DE !default;
 
 // Secondary palette (darker one)
 $green-alt:      #2A9F4A;
