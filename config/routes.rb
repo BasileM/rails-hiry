@@ -6,5 +6,8 @@ Rails.application.routes.draw do
     resources :rooms, only: [:new, :create]
     resources :rentals, only: [:new, :create]
   end
+  resources :rentals do
+    resources :renters, only: [:new, :create]
+  end
   resources :rooms, only: [:edit, :update]
 end

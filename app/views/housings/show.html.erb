@@ -1,4 +1,15 @@
-<h1> Show housing </h1>
-<% @rentals.each do |rental| %>
-<%= rental %>
-<% end %>
+<div class="container">
+  <h1>
+    <%= @housing.street %>
+  </h1>
+  <ul>
+    <% @rentals.each do |rental| %>
+      <li>
+        <%= rental.monthly_rent %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Ajouter une nouvelle location", new_housing_rental_path(@housing), type: "button", class: "btn btn-primary" %>
+ </div>
+</div>
