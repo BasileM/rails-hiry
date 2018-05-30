@@ -17,6 +17,11 @@ class RentalsController < ApplicationController
     end
   end
 
+  def show
+    @rental = Rental.find(params[:id])
+    authorize @rental
+  end
+
   private
 
   def rental_params
