@@ -2,8 +2,7 @@ class RentalsController < ApplicationController
 
   def new
     @housing = Housing.find(params[:housing_id])
-    @rental = Rental.new
-    @renter = Renter.new
+    @rental  = Rental.new
     authorize @rental
   end
 
@@ -11,13 +10,11 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.housing = Housing.find(params[:housing_id])
     authorize @rental
-    raise
-    redirect_to root_path, notice: 'Rental was successfully created.'
-    # if @rental.save
-    #   redirect_to root_path, notice: 'Rental was successfully created.'
-    # else
-    #   render :new
-    # end
+    if @rental.save!
+      redirect_to new_rental_renter_path(@rental), notice: 'Rental was successfully created.'
+    else
+      render :new
+    end
   end
 
   private
