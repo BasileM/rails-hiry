@@ -4,6 +4,11 @@ class HousingsController < ApplicationController
     @housings = Housing.all
   end
 
+   def show
+    @housing = Housing.find(params[:id])
+    authorize @housing
+  end
+
   def new
     @housing = Housing.new
     authorize @housing
