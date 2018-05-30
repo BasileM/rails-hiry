@@ -1,8 +1,2 @@
-<div class = "container">
-    <h1>Ajouter une nouvelle pièce</h1>
-    <%= simple_form_for [@housing, @room] do |f| %>
-      <%= f.input :type_of_room %>
-      <%= f.input :size %>
-      <%= f.submit "Ajouter cette nouvelle pièce", class: "btn btn-primary" %>
-    <% end %>
-</div>
+<h1>Ajouter une nouvelle pièce</h1>
+<%= render 'form_room', housing: @housing, room: @room %>
