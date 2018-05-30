@@ -1,6 +1,8 @@
 <h1> Show housing </h1>
-<%= raise %>
-<% @rentals.each do |rental| %>
-<%= raise %>
-<%= rental %>
-<% end %>
+<ul>
+  <% @rentals.each do |rental| %>
+    <li>
+      <%= rental.monthly_rent %>
+    </li>
+  <% end %>
+</ul>
