@@ -1,0 +1,11 @@
+<h1>New inventory</h1>
+<hr>
+<%=  simple_form_for @rental, url: rental_inventories_path, method: :post do |f|%>
+  <%= f.simple_fields_for :inventories do |inventory_form| %>
+    <%= inventory_form.input :room_id, as: :hidden %>
+
+    <%= inventory_form.object.room.type_of_room %>
+    <%= inventory_form.input :state, as: :select, collection: Inventory::STATES %>
+  <% end %>
+  <%= f.submit %>
+<% end %>

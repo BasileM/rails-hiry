@@ -1,7 +1,7 @@
-class HousingPolicy < ApplicationPolicy
+class InventoryPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all.order(created_at: :desc)
+      scope.all
     end
   end
 
@@ -16,4 +16,9 @@ class HousingPolicy < ApplicationPolicy
   def show
     record.user == user
   end
+
+  def index
+    record.user == user
+  end
 end
+
