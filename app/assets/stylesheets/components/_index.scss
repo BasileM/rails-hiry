@@ -1,16 +1,5 @@
 // Import your components CSS files here.
 @import "alert";
 @import "navbar";
+@import "forms";
 @import "footer";
-
-html{ height:100%;
-      }
-
-body{ height:100%;
-}
-
-.container {
-  min-height: 100%;
-  position: relative;
-}
-
