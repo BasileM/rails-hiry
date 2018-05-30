@@ -1,13 +1,2 @@
 <h1>Créer un nouveau bien</h1>
-<%= simple_form_for [@housing] do |f| %>
-    <%= f.input :street %>
-    <%= f.input :zip_code %>
-    <%= f.input :city %>
-    <%= f.input :type_of_housing %>
-    <%= f.input :legal_regime %>
-    <%= f.input :year_of_construction %>
-    <%= f.input :floor %>
-    <%= f.input :size %>
-    <%= f.submit "Créer mon bien", class: "btn-yours"%>
-  <% end %>
-<hr>
+<%= render 'form_housing', housing: @housing %>

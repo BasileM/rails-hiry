@@ -16,10 +16,12 @@
       <%= render 'shared/flashes' %>
     </header>
     <!-- Puts everything that is not the navbar or the footer into a bootstrap container -->
-    <main class="container">
-      <%= yield %>
-      <%= javascript_include_tag 'application' %>
-      <%= javascript_pack_tag 'application' %>
+    <main class="main">
+      <div class="container">
+        <%= yield %>
+        <%= javascript_include_tag 'application' %>
+        <%= javascript_pack_tag 'application' %>
+      </div>
     </main>
     <footer class="footer">
       <div class="container">
