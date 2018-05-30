@@ -7,7 +7,7 @@ class HousingsController < ApplicationController
   end
 
 
-  def show 
+  def show
     authorize @housing
     @rentals = Rental.all
     #change to display only rental where housing_id == housing.id
@@ -23,7 +23,7 @@ class HousingsController < ApplicationController
     @housing.user = current_user #need a user to save the housing.
     authorize @housing
     if @housing.save
-      redirect_to housings_path, notice: 'Votre bien est créé.'
+      redirect_to new_housing_room_path(@housing), notice: 'Votre bien est créé.'
     else
       render :new
     end
