@@ -10,6 +10,7 @@ class HousingsController < ApplicationController
   def show
     authorize @housing
     @rentals = Rental.all
+    @rental  = @rentals.last
     #change to display only rental where housing_id == housing.id
   end
 
