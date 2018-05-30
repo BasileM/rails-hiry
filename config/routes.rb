@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   end
   resources :rentals do
     resources :renters, only: [:new, :create]
+    resources :inventories, only: [:new, :create]
   end
   resources :rooms, only: [:edit, :update]
+    # resources :inventories, only: [:new, :create]
+  # end
 end
