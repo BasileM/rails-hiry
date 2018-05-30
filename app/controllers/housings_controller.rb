@@ -6,7 +6,8 @@ class HousingsController < ApplicationController
     @housings = Housing.all
   end
 
-  def show
+
+  def show 
     authorize @housing
     @rentals = Rental.all
     #change to display only rental where housing_id == housing.id

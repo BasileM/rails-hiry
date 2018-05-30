@@ -3,7 +3,7 @@
   <ul>
    <% @housings.each do |housing| %>
      <h2><%= housing.street %></h2>
-    <li><%= link_to housing.street, housings_path(housing) %></li>
+    <li><%= link_to housing.street, housing_path(housing) %></li>
    <% end %>
   </ul>
 

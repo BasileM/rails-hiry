@@ -5,6 +5,10 @@ class RoomPolicy < ApplicationPolicy
     end
   end
 
+  def index
+    @rooms = policy_scope(Room).order(created_at: :desc)
+  end
+
   def create?
     return true
   end
