@@ -1,12 +1,16 @@
 class HousingsController < ApplicationController
+  before_action :set_housing, only: [:show]
+
   def index
     @housings = policy_scope(Housing)
     @housings = Housing.all
   end
 
-   def show
-    @housing = Housing.find(params[:id])
+
+  def show 
     authorize @housing
+    @rentals = Rental.all
+    #change to display only rental where housing_id == housing.id
   end
 
   def new
@@ -26,6 +30,10 @@ class HousingsController < ApplicationController
   end
 
   private
+
+  def set_housing
+    @housing = Housing.find(params[:id])
+  end
 
   def housing_params
     params.require(:housing).permit(:street, :zip_code, :city, :type_of_housing, :legal_regime, :year_of_construction, :floor, :size)
