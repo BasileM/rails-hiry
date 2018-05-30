@@ -11,11 +11,20 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
-    <%= render 'shared/footer' %>
+    <header
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
+    </header>
+    <!-- Puts everything that is not the navbar or the footer into a bootstrap container -->
+    <main class="container">
+      <%= yield %>
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_pack_tag 'application' %>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <%= render 'shared/footer' %>
+      </div>
+    </footer>
   </body>
 </html>

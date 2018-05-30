@@ -1,5 +1,4 @@
-<div class="container">
-  <h1>Créer un nouveau bien</h1>
+<h1>Créer un nouveau bien</h1>
 <%= simple_form_for [@housing] do |f| %>
     <%= f.input :street %>
     <%= f.input :zip_code %>
@@ -11,9 +10,4 @@
     <%= f.input :size %>
     <%= f.submit "Créer mon bien", class: "btn-yours"%>
   <% end %>
-
-  <hr>
-
-
-</div>
-
+<hr>
