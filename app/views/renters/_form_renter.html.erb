@@ -1,0 +1,11 @@
+<%= simple_form_for [@rental, @renter] do |f| %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :phone_number %>
+  <%= f.input :email %>
+  <%= f.input :nationality %>
+  <%= f.input :date_of_birth, as: :string, required: false, input_html: {class: "datepicker"} %>
+  <%= f.input :marital_status, collection: ["Célibataire", "Marié", "Divorcé"] %>
+  <%= f.submit "Valider", class: "btn btn-primary" %>
+<% end %>
+

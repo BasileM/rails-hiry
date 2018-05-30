@@ -1,0 +1,11 @@
+<%= simple_form_for [@housing] do |f| %>
+    <%= f.input :street %>
+    <%= f.input :zip_code %>
+    <%= f.input :city %>
+    <%= f.input :type_of_housing, collection: ["Appartement", "Maison"] %>
+    <%= f.input :legal_regime, collection: ["Mono propriété", "Copropriété"] %>
+    <%= f.input :year_of_construction %>
+    <%= f.input :floor %>
+    <%= f.input :size %>
+    <%= f.submit "Créer mon bien", class: "btn-yours"%>
+  <% end %>
