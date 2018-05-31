@@ -1,12 +1,8 @@
 class HousingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope
+      scope.all.order(created_at: :desc)
     end
-  end
-
-  def index
-    @housings = policy_scope(Housing).order(created_at: :desc)
   end
 
   def create?
@@ -18,10 +14,6 @@ class HousingPolicy < ApplicationPolicy
   end
 
   def show
-    record.user == user
-  end
-
-  def index
     record.user == user
   end
 end

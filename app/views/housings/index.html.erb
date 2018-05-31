@@ -1,16 +1,16 @@
-<div class="container">
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+  <!-- Google Map -->
+  <div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>"></div>
+
+  <!-- Housings lists -->
   <h1>Ma liste de biens</h1>
-  <ul>
-   <% @housings.each do |housing| %>
-     <h2><%= housing.street %></h2>
-    <li><%= link_to housing.street, housings_path(housing) %></li>
-   <% end %>
-  </ul>
-  
-  <%= link_to "Ajouter un bien", new_housing_path, type: "button", class: "btn btn-primary" %>
- </div>
-
-
-
-
-
+    <ul>
+      <% @housings.each do |housing| %>
+        <h2><%= housing.street %></h2>
+        <li><%= link_to housing.street, housing_path(housing) %></li>
+      <% end %>
+    </ul>
+  <%= link_to "Ajouter un bien", new_housing_path, type: "button", class: "btn btn-primary mt-2" %>
+  </div>
+</div>

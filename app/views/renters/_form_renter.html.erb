@@ -1,0 +1,11 @@
+<%= simple_form_for [@rental, @renter] do |f| %>
+  <%= f.input :first_name, placeholder: 'Boris' %>
+  <%= f.input :last_name, placeholder: 'Paillard' %>
+  <%= f.input :phone_number, placeholder: '07821608001' %>
+  <%= f.input :email, placeholder: 'user@hiry.com' %>
+  <%= f.input :nationality, placeholder: 'français' %>
+  <%= f.input :date_of_birth %>
+  <%= f.input :marital_status, collection: ["Célibataire", "Marié", "Divorcé"] %>
+  <%= f.submit "Valider", class: "btn btn-primary mt-2" %>
+<% end %>
+

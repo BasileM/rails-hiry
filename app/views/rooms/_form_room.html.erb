@@ -1,0 +1,5 @@
+<%= simple_form_for [@housing, @room] do |f| %>
+  <%= f.input :type_of_room, collection: ["Salon", "Chambre", "Cuisine", "Salle de bain", "Salle à manger", "Toilettes", "Buanderie", "Bureau", "Garage", "Dressing"] %>
+  <%= f.input :size %>
+  <%= f.submit "Ajouter cette nouvelle pièce", class: "btn btn-primary mt-2" %>
+<% end %>

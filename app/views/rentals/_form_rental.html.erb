@@ -1,13 +1,8 @@
 <%= simple_form_for [@housing, @rental] do |f| %>
-  <%= f.input :content %>
   <%= f.input :furnished %>
-  <%= f.input :start_date %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.input :monthly_rent %>
-  <%= f.input :monthly_expenses %>
-
-  <%= f.submit "Valider", class: "btn btn-primary" %>
+  <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+  <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+  <%= f.input :monthly_rent, placeholder: '1350' %>
+  <%= f.input :monthly_expenses, placeholder: '150' %>
+  <%= f.submit "Valider", class: "btn btn-primary mt-2" %>
 <% end %>
-
-<!-- Redirect to Renter form >

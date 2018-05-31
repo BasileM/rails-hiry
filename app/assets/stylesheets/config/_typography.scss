@@ -1,0 +1,61 @@
+/* -------------------------------------
+ * Sizes and colors for typography
+* ------------------------------------- */
+
+// Set size for main typographic elements
+html {
+  font-size: $font-size-base !important;
+}
+
+h1 {
+  font-size: $h1-font-size;
+}
+
+h2 {
+  font-size: $h2-font-size;
+}
+
+h3 {
+  font-size: $h3-font-size;
+}
+
+h4 {
+  font-size: $h4-font-size;
+}
+
+h5 {
+  font-size: $h5-font-size;
+}
+
+p,
+a,
+li,
+body {
+  font-size: $font-size-base;
+}
+
+// Set font-weight for main typographic elements
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 700; // bold
+  line-height: 1.20; // 21,6px
+}
+
+body {
+  color: $black !important;
+  font-weight: 400; // normal
+  line-height: 1.35; // 24,3px
+}
+
+a {
+  color: $blue;
+  font-weight: 400; //normal
+  text-decoration: none;
+  &:hover {
+    color: $blue-alt ;
+    text-decoration: none; // No underline on hover
+  }
+}

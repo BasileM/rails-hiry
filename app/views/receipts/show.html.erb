@@ -1,0 +1,29 @@
+<h1> Quittance HTML </h1>
+<ul>
+  <li>
+    Total Invoice: <%= @receipt.monthly_invoice %>
+  </li>
+  <li>
+    Date: <%= @receipt.date %>
+  </li>
+  <% if @renter.present? %>
+    <li>
+      Locataire: <%= @renter.first_name %> <%= @renter.last_name %>
+    </li>
+  <% else %>
+    <li>
+      Locataire: Pas de locataire affecté à cette location
+    </li>
+  <% end %>
+  <li>
+    Adresse: <%= @housing.street %>, <%= @housing.zip_code %>, <%= @housing.city %>
+  </li>
+  <li>
+    Regime légal: <%= @housing.legal_regime %>
+  </li>
+  <li>
+    Propriétaire: <%= @user.email %>
+  </li>
+</ul>
+
+<%= link_to "Retourner à mon dashbaord", housing_path(@housing), type: "button", class: "btn btn-primary mt-2" %>
