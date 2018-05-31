@@ -1,6 +1,7 @@
 <h1>Mes quittances</h1>
-<p><%= @housing.street %> - <%= @renter.first_name %> <%= @renter.last_name %><p>
-<p>Contrat de location daté du <%= @rental.start_date %></p>
+<p><%= @housing.street %> - <%= @renter.gender %> <%= @renter.first_name %> <%= @renter.last_name %><p>
+<p><%= link_to "Contrat de location", rental_path(@rental) %> daté du <%= @rental.start_date %></p>
+
 
 <%= link_to "Créer une quittance", new_rental_receipt_path(@rental), class: "btn btn-primary mt-2" %>
 <%= link_to "Retourner à mon dashbaord", housing_path(@housing), class: "btn btn-primary mt-2" %>
@@ -11,6 +12,7 @@
       <hr>
       <li>Date quittance: <%= receipt.date %></li>
       <li>Montant total <%= receipt.monthly_invoice %></li>
+      <li><%= link_to "Voir", receipt_path(receipt)%></li>
     </div>
   <% end %>
 </ul>
