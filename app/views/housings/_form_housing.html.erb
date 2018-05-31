@@ -10,7 +10,7 @@
   <%= f.input :legal_regime, {
     label: 'Régime juridique',
     placeholder: 'Appartement ou maison',
-    collection: ["Mono propriété", "Copropriété"]
+    collection: Housing::LEGAL_REGIME_TYPE
     } %>
   <%= f.input :year_of_construction, label: 'Année de construction', placeholder: '1950' %>
   <!-- Hide floor field if housing type has been set to house on housing creation.

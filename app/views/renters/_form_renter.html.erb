@@ -1,10 +1,11 @@
 <%= simple_form_for [@rental, @renter] do |f| %>
+  <%= f.input :gender, label: 'Civilité', collection: Renter::GENDER_TYPE %>
   <%= f.input :first_name, label: 'Prénom', placeholder: 'Boris' %>
   <%= f.input :last_name, label: 'Nom', placeholder: 'Paillard' %>
   <%= f.input :phone_number, label: 'Téléphone', placeholder: '07 82 16 08 01' %>
   <%= f.input :email, label: 'E-mail', placeholder: 'user@hiry.com' %>
-  <%= f.input :nationality, label: 'Nationalité', placeholder: 'française' %>
+  <%= f.input :nationality, label: 'Nationalité', collection: ["Française", "Anglaise"] %>
   <%= f.input :date_of_birth, label: 'Date de naissance'  %>
-  <%= f.input :marital_status, label: 'Status', collection: ["Célibataire", "Marié", "Divorcé"] %>
+  <%= f.input :marital_status, label: 'Status', collection: Renter::MARITAL_STATS_TYPE %>
   <%= f.submit "Ajouter le locataire", class: "btn btn-primary mt-2" %>
 <% end %>
