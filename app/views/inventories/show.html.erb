@@ -1,0 +1,16 @@
+<ul>
+  <% @rental.inventories.each do |inventory| %>
+  <li>
+    <%= inventory.room.type_of_room %>
+    <br>
+    Etat : <%= inventory.state %>
+    <br>
+    Observations : <%= inventory.observations %>
+    <br>
+    <br>
+    <br>
+  </li>
+  <% end %>
+</ul>
+<%= link_to "retourner au dashboard", housing_path(@rental), type: "button", class: "btn btn-primary mt-2" %>
+

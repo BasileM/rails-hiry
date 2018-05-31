@@ -9,6 +9,12 @@ class InventoriesController < ApplicationController
     authorize @rental.inventories.first
   end
 
+  def show
+    @rental = Rental.find(params[:rental_id])
+    authorize @rental.inventories.first
+  end
+
+
   def create
     @rental = Rental.find(params[:rental_id])
     authorize Inventory.new
@@ -25,4 +31,6 @@ class InventoriesController < ApplicationController
   def rental_params
     params.require(:rental).permit(inventories_attributes: [:room_id, :state, :observations])
   end
+
+
 end
