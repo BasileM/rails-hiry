@@ -1,22 +1,9 @@
-<h1> Quittance HTML </h1>
+<h1>Quittance HTML</h1>
 <ul>
-  <li>
-    Total Invoice: <%= @receipt.monthly_invoice %>
-  </li>
-  <li>
-    Date: <%= @receipt.date %>
-  </li>
-  <li>
-    Locataire:
-  </li>
-  <li>
-    Adresse: <%= @housing.street %>, <%= @housing.zip_code %>, <%= @housing.city %>
-  </li>
-  <li>
-    Regime légal: <%= @housing.legal_regime %>
-  </li>
-  <li>
-    Propriétaire: <%= @user.email %>
-  </li>
+  <li>Montant total : <%= @receipt.monthly_invoice %></li>
+  <li>Date : <%= @receipt.date %></li>
+  <li>Locataire : TODO! </li>
+  <li>Adresse : <%= @housing.address %></li>
+  <li>Regime légal : <%= @housing.legal_regime %></li>
+  <li>Propriétaire : <%= @user.email %></li>
 </ul>
- <!-- To change to display the template. Make sure to get all the info (owner etc) -->

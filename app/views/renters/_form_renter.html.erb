@@ -1,11 +1,10 @@
 <%= simple_form_for [@rental, @renter] do |f| %>
-  <%= f.input :first_name, placeholder: 'Boris' %>
-  <%= f.input :last_name, placeholder: 'Paillard' %>
-  <%= f.input :phone_number, placeholder: '07821608001' %>
-  <%= f.input :email, placeholder: 'user@hiry.com' %>
-  <%= f.input :nationality, placeholder: 'français' %>
-  <%= f.input :date_of_birth %>
-  <%= f.input :marital_status, collection: ["Célibataire", "Marié", "Divorcé"] %>
-  <%= f.submit "Valider", class: "btn btn-primary mt-2" %>
+  <%= f.input :first_name, label: 'Prénom', placeholder: 'Boris' %>
+  <%= f.input :last_name, label: 'Nom', placeholder: 'Paillard' %>
+  <%= f.input :phone_number, label: 'Téléphone', placeholder: '07 82 16 08 01' %>
+  <%= f.input :email, label: 'E-mail', placeholder: 'user@hiry.com' %>
+  <%= f.input :nationality, label: 'Nationalité', placeholder: 'française' %>
+  <%= f.input :date_of_birth, label: 'Date de naissance',  %>
+  <%= f.input :marital_status, label: 'Status', collection: ["Célibataire", "Marié", "Divorcé"] %>
+  <%= f.submit "Ajouter le locataire", class: "btn btn-primary mt-2" %>
 <% end %>
-

@@ -10,6 +10,10 @@
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
 $body-bg:                 $white;
+$font-weight-light:       300 !default;
+$font-weight-normal:      400 !default;
+$font-weight-bold:        700 !default;
+$font-weight-black:       900 !default;
 
 // ## Font, line-height, and color for body text, headings, and more.
 $font-size-base: 1.125rem !default; // 18px
@@ -24,14 +28,22 @@ $h6-font-size:   0.5em !default;    // 8px
 $line-height-base: 1.35 !default; // 24,3/18px
 
 //== Colors
-$primary:       $blue !default;
-$secondary:     $green !default;
+$primary:       $green !default;
+$secondary:     $blue !default;
 $success:       $green !default;
-$info:          $blue !default;
-$warning:       $yellow !default;
+$info:          $yellow !default;
+$warning:       $orange !default;
 $danger:        $red !default;
 $light:         $light-gray !default;
 $dark:          $black !default;
+
+// Links
+//
+// Style anchor elements.
+$link-color:                $blue !default;
+$link-decoration:           none !default;
+$link-hover-color:          $blue-alt !default;
+$link-hover-decoration:     underline !default;
 
 //== Spacing
 //
@@ -62,3 +74,8 @@ $input-color:                    $black !default;
 $input-border:                   $gray !default;
 //** Placeholder text color
 $input-color-placeholder:        $light-gray !default;
+
+//== Buttons
+//
+// ** Font-weight for input field
+$btn-font-weight:     $font-weight-normal !default;
