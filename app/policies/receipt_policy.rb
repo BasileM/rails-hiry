@@ -13,6 +13,10 @@ class ReceiptPolicy < ApplicationPolicy
     return true
   end
 
+  def index?
+    return true
+  end
+
   def update?
     record.housing.user == user
   end
