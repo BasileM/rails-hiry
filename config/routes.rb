@@ -11,12 +11,10 @@ Rails.application.routes.draw do
   end
   resources :rentals, only: [:show] do
     resources :renters, only: [:new, :create]
-    resources :inventories, only: [:new, :create]
+    resources :inventories, only: [:new, :create, :show]
     resources :receipts, only: [:new, :create, :index]
 
   end
   resources :receipts, only: [:show]
   resources :rooms, only: [:edit, :update]
-    # resources :inventories, only: [:new, :create]
-  # end
 end
