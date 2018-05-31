@@ -5,7 +5,12 @@
     <%= inventory_form.input :room_id, as: :hidden %>
 
     <%= inventory_form.object.room.type_of_room %>
+    <%= inventory_form.object.room.size %>
     <%= inventory_form.input :state, as: :select, collection: Inventory::STATES %>
+    <%= inventory_form.input :observations, placeholder: 'laisser vos observations' %>
+    <br>
+    <br>
+    <br>
   <% end %>
   <%= f.submit %>
 <% end %>

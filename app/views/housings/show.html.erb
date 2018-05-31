@@ -11,6 +11,11 @@
   <% if @rental.present? %>
     <%= link_to "Mon contrat de location", rental_path(@rental), type: "button", class: "btn btn-primary mt-2" %>
     <%= link_to "Générez une quittance", new_rental_receipt_path(@rental), type: "button", class: "btn btn-primary mt-2" %>
+    <% if @housing.inventories.present? %>
+      <%= link_to "Afficher l'état des lieux", rental_inventory_path(@rental), type: "button", class: "btn btn-primary mt-2" %>
+    <% else %>
+      <%= link_to "Etablir l'état des lieux", new_rental_inventory_path(@rental), type: "button", class: "btn btn-primary mt-2" %>
+    <% end %>
   <% else %>
     <%= link_to "Ajouter une nouvelle location", new_housing_rental_path(@housing), type: "button", class: "btn btn-primary mt-2" %>
   <% end %>
