@@ -1,58 +1,78 @@
 /* Main navbar */
-.navbar-wagon {
-  border-bottom: 2px solid $gray;
+.navbar-flex-container {
+  border-bottom: 1px solid $gray;
   background: $white;
   transition: all 0.3s ease;
   height: 80px;
   padding: 0 150px;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 
 /* Logo */
-.navbar-wagon-brand img {
+.navbar-brand img {
   height: 50px;
-}
-
-/* User Avatar */
-.navbar-wagon .avatar {
-  height: 45px;
-  width: 45px;
-  border-radius: 50%;
-  border: 2px solid $gray;
+  width: auto;
+  display: flex;
 }
 
 /* Right section */
-.navbar-wagon-right {
-  display: flex;
+.navbar-right-container {
+  justify-content: center;
+  -webkit-box-align: center;
   align-items: center;
-  justify-content: space-between;
+  text-align: center;
+}
+
+/* Menu */
+.navbar-menu {
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.navbar-wrapper {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: flex;
+  vertical-align: middle;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+/* User Avatar */
+.navbar-right-container .avatar {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  border: 1px solid $gray;
 }
 
 /* Navbar link */
-.navbar-wagon-link {
+.navbar-link {
   color: $black;
   font-size: $font-size-base;
 }
-.navbar-wagon-link:hover {
+.navbar-link:hover {
   color: $black-alt;
   text-decoration: underline;
 }
 
 /* Basic navbar item */
-.navbar-wagon-item {
+.navbar-item {
   cursor: pointer;
   padding: 0 20px;
 }
 
 /* Dropdown menu */
-.navbar-wagon-dropdown-menu {
+.navbar-dropdown-menu {
   margin-top: 15px;
   box-shadow: 1px 1px 4px $gray;
   border-color: $gray;
 }
-.navbar-wagon-dropdown-menu li > a {
+.navbar-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
   color: $black !important;
@@ -60,11 +80,11 @@
   line-height: 1.35 !important;
   padding: 10px 20px;
 }
-.navbar-wagon-dropdown-menu li > a:hover {
+.navbar-dropdown-menu li > a:hover {
   background: transparent !important;
   color: $black-alt !important;
 }
-.navbar-wagon-dropdown-menu:before {
+.navbar-dropdown-menu:before {
   content: ' ';
   height: 10px;
   width: 10px;
