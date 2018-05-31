@@ -8,6 +8,7 @@ class RoomsController < ApplicationController
     @housing = Housing.find(params[:housing_id])
     @room = Room.new
     authorize @room
+    @rooms = Room.where(housing_id: @housing.id)
   end
 
   def create
@@ -15,7 +16,7 @@ class RoomsController < ApplicationController
     @room.housing = Housing.find(params[:housing_id])
     authorize @room
     if @room.save
-      redirect_to housing_path(@room.housing_id), notice: 'Votre pièce est ajoutée.'
+      redirect_to new_housing_room_path(@room.housing), notice: 'Votre pièce est ajoutée.'
     else
       render :new
     end
