@@ -11,6 +11,7 @@ class HousingsController < ApplicationController
     authorize @housing
 
     @rentals = @housing.rentals
+    @rental = @rentals.last
     #précédente version conservée par sécurité
     #@rentals = Rental.all
     #@rental  = @rentals.last
