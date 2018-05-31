@@ -1,25 +1,48 @@
-<%= simple_form_for [@housing] do |f| %>
-  <%= f.input :street, label: 'Rue', placeholder: '26 rue du Dragon' %>
-  <%= f.input :zip_code, label: 'Code postal', placeholder: '75006' %>
-  <%= f.input :city, label: 'Ville', placeholder: 'Paris' %>
-  <%= f.input :type_of_housing, {
+<form>
+  <%= simple_form_for [@housing] do |f| %>
+  <div class="form-group">
+    <%= f.input :street, label: 'Rue', placeholder: '26 rue du Dragon', class: 'form-control' %>
+  </div>
+  <div class="form-row">
+    <div class="form-group col">
+      <%= f.input :zip_code, label: 'Code postal', placeholder: '75006', class: 'form-control' %>
+    </div>
+    <div class="form-group col">
+      <%= f.input :city, label: 'Ville', placeholder: 'Paris', class: 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.input :type_of_housing, {
     label: 'Type de bien',
     placeholder: 'Appartement ou maison',
-    collection: ["Appartement", "Maison"]
+    collection: ["Appartement", "Maison"],
+    class: 'form-control'
     } %>
-  <%= f.input :legal_regime, {
+  </div>
+  <div class="form-group">
+    <%= f.input :legal_regime, {
     label: 'Régime juridique',
     placeholder: 'Appartement ou maison',
-    collection: Housing::LEGAL_REGIME_TYPE
+    collection: Housing::LEGAL_REGIME_TYPE,
     } %>
-  <%= f.input :year_of_construction, label: 'Année de construction', placeholder: '1950' %>
+  </div>
+  <div class="form-group">
+    <%= f.input :year_of_construction, label: 'Année de construction', placeholder: '1950', class: 'form-control' %>
+  </div>
   <!-- Hide floor field if housing type has been set to house on housing creation.
   Only useful for housing#edit view.  -->
-  <%= f.input :floor, {
-    label: 'Étage de l’appartement',
-    placeholder: '2',
-    class: "#{ 'd-none' if @housing.type_of_housing != "Appartement" }"
-    } %>
-  <%= f.input :size, label: 'Surface en mètres carrés', placeholder: '40' %>
-  <%= f.submit "Ajouter mon bien", class: "btn btn-primary mt-2" %>
-<% end %>
+  <div class="form-row">
+    <div class="form-group col">
+      <%= f.input :floor, {
+      label: 'Étage de l’appartement',
+      placeholder: '2',
+      class: "#{ 'd-none' if @housing.type_of_housing != "Appartement" }"
+      } %>
+    </div>
+    <div class="form-group col">
+      <%= f.input :size, label: 'Surface en mètres carrés', placeholder: '40', class: 'form-control' %>
+    </div>
+  </div>
+  <%= f.submit "Ajouter mon bien", class: "btn btn-primary btn-lg btn-block my-3" %>
+  <% end %>
+</form>

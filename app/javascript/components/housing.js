@@ -4,7 +4,7 @@ function hideFloorFieldIfHousingTypeIsHouse() {
   const floorField = document.querySelector('.housing_floor');
   if (typeField) {
     typeField.addEventListener('input', () => {
-      if (typeField.value === "Appartement") {
+      if (typeField.value === "Maison") {
         floorField.classList.add('d-none');
       } else {
         floorField.classList.remove('d-none');
