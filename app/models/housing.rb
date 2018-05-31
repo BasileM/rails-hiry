@@ -5,6 +5,7 @@ class Housing < ApplicationRecord
   has_many :rooms
   has_many :rentals
   has_many :renters, through: :rentals
+  has_many :inventories, through: :rentals
 
   validates :type_of_housing,      presence: true, inclusion: { in: ["Appartement", "Maison"] }
   validates :legal_regime,         presence: true, inclusion: { in: ["Mono propriété", "Copropriété"] }
@@ -12,11 +13,11 @@ class Housing < ApplicationRecord
   validates :size,                 presence: true, numericality: { greater_than: 1,  less_than: 10_000 }
   validates :city,                 presence: true
 
-  private
-
   def address
     return "#{street}, #{zip_code} #{city}"
   end
+
+  private
 
   def will_save_change_to_address?
     will_save_change_to_street? || will_save_change_to_zip_code? || will_save_change_to_city?

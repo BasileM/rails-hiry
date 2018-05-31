@@ -1,29 +1,34 @@
-<h1> Quittance HTML </h1>
-<ul>
-  <li>
-    Total Invoice: <%= @receipt.monthly_invoice %>
-  </li>
-  <li>
-    Date: <%= @receipt.date %>
-  </li>
-  <% if @renter.present? %>
-    <li>
-      Locataire: <%= @renter.first_name %> <%= @renter.last_name %>
-    </li>
-  <% else %>
-    <li>
-      Locataire: Pas de locataire affecté à cette location
-    </li>
-  <% end %>
-  <li>
-    Adresse: <%= @housing.street %>, <%= @housing.zip_code %>, <%= @housing.city %>
-  </li>
-  <li>
-    Regime légal: <%= @housing.legal_regime %>
-  </li>
-  <li>
-    Propriétaire: <%= @user.email %>
-  </li>
-</ul>
+<%= link_to "Retourner à mon tableau de bord", housing_path(@housing), type: "button", class: "btn btn-primary mt-2" %>
 
-<%= link_to "Retourner à mon dashbaord", housing_path(@housing), type: "button", class: "btn btn-primary mt-2" %>
+<%= link_to "Retourner à mes quittances", rental_receipts_path(@rental), type: "button", class: "btn btn-primary mt-2" %>
+<hr>
+
+<div>
+  <div class="text-center full-width-green">
+    <strong>QUITTANCE DE LOYER</strong>
+  </div>
+
+  <p>Quittance de loyer pour le mois de <%= @receipt.date.strftime("%B, %Y") %></p>
+
+  <div class="black-border">
+    <strong><u>Adresse de location</u></strong> <br>
+    <%= @housing.street %>, <%= @housing.zip_code %>, <%= @housing.city %>
+  </div>
+
+  <br>
+  <div class="text-justify">
+    Je soussigné <%= @user.email %> propriétaire du logement désigné ci-dessus, déclare avoir reçu de <%= @renter.first_name %> <%= @renter.last_name %>, la somme de <%= @receipt.monthly_invoice %>, au titre du paiement du loyer et des charges pour la période de location de <%= @receipt.date.strftime("%B, %Y") %> et lui en donne quittance, sous réserve de tous mes droits.
+  </div>
+
+  <br>
+  <div class="black-border">
+    <strong><u>Réglement</u></strong> <br>
+    Loyer de <%= @receipt.date.strftime("%B, %Y") %>: <%= @receipt.monthly_invoice %>€
+  </div>
+
+  <br>
+  <div>
+    <small>Cette quittance annule tous les reçus qui auraient pu être établis précédemment en cas de paiement partiel du montant du présent terme. Elle est à conserver pendant trois ans par le locataire (article 7-1 de la loi n° 89-462 du 6 juillet 1989)</small>
+  </div>
+</div>
+
