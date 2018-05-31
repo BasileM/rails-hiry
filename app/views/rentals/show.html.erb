@@ -1,0 +1,17 @@
+<h1> Contrat de location en cours </h1>
+  <h3> Contrat de location en cours </h3>
+    <%= render 'details', rental: @rental %>
+  <h3> Informations locataire </h3>
+    <ul>
+        <% @rental.renters.each do |renter| %>
+      <li> <%= renter.first_name %> </li>
+      <li> <%= renter.last_name %> </li>
+      <li> <%= renter.phone_number %> </li>
+      <li> <%= renter.email %> </li>
+      <li> <%= renter.nationality %> </li>
+      <li> <%= renter.date_of_birth %> </li>
+      <li> <%= renter.marital_status %> </li>
+      <% end %>
+    </ul>
+
+<%= link_to "Retourner à mon dashbaord", housing_path(@housing), type: "button", class: "btn btn-primary mt-2" %>
