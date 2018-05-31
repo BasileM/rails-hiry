@@ -4,7 +4,7 @@
     <%= render 'form_room', housing: @housing, room: @room %>
 
     <% if @rooms.present? %>
-      <%= link_to "Valider toutes mes pièces", housing_path(@housing), type: "button", class: "btn btn-primary mt-2" %>
+      <%= link_to "Valider toutes mes pièces", housing_path(@housing), class: "btn btn-primary mt-2" %>
     <% end %>
     <br>
     <% if @rooms.present? %>
