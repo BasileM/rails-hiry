@@ -1,8 +1,8 @@
 <%= simple_form_for [@housing, @rental] do |f| %>
-  <%= f.input :furnished %>
-  <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-  <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-  <%= f.input :monthly_rent, placeholder: '1350' %>
-  <%= f.input :monthly_expenses, placeholder: '150' %>
-  <%= f.submit "Valider", class: "btn btn-primary mt-2" %>
+  <%= f.input :furnished, label: 'Meublé ?', placeholder: 'Meublé ou non meublé', collection: ["Meublé", "Non meublé"] %>
+  <%= f.input :start_date, label: 'Date de début de la location', as: :string, required: false, input_html: {class: "datepicker"} %>
+  <%= f.input :end_date, label: 'Date de fin (facultatif)', as: :string, required: false, input_html: {class: "datepicker"} %>
+  <%= f.input :monthly_rent, label:'Loyer mensuel en euros', placeholder: '1 350 €' %>
+  <%= f.input :monthly_expenses, label:'Charges mensuelles en euros', placeholder: '150 €' %>
+  <%= f.submit "Créer la location", class: "btn btn-primary mt-2" %>
 <% end %>
