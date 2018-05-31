@@ -6,10 +6,15 @@
   <li>
     Date: <%= @receipt.date %>
   </li>
-  <li>
-
-    Locataire:
-  </li>
+  <% if @renter.present? %>
+    <li>
+      Locataire: <%= @renter.first_name %> <%= @renter.last_name %>
+    </li>
+  <% else %>
+    <li>
+      Locataire: Pas de locataire affecté à cette location
+    </li>
+  <% end %>
   <li>
     Adresse: <%= @housing.street %>, <%= @housing.zip_code %>, <%= @housing.city %>
   </li>
@@ -20,4 +25,5 @@
     Propriétaire: <%= @user.email %>
   </li>
 </ul>
- <!-- To change to display the template. Make sure to get all the info (owner etc) -->
+
+<%= link_to "Retourner à mon dashbaord", housing_path(@housing), type: "button", class: "btn btn-primary mt-2" %>
