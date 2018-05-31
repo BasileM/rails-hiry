@@ -24,6 +24,7 @@
 <h2>Ma fiche de bien</h2>
 <h3>Informations générales</h3>
 <%= render 'details', housing: @housing %>
+<hr>
 <h3><%= "Pièces" %></h3>
 <ul>
   <% @housing.rooms.each do |room| %>
@@ -33,6 +34,7 @@
 <%= link_to "Ajouter une nouvelle pièce", new_housing_room_path(@housing), class: "btn btn-primary mt-2" %>
 
 <!-- Rubrique statistique -->
+<hr>
 <h2>
   <%= "Mes statistiques" %>
 </h2>
