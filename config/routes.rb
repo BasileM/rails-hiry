@@ -6,11 +6,9 @@ Rails.application.routes.draw do
     resources :rooms, only: [:new, :create]
     resources :rentals, only: [:new, :create]
   end
-  resources :rentals, only: [] do
+  resources :rentals, only: [:show] do
     resources :renters, only: [:new, :create]
-
     resources :inventories, only: [:new, :create]
-
     resources :receipts, only: [:new, :create]
 
   end
