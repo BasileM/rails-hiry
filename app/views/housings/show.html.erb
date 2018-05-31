@@ -3,14 +3,16 @@
 </h1>
 
 <!-- Rubrique location -->
-<h2>
-  <%= "Ma location" %>
-</h2>
+<h2><%= "Ma location" %></h2>
 
-<%= link_to "Mon contrat de location", rental_path(@rental), type: "button", class: "btn btn-primary mt-2" %>
-<%= link_to "Créer une quittance", new_rental_receipt_path(@rental), type: "button", class: "btn btn-primary mt-2" %>
+<% if @rental.present? %>
+  <%= link_to "Mon contrat de location", rental_path(@rental), type: "button", class: "btn btn-primary mt-2" %>
+  <%= link_to "Voir mes quittances", rental_receipts_path(@rental), type: "button", class: "btn btn-primary mt-2" %>
+
+<% else %>
+  <%= link_to "Ajouter une nouvelle location", new_housing_rental_path(@housing), type: "button", class: "btn btn-primary mt-2" %>
+<% end %>
 <hr>
-<%= link_to "Ajouter une nouvelle location", new_housing_rental_path(@housing), type: "button", class: "btn btn-primary mt-2" %>
 
 <!-- Rubrique fiche de bien -->
 <h2>Ma fiche de bien</h2>

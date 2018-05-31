@@ -6,6 +6,20 @@ class ReceiptsController < ApplicationController
     authorize @receipt
   end
 
+  def index
+    @receipts  = policy_scope(Receipt)
+    @rental    = Rental.find(params[:rental_id])
+    @receipts  = Receipt.where(rental_id: @rental.id)
+
+    rental_id  = @rental.id
+    housing_id = @rental.housing_id
+    @housing   = Housing.find(housing_id)
+    @renter    = Renter.find_by(rental_id: rental_id)
+    @housing   = Housing.find(housing_id)
+    user_id    = @housing.user_id
+    @user      = User.find(user_id)
+  end
+
   def show
     @receipt   = Receipt.find(params[:id])
     rental_id  = @receipt.rental_id
