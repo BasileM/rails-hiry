@@ -4,6 +4,16 @@ class HousingsController < ApplicationController
   def index
     @housings = policy_scope(Housing)
     @housings = Housing.all
+
+    # Geocoding
+    @housings = Housing.where.not(latitude: nil, longitude: nil)
+    @markers = @housings.map do |house|
+      {
+        lat: house.latitude,
+        lng: house.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/housings/map_box", locals: { house: house }) }
+      }
+    end
   end
 
 
@@ -44,4 +54,3 @@ class HousingsController < ApplicationController
     params.require(:housing).permit(:street, :zip_code, :city, :type_of_housing, :legal_regime, :year_of_construction, :floor, :size)
   end
 end
-

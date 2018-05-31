@@ -1,9 +1,4 @@
 class Housing < ApplicationRecord
-
-  def address
-    return "#{:street}, #{:zipcode}, #{:city}"
-  end
-
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :user
@@ -16,4 +11,14 @@ class Housing < ApplicationRecord
   validates :year_of_construction, presence: true, numericality: { greater_than: 1000,  less_than: 2018 }
   validates :size,                 presence: true, numericality: { greater_than: 1,  less_than: 10_000 }
   validates :city,                 presence: true
+
+  private
+
+  def address
+    return "#{street}, #{zip_code} #{city}"
+  end
+
+  def will_save_change_to_address?
+    will_save_change_to_street? || will_save_change_to_zip_code? || will_save_change_to_city?
+  end
 end
