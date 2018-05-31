@@ -9,18 +9,19 @@ class InventoriesController < ApplicationController
     authorize @rental.inventories.first
   end
 
-  def show
+  def index
     @rental = Rental.find(params[:rental_id])
-    authorize @rental.inventories.first
+    policy_scope @rental.inventories
   end
 
 
   def create
     @rental = Rental.find(params[:rental_id])
+
     authorize Inventory.new
 
     if @rental.update(rental_params)
-      redirect_to rental_path(@rental), notice: 'Votre état des lieux est enregistré.'
+      redirect_to rental_inventories_path(@rental), notice: 'Votre état des lieux est enregistré.'
     else
       render :new
     end

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   resources :rentals, only: [:show] do
     resources :renters, only: [:new, :create]
-    resources :inventories, only: [:new, :create, :show]
+    resources :inventories, only: [:new, :create, :index]
     resources :receipts, only: [:new, :create, :index]
 
   end
