@@ -7,9 +7,38 @@
     <h1>Ma liste de biens</h1>
     <div>
       <% @housings.each do |housing| %>
+        <%# rentals  = Rental.where(housing_id: housing.id) %>
+        <%# rental   = rentals.last %>
+        <%# renters  = Renter.where(rental_id: rental.id) %>
+        <%# renter   = renters.last %>
+
         <div class="my-5">
-          <h3><%= housing.address %></h3>
-          <li><%= link_to "Voir ce bien", housing_path(housing) %></li>
+          <div class="card-housing">
+            <div class="card-location">
+              <div class="card-location-text">
+                <%= housing.street %> <br>
+                <%= housing.zip_code %>
+                <%= housing.city.upcase %> <br>
+                Créé le <%= housing.created_at %>
+                <%= link_to "Voir ce bien", housing_path(housing) %>
+              </div>
+              <div class="card-location-map">
+                map
+              </div>
+            </div>
+            <div class="card-rental">
+              <div class="card-rental-icon">
+                i
+              </div>
+              <div class=card-rental-info>
+                Louez votre appartement <br>
+                Votre appartement est inoccupé. Créez les documents pour le louer.
+              </div>
+            </div>
+            <div class="card-edit">
+              <%= link_to "Supprimer", root_path %> - <%= link_to "Editer", root_path %>
+            </div>
+          </div>
         </div>
       <% end %>
     </div>
