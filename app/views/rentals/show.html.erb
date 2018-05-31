@@ -1,6 +1,7 @@
 <h2> Contrat de location en cours </h2>
   <%= render 'details', rental: @rental %>
 <h3> Informations locataire </h3>
+
 <ul>
   <% @rental.renters.each do |renter| %>
     <li><%= renter.first_name %></li>
@@ -12,3 +13,5 @@
     <li><%= renter.marital_status %></li>
   <% end %>
 </ul>
+
+<%= link_to "Retourner à mon tableau de bord", housing_path(@housing), type: "button", class: "btn btn-primary mt-2" %>
