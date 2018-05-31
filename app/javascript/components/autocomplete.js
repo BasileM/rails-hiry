@@ -71,4 +71,4 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-export { autocomplete };
+export { onPlaceChanged };

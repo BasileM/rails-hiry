@@ -1,29 +1,12 @@
-<h1> Quittance HTML </h1>
+<h1>Quittance HTML</h1>
 <ul>
-  <li>
-    Total Invoice: <%= @receipt.monthly_invoice %>
-  </li>
-  <li>
-    Date: <%= @receipt.date %>
-  </li>
-  <% if @renter.present? %>
-    <li>
-      Locataire: <%= @renter.first_name %> <%= @renter.last_name %>
-    </li>
-  <% else %>
-    <li>
-      Locataire: Pas de locataire affecté à cette location
-    </li>
-  <% end %>
-  <li>
-    Adresse: <%= @housing.street %>, <%= @housing.zip_code %>, <%= @housing.city %>
-  </li>
-  <li>
-    Regime légal: <%= @housing.legal_regime %>
-  </li>
-  <li>
-    Propriétaire: <%= @user.email %>
-  </li>
+  <li>Montant total : <%= @receipt.monthly_invoice %></li>
+  <li>Date : <%= @receipt.date %></li>
+  <li>Locataire : TODO! </li>
+  <li>Adresse : <%= @housing.address %></li>
+  <li>Regime légal : <%= @housing.legal_regime %></li>
+  <li>Propriétaire : <%= @user.email %></li>
 </ul>
 
-<%= link_to "Retourner à mon dashbaord", housing_path(@housing), type: "button", class: "btn btn-primary mt-2" %>
+<%= link_to "Retourner à mon tableau de bord", housing_path(@housing), type: "button", class: "btn btn-primary mt-2" %>
+<%= link_to "Retourner à mes quittances", rental_receipts_path(@rental), type: "button", class: "btn btn-primary mt-2" %>

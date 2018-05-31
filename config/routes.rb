@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+   authenticated :user do
+    root 'housings#index', as: :authenticated_root
+  end
+  root "pages#home"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :housings do
     resources :rooms, only: [:new, :create]
@@ -9,10 +12,9 @@ Rails.application.routes.draw do
   resources :rentals, only: [:show] do
     resources :renters, only: [:new, :create]
     resources :inventories, only: [:new, :create, :show]
-    resources :receipts, only: [:new, :create]
+    resources :receipts, only: [:new, :create, :index]
 
   end
-  resources :receipts, only: [:show, :index]
-    # resources :inventories, only: [:new, :create]
-  # end
+  resources :receipts, only: [:show]
+  resources :rooms, only: [:edit, :update]
 end
