@@ -20,6 +20,7 @@ class RentalsController < ApplicationController
   def show
     @rental = Rental.find(params[:id])
     @housing = Housing.find(@rental.housing_id)
+    @owner = current_user
     authorize @rental
   end
 
