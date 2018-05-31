@@ -11,7 +11,7 @@ $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
 $body-bg:                 $white;
 
-//## Font, line-height, and color for body text, headings, and more.
+// ## Font, line-height, and color for body text, headings, and more.
 $font-size-base: 1.125rem !default; // 18px
 $h1-font-size:   2.531em !default;  // 40.5px
 $h2-font-size:   2.25em !default;   // 36px
@@ -33,13 +33,12 @@ $danger:        $red !default;
 $light:         $light-gray !default;
 $dark:          $black !default;
 
-// Spacing
+//== Spacing
 //
-// Control the default styling of most Bootstrap elements by modifying these
-// variables. Mostly focused on spacing.
+// Control the default styling of most Bootstrap elements by modifying these variables.
 // You can add more entries to the $spacers map, should you need more variation.
 
-// Stylelint-disable
+// ## Stylelint-disable
 $spacer: 1.125rem !default;
 $spacers: () !default;
 $spacers: map-merge((
@@ -57,39 +56,9 @@ $spacers: map-merge((
 $input-bg:                       #fff !default;
 //** `<input disabled>` background color
 $input-bg-disabled:              $light-gray !default;
-
 //** Text color for `<input>`s
 $input-color:                    $black !default;
 //** `<input>` border color
 $input-border:                   $gray !default;
 //** Placeholder text color
-$input-color-placeholder:        $gray !default;
-
-// Patch to make simple_form compatible with bootstrap 3
-// .invalid-feedback {
-//   display: none;
-//   width: 100%;
-//   margin-top: 0.25rem;
-//   font-size: 80%;
-//   color: $red;
-// }
-//
-// .was-validated .form-control:invalid,
-// .form-control.is-invalid,
-// .was-validated .custom-select:invalid,
-// .custom-select.is-invalid {
-//   border-color: $red;
-// }
-//
-// .was-validated .form-control:invalid ~ .invalid-feedback,
-// .was-validated .form-control:invalid ~ .invalid-tooltip,
-// .form-control.is-invalid ~ .invalid-feedback,
-// .form-control.is-invalid ~ .invalid-tooltip,
-// .was-validated .custom-select:invalid ~ .invalid-feedback,
-// .was-validated .custom-select:invalid ~ .invalid-tooltip,
-// .custom-select.is-invalid ~ .invalid-feedback,
-// .custom-select.is-invalid ~ .invalid-tooltip {
-//   display: block;
-// }
-
-// Override other variables below!
+$input-color-placeholder:        $light-gray !default;
