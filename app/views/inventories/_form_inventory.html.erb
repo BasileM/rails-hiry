@@ -1,12 +1,10 @@
 <%=  simple_form_for @rental, url: rental_inventories_path, method: :post do |f|%>
- <%= f.simple_fields_for :inventories do |field| %>
-   <%= field.input :room_id, as: :hidden %>
-   <div class="form-row">
-     <%= field.object.room.type_of_room, label: 'Type de pièce', wrapper_html: { class: 'col' } %>
-     <%= field.object.room.size, label: 'Taille de la pièce en mètres carrés', wrapper_html: { class: 'col' } %>
-   </div>
-   <%= field.input :state, label: 'État de la pièce', as: :select, collection: Inventory::STATES %>
-   <%= field.input :observations, label: 'Observations', placeholder: 'Vos commentaires sur la pièce' %>
+  <%= f.simple_fields_for :inventories do |field| %>
+    <%= field.input :room_id, as: :hidden %>
+
+    <h4 class="mt-5 mb-3"><%= field.object.room.type_of_room %> | <%= field.object.room.size %> m2</h4>
+    <%= field.input :state, label: 'État de la pièce', as: :select, collection: Inventory::STATES %>
+    <%= field.input :observations, label: 'Observations', placeholder: 'Vos commentaires sur la pièce' %>
   <% end %>
   <%= f.submit "Créer mon état des lieux", class: "btn btn-primary btn-lg btn-block" %>
 <% end %>
