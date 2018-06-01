@@ -9,9 +9,7 @@ function update_map (map_id) {
   const mapElement = document.getElementById(map_id);
   console.log(mapElement);
   if (mapElement) { // don't try to build a map if there's no div#map to inject in
-    console.log(`#${map_id}`);
     const map = new GMaps({ el: `#${map_id}`, lat: 0, lng: 0 });
-    console.log(map);
     const markers = JSON.parse(mapElement.dataset.markers);
     map.addMarkers(markers);
     if (markers.length === 0) {
@@ -24,7 +22,6 @@ function update_map (map_id) {
     }
   }
 }
-
 
 update_map("map");
 
