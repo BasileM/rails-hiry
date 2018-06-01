@@ -1,3 +1,10 @@
+<h1>Etat des lieux</h1>
+<p align="justify">L’état des lieux doit être établi de façon contradictoire entre les deux parties lors de la remise des clés au locataire et lors de leur restitution en fin de bail. L'état des lieux prévu à l'article 3-2 de la loi du 6 juillet 1989 doit porter sur l'ensemble des locaux et équipements d'usage privatif mentionnés au contrat de bail et dont le locataire a la jouissance exclusive.</p>
+<p><%= render 'housing_specs', rental: @rental  %></p>
+<p><%= render 'owner_specs', owner: @owner %></p>
+<p><%= render 'renter_specs', renter: @renter %></p>
+
+<h3>Les pièces</h3>
 <ul>
   <% @rental.inventories.each do |inventory| %>
   <li>
@@ -12,5 +19,12 @@
   </li>
   <% end %>
 </ul>
-<%= link_to "retourner au dashboard", housing_path(@rental.housing), class: "btn btn-primary mt-2" %>
 
+<p align="justify">Entretien courant et menues réparations
+Le locataire doit veiller à maintenir en l'état le logement qu'il occupe.
+À ce titre, il doit assurer l'entretien normal du logement et de ses éléments d'équipement, ainsi que les menues réparations nécessaires à moins qu'il ne prouve qu'elles sont dues à la vétusté, à une malfaçon ou à la force majeure.
+À défaut, le bailleur peut retenir sur le dépôt de garantie les sommes correspondant aux réparations
+locatives qui n'ont pas été effectuées par le locataire, justificatifs à l'appui.
+</p><br>
+
+<%= link_to "retourner au dashboard", housing_path(@rental.housing), class: "btn btn-primary mt-2" %>
