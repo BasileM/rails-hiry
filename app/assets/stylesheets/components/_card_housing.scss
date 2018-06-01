@@ -4,7 +4,6 @@
 }
 
 .card-location {
-  //border: 1px solid $gray;
   position: relative;
   height: 167px;
   margin-top: 15px;
@@ -13,7 +12,6 @@
 }
 
 .card-location-text {
-  //border: 1px solid $gray;
   font-size: 32px;
 }
 
@@ -23,11 +21,10 @@
 }
 
 .card-rental {
-  //border: 1px solid $gray;
   display: flex;
-    border-top: 1px solid $gray;
-    padding-top: 10px;
-    padding-bottom: 15px;
+  border-top: 1px solid $gray;
+  padding-top: 10px;
+  padding-bottom: 15px;
 }
 
 .card-rental-info {
@@ -35,14 +32,12 @@
 }
 
 .card-location-map {
-  //border: 1px solid $gray;
   position: absolute;
   width: 250px;
   height: 150px;
 }
 
 .card-rental-icon {
-    // border: 1px solid $gray;
   width: 100px;
   text-align: center;
   vertical-align: middle;
