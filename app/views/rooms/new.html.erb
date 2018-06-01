@@ -15,17 +15,17 @@
     <hr>
     <% if @rooms.present? %>
       <h3> Pièces déjà ajoutées: </h3>
-    <% end %>
-    <ul class="list-unstyled">
-      <li>
-        <mark><%= @rooms.reverse.first.type_of_room %> - <%= @rooms.reverse.first.size %>m2</mark>
-      </li>
-      <% @rooms.reverse.drop(1).each do |room| %>
+      <ul class="list-unstyled">
         <li>
-          <%= room.type_of_room %> - <%= room.size %>m2
+          <mark><%= @rooms.reverse.first.type_of_room %> - <%= @rooms.reverse.first.size %>m2</mark>
         </li>
-      <% end %>
-    </ul>
+        <% @rooms.reverse.drop(1).each do |room| %>
+          <li>
+            <%= room.type_of_room %> - <%= room.size %>m2
+          </li>
+        <% end %>
+    <% end %>
+      </ul>
   </div>
 </div>
 
