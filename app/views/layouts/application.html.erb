@@ -12,7 +12,10 @@
   </head>
   <body>
     <header>
-      <%= render 'shared/navbar' %>
+      <!-- Hides navbar on login and signup pages -->
+      <% if controller_name != 'sessions' && controller_name != 'registrations'%>
+        <%= render 'shared/navbar' %>
+      <% end %>
       <%= render 'shared/flashes' %>
     </header>
     <!-- Puts everything that is not the navbar or the footer into a bootstrap container -->
