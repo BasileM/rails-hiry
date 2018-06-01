@@ -1,20 +1,18 @@
 <div class="row">
   <div class="col-md-6 offset-md-3">
-    <h3 class="form-title align-center">Ajouter une nouvelle pièce</h3>
 
     <% if @rooms.present? %>
       <%= link_to "Valider toutes mes pièces", housing_path(@housing), class: "btn btn-primary mt-2" %>
     <% end %>
-    <hr>
+
     <% if @rooms.present? %>
-      <h3>Ajouter une nouvelle pièce</h3>
+      <h3 class="form-subtitle align-center">Ajouter une nouvelle pièce</h3>
     <% else %>
-      <h3>Ajouter votre première pièce</h3>
+      <h3 class="form-subtitle align-center">Ajouter une première pièce</h3>
     <% end %>
 
     <%= render 'form_room', housing: @housing, room: @room %>
 
-    <hr>
     <% if @rooms.present? %>
       <h3> Pièces déjà ajoutées: </h3>
       <ul class="list-unstyled">

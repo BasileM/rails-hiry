@@ -1,6 +1,4 @@
-<form>
-  <%= simple_form_for [@rental, @receipt] do |f| %>
-    <%= f.input :date %>
-    <%= f.submit "Créer ma quittance", class: "btn btn-primary btn-lg btn-block"%>
-  <% end %>
-</form>
+<%= simple_form_for [@rental, @receipt] do |f| %>
+  <%= f.input :date %>
+  <%= f.submit "Créer ma quittance", class: "btn btn-primary btn-lg btn-block"%>
+<% end %>

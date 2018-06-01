@@ -1,39 +1,37 @@
-<form>
-  <%= simple_form_for [@housing, @rental] do |f| %>
-    <%= f.input :furnished, {
-      label: 'Meublé ?',
-      placeholder: 'Meublé ou non meublé',
-      collection: ["Meublé", "Non meublé"]
+<%= simple_form_for [@housing, @rental] do |f| %>
+  <%= f.input :furnished, {
+    label: 'Meublé ?',
+    placeholder: 'Meublé ou non meublé',
+    collection: ["Meublé", "Non meublé"]
+    }
+  %>
+  <%= f.input :start_date, {
+    label: 'Date de début de la location',
+    as: :string,
+    required: false,
+    input_html: {class: "datepicker"}
+    }
+  %>
+  <%= f.input :end_date, {
+    label: 'Date de fin de la location (facultatif)',
+    as: :string,
+    required: false,
+    input_html: {class: "datepicker"}
+    }
+  %>
+  <div class="row">
+    <%= f.input :monthly_rent, {
+      label:'Loyer mensuel',
+      placeholder: '1 350 €',
+      wrapper_html: { class: 'col' }
       }
     %>
-    <%= f.input :start_date, {
-      label: 'Date de début de la location',
-      as: :string,
-      required: false,
-      input_html: {class: "datepicker"}
+    <%= f.input :monthly_expenses, {
+      label:'Charges mensuelles',
+      placeholder: '150 €',
+      wrapper_html: { class: 'col' }
       }
     %>
-    <%= f.input :end_date, {
-      label: 'Date de fin de la location (facultatif)',
-      as: :string,
-      required: false,
-      input_html: {class: "datepicker"}
-      }
-    %>
-    <div class="row">
-      <%= f.input :monthly_rent, {
-        label:'Loyer mensuel',
-        placeholder: '1 350 €',
-        wrapper_html: { class: 'col' }
-        }
-      %>
-      <%= f.input :monthly_expenses, {
-        label:'Charges mensuelles',
-        placeholder: '150 €',
-        wrapper_html: { class: 'col' }
-        }
-      %>
-    </div>
-    <%= f.submit "Créer la location", class: "btn btn-primary btn-lg btn-block" %>
-  <% end %>
-</form>
+  </div>
+  <%= f.submit "Créer la location", class: "btn btn-primary btn-lg btn-block" %>
+<% end %>
