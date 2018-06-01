@@ -19,10 +19,10 @@
     <main class="main my-5">
       <div class="container">
         <%= yield %>
+        <%= javascript_pack_tag "map" %>
+        <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
         <%= javascript_include_tag 'application' %>
         <%= javascript_pack_tag 'application' %>
-        <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
-        <%= javascript_pack_tag "map" %>
       </div>
     </main>
     <footer class="footer">

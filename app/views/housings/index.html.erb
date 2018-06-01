@@ -1,4 +1,4 @@
-<div class="row">
+<div id="index_page" class="row">
   <div class="col-md-8 offset-md-2">
     <!-- Google Map -->
     <div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>"></div>
@@ -7,10 +7,10 @@
     <h1>Ma liste de biens</h1>
     <div>
       <% @housings.each do |housing| %>
-        <%# rentals  = Rental.where(housing_id: housing.id) %>
-        <%# rental   = rentals.last %>
-        <%# renters  = Renter.where(rental_id: rental.id) %>
-        <%# renter   = renters.last %>
+        <% rental  = Rental.where(housing_id: housing.id).last %>
+        <% if rental.present? %>
+          <% renter  = Renter.where(rental_id: rental.id).last %>
+        <% end %>
 
         <div class="my-5">
           <div class="card-housing">
@@ -18,23 +18,34 @@
               <div class="card-location-text">
                 <%= housing.street %> <br>
                 <%= housing.zip_code %>
-                <%= housing.city.upcase %> <br>
-                Créé le <%= housing.created_at %>
+                <%= housing.city.upcase %>
+                <div class="card-date">
+                  <% if rental.present? && renter.present? %>
+                    Loué depuis le <%= rental.start_date %> à <%= renter.first_name %> <%= renter.last_name %>
+                  <% else %>
+                    Créé en <%= housing.created_at.strftime("%B, %Y") %>
+                  <% end %>
+                </div>
                 <%= link_to "Voir ce bien", housing_path(housing) %>
               </div>
               <div class="card-location-map">
-                map
+                <% markers = [{ lat: housing.latitude, lng: housing.longitude }] %>
+                <div id=<%= "map#{housing.id}" %> class="mini_map" style="width: 100%; height: 100%;" data-markers="<%= markers.to_json %>"></div>
               </div>
             </div>
-            <div class="card-rental">
-              <div class="card-rental-icon">
-                i
+            <% if !rental.present? %>
+              <div class="card-rental">
+                <div class="card-rental-icon">
+                  <%= link_to new_housing_rental_path(housing) do %>
+                    <i class="fa fas fa-key key" ></i>
+                  <% end %>
+                </div>
+                <div class=card-rental-info>
+                  <strong>Louez votre appartement</strong><br>
+                  Votre appartement est inoccupé. Créez les documents pour le louer.
+                </div>
               </div>
-              <div class=card-rental-info>
-                Louez votre appartement <br>
-                Votre appartement est inoccupé. Créez les documents pour le louer.
-              </div>
-            </div>
+            <% end %>
             <div class="card-edit">
               <%= link_to "Supprimer", root_path %> - <%= link_to "Editer", root_path %>
             </div>

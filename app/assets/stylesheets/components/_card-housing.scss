@@ -1,34 +1,62 @@
 .card-housing {
   border: 1px solid $gray;
-  padding: 20px;
   position: relative;
 }
 
 .card-location {
-  border: 1px solid $gray;
+  //border: 1px solid $gray;
   position: relative;
+  height: 167px;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.card-location-text {
+  //border: 1px solid $gray;
+  font-size: 32px;
+}
+
+.card-date {
+  font-size: 10px;
+  padding-top: 25px;
 }
 
 .card-rental {
-  border: 1px solid $gray;
+  //border: 1px solid $gray;
   display: flex;
+    border-top: 1px solid $gray;
+    padding-top: 10px;
+    padding-bottom: 15px;
 }
 
-.card-edit {
-  border: 1px solid $gray;
+.card-rental-info {
+  font-size: 15px;
 }
 
 .card-location-map {
+  //border: 1px solid $gray;
   position: absolute;
-  right: 20px;
-  top: 20px;
-  border: 1px solid $gray;
-  width: 150px;
+  right: 0px;
+  top: 0px;
+  width: 250px;
+  height: 150px;
 }
 
 .card-rental-icon {
+    // border: 1px solid $gray;
   width: 100px;
-  border: 1px solid $gray;
   text-align: center;
   vertical-align: middle;
+}
+
+.card-edit {
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 7px;
+  border-top: 1px solid $gray;
+}
+
+.key {
+  color: $green;
 }
