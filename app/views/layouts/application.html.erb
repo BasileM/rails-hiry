@@ -28,10 +28,10 @@
         <%= javascript_pack_tag 'application' %>
       </div>
     </main>
-    <footer class="footer">
-      <div class="container">
+    <footer>
+      <% if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'%>
         <%= render 'shared/footer' %>
-      </div>
+      <% end %>
     </footer>
   </body>
 </html>
