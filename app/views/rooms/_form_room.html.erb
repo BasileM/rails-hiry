@@ -1,7 +1,5 @@
-<form>
-  <%= simple_form_for [@housing, @room] do |f| %>
-    <%= f.input :type_of_room, label: 'Type de pièce', collection: Room::ROOM_TYPE %>
-    <%= f.input :size, label: 'Taille de la pièce (en mètres carrés)', placeholder: '8' %>
-    <%= f.submit "Ajouter cette pièce", class: "btn btn-primary btn-lg btn-block" %>
-  <% end %>
-</form>
+<%= simple_form_for [@housing, @room] do |f| %>
+  <%= f.input :type_of_room, label: 'Type de pièce', collection: Room::ROOM_TYPE %>
+  <%= f.input :size, label: 'Taille de la pièce (en mètres carrés)', placeholder: '8' %>
+  <%= f.submit "Ajouter cette pièce", class: "btn btn-primary btn-lg btn-block" %>
+<% end %>

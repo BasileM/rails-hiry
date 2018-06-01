@@ -1,54 +1,52 @@
-<form>
-  <%= simple_form_for [@housing] do |f| %>
-    <%= f.input :street, label: 'Rue', placeholder: '26 rue du Dragon' %>
-    <div class="form-row">
-      <%= f.input :zip_code, {
-        label: 'Code postal',
-        placeholder: '75006',
-        wrapper_html: { class: 'col' }
-        }
-      %>
-      <%= f.input :city, {
-        label: 'Ville',
-        placeholder: 'Paris',
-        wrapper_html: { class: 'col' }
-        }
-      %>
-    </div>
-    <%= f.input :type_of_housing, {
-      label: 'Type de bien',
-      placeholder: 'Appartement ou maison',
-      collection: ["Appartement", "Maison"],
+<%= simple_form_for [@housing] do |f| %>
+  <%= f.input :street, label: 'Rue', placeholder: '26 rue du Dragon' %>
+  <div class="form-row">
+    <%= f.input :zip_code, {
+      label: 'Code postal',
+      placeholder: '75006',
+      wrapper_html: { class: 'col' }
       }
     %>
-    <%= f.input :floor, {
-      label: 'Étage de l’appartement',
-      placeholder: '2',
-      class: "#{ 'd-none' if @housing.type_of_housing != "Appartement" }"
+    <%= f.input :city, {
+      label: 'Ville',
+      placeholder: 'Paris',
+      wrapper_html: { class: 'col' }
       }
     %>
-    <%= f.input :legal_regime, {
-      label: 'Régime juridique',
-      placeholder: 'Appartement ou maison',
-      collection: Housing::LEGAL_REGIME_TYPE,
+  </div>
+  <%= f.input :type_of_housing, {
+    label: 'Type de bien',
+    placeholder: 'Appartement ou maison',
+    collection: ["Appartement", "Maison"],
+    }
+  %>
+  <%= f.input :floor, {
+    label: 'Étage de l’appartement',
+    placeholder: '2',
+    class: "#{ 'd-none' if @housing.type_of_housing != "Appartement" }"
+    }
+  %>
+  <%= f.input :legal_regime, {
+    label: 'Régime juridique',
+    placeholder: 'Appartement ou maison',
+    collection: Housing::LEGAL_REGIME_TYPE,
+    }
+  %>
+  <!-- Hide floor field if housing type has been set to house on housing creation.
+  Only useful for housing#edit view.  -->
+  <div class="form-row">
+    <%= f.input :year_of_construction, {
+      label: 'Année de construction',
+      placeholder: '1950',
+      wrapper_html: { class: 'col' }
       }
     %>
-    <!-- Hide floor field if housing type has been set to house on housing creation.
-    Only useful for housing#edit view.  -->
-    <div class="form-row">
-      <%= f.input :year_of_construction, {
-        label: 'Année de construction',
-        placeholder: '1950',
-        wrapper_html: { class: 'col' }
-        }
-      %>
-      <%= f.input :size, {
-        label: 'Surface en mètres carrés',
-        placeholder: '40',
-        wrapper_html: { class: 'col' }
-        }
-      %>
-    </div>
-    <%= f.submit "Ajouter mon bien", class: "btn btn-primary btn-lg btn-block" %>
-  <% end %>
-</form>
+    <%= f.input :size, {
+      label: 'Surface en mètres carrés',
+      placeholder: '40',
+      wrapper_html: { class: 'col' }
+      }
+    %>
+  </div>
+  <%= f.submit "Ajouter mon bien", class: "btn btn-primary btn-lg btn-block" %>
+<% end %>
