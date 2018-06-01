@@ -30,3 +30,13 @@
 input[type="submit"].btn-block {
   margin: ($spacer * 1.5) 0 !important;
 }
+
+// Remove horizontal margin for date of birth input field
+div.flex-row {
+  select.mx-1:first-child {
+    margin-left: 0 !important;
+  }
+  select.mx-1:last-child {
+    margin-right: 0 !important;
+  }
+}
