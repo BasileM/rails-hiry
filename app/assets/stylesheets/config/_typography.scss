@@ -40,7 +40,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-weight: 700; // bold
+  font-weight: 400; // regular
   line-height: 1.20; // 21,6px
 }
 
@@ -57,5 +57,20 @@ a {
   &:hover {
     color: $blue-alt ;
     text-decoration: none; // No underline on hover
+  }
+}
+
+.align-center {
+  text-align: center;
+  vertical-align: center;
+}
+
+p.muted {
+  margin-bottom: ($spacer * 3);
+  a {
+    color: $danger;
+    opacity: 0.6;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-light;
   }
 }

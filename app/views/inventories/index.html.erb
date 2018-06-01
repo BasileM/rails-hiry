@@ -9,13 +9,8 @@
   <% @rental.inventories.each do |inventory| %>
   <li>
     <%= inventory.room.type_of_room %>
-    <br>
     Etat : <%= inventory.state %>
-    <br>
     Observations : <%= inventory.observations %>
-    <br>
-    <br>
-    <br>
   </li>
   <% end %>
 </ul>

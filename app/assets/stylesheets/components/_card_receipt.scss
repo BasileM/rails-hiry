@@ -1,0 +1,27 @@
+.card-receipt {
+  display: flex;
+  border: 1px solid $gray;
+  align-items: center;
+  position: relative;
+  height: 61px;
+  padding-left: 20px;
+  border-radius: 2px;
+}
+
+.card-receipt-date {
+  width: 190px;
+  font-weight: bold;
+}
+
+.card-receipt-edit {
+  right: 30px;
+  position: absolute;
+}
+
+.card-receipt-edit a {
+  color: $gray;
+}
+
+#receipt-index {
+  margin-top: 40px;
+}
