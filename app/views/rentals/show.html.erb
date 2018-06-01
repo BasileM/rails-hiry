@@ -4,18 +4,9 @@
   <p>Le présent contrat est conclu entre les soussignés :</p>
     <p><%= render 'owners', rental: @owner %></p>
     <p>Ci-après dénommé « le bailleur ».</p>
-    <p>Et :</p>
-    <ul>
-      <% @rental.renters.each do |renter| %>
-        <li> <%= renter.first_name %> </li>
-        <li> <%= renter.last_name %> </li>
-        <li> <%= renter.phone_number %> </li>
-        <li> <%= renter.email %> </li>
-        <li> <%= renter.nationality %> </li>
-        <li> <%= renter.date_of_birth %> </li>
-        <li> <%= renter.marital_status %> </li>
-      <% end %>
-    </ul>
+    <p>Et</p>
+    <p><%= render 'renters', rental: @renter %></p>
+
     <p>Ci-après dénommé « le locataire ».</p>
 <hr>
 <h2>2 - Objet du contrat</h2>

@@ -11,6 +11,9 @@ class InventoriesController < ApplicationController
 
   def index
     @rental = Rental.find(params[:rental_id])
+    @housing = @rental.housing
+    @owner = current_user
+    @renter = @rental.renter
     policy_scope @rental.inventories
   end
 

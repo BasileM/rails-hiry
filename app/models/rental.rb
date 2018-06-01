@@ -1,7 +1,7 @@
 class Rental < ApplicationRecord
   belongs_to :housing
   has_many :receipts
-  has_many :renters
+  has_one :renter
   has_many :inventories
 
   validates :furnished, default: false
