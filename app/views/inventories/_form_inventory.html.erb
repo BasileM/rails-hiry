@@ -1,4 +1,5 @@
 <%=  simple_form_for @rental, url: rental_inventories_path, method: :post do |f|%>
+
   <%= f.simple_fields_for :inventories do |field| %>
     <%= field.input :room_id, as: :hidden %>
 
