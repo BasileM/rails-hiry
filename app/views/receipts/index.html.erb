@@ -6,13 +6,21 @@
 <%= link_to "Créer une quittance", new_rental_receipt_path(@rental), class: "btn btn-primary mt-2" %>
 <%= link_to "Retourner à mon dashbaord", housing_path(@housing), class: "btn btn-primary mt-2" %>
 
-<ul>
+<section id="receipt-index">
   <% @receipts.each do |receipt| %>
-    <div>
-      <hr>
-      <li>Date quittance: <%= receipt.date %></li>
-      <li>Montant total <%= receipt.monthly_invoice %></li>
-      <li><%= link_to "Voir", receipt_path(receipt)%></li>
+    <div class="card-receipt">
+      <div class="card-receipt-date">
+        <%= receipt.date.strftime("%B, %Y") %>
+      </div>
+      <div class="card-receipt-info">
+        Montant total: <%= receipt.monthly_invoice %>€
+      </div>
+      <div class="card-receipt-edit">
+        <%= link_to receipt_path(receipt) do %>
+          <i class="fa fas fa-eye"></i>
+        <% end %>
+      </div>
     </div>
   <% end %>
-</ul>
+</section>
+
