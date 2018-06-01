@@ -13,7 +13,7 @@
   <body>
     <header>
       <!-- Hides navbar on login and signup pages -->
-      <% if controller_name != 'sessions' && controller_name != 'registrations'%>
+      <% if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'%>
         <%= render 'shared/navbar' %>
       <% end %>
       <%= render 'shared/flashes' %>
