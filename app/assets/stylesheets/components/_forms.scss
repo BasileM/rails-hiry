@@ -1,9 +1,42 @@
-.form-control,
-.form-control-label,
-.form-check-label {
-  font-size: $font-size-base;
+// Style for H3 title of forms
+.form-title {
+  margin-bottom: ($spacer * 3) !important;
+}
+
+// Style for form labels
+.form-control-label {
   color: $black;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-sm;
+  margin-left: 1rem;
+}
+
+// Set font-size and font-weight of input field and placeholder
+.form-control,
+.form-control::placeholder {
+  font-size: $font-size-base;
+  font-weight: $font-weight-light;
+}
+
+// Set color of input field and placeholder
+.form-control {
+  color: $input-color !important;
   &::placeholder {
-    color: $gray !important;
+    color: $input-color-placeholder !important;
+  }
+}
+
+// Add vertical margin to form submit button
+input[type="submit"].btn-block {
+  margin: ($spacer * 2.5) 0 !important;
+}
+
+// Remove horizontal margin for date of birth input field
+div.flex-row {
+  select.mx-1:first-child {
+    margin-left: 0 !important;
+  }
+  select.mx-1:last-child {
+    margin-right: 0 !important;
   }
 }
