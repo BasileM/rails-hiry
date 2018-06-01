@@ -1,6 +1,6 @@
-// Style for H3 title of form
+// Style for H3 title of forms
 .form-title {
-  margin: ($spacer * 2) 0 !important;
+  margin-bottom: ($spacer * 3) !important;
 }
 
 // Style for form labels
@@ -28,7 +28,7 @@
 
 // Add vertical margin to form submit button
 input[type="submit"].btn-block {
-  margin: ($spacer * 1.5) 0 !important;
+  margin: ($spacer * 2.5) 0 !important;
 }
 
 // Remove horizontal margin for date of birth input field

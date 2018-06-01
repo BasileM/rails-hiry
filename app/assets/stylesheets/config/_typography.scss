@@ -64,3 +64,13 @@ a {
   text-align: center;
   vertical-align: center;
 }
+
+p.muted {
+  margin-bottom: ($spacer * 3);
+  a {
+    color: $danger;
+    opacity: 0.6;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-light;
+  }
+}
