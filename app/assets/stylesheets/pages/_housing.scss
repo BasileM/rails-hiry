@@ -1,0 +1,13 @@
+.page-content {
+  margin: 5rem 0;
+}
+
+div.list-housing {
+  div.item-housing:first-child {
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+  div.item-housing {
+    margin-bottom: 2rem;
+  }
+}
