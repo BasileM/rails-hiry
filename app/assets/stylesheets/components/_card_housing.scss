@@ -1,57 +1,105 @@
-.card-housing {
+.item-housing {
   border: 1px solid $gray;
-  position: relative;
+  width: 100%;
+  a {
+    color: $dark !important;
+  }
+  a:hover {
+    color: $dark !important;
+  }
 }
 
+// Top part of the card
+.card-link {
+  text-transform: none;
+  text-decoration: none;
+}
+
+// Main flex contaiener for location part
 .card-location {
-  position: relative;
-  height: 167px;
-  margin-top: 15px;
-  margin-left: 15px;
-  margin-right: 15px;
+  height: 9rem;
+  margin: 2rem 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: stretch;
 }
 
+// Sub flex container for the text
 .card-location-text {
-  font-size: 32px;
+  height: 9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
+.card-location-title {
+  font-weight: $font-weight-light;
+  line-height: $line-height-lg;
+}
+
+// Flex item for text
 .card-date {
-  font-size: 10px;
-  padding-top: 25px;
+  align-self: flex-start;
+}
+
+.card-date-title {
+  font-weight: $font-weight-normal;
+  color: $gray-alt;
+  margin: 0;
+}
+
+// Flex item for map
+.card-location-map {
+  width: 16rem;
+  height: 9rem;
+  align-self: flex-end;
+}
+
+// Call to action part
+.card-rental-link {
+  text-decoration: none;
+  text-transform: none;
+  a {
+    color: $dark;
+  }
+  a:hover {
+    color: $dark;
+  }
 }
 
 .card-rental {
+  border-top: 1px solid $gray;
+  padding: 1rem 0;
   display: flex;
-  border-top: 1px solid $gray;
-  padding-top: 10px;
-  padding-bottom: 15px;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
 }
 
-.card-rental-info {
-  font-size: 15px;
-}
-
-.card-location-map {
-  position: absolute;
-  width: 250px;
-  height: 150px;
-  right: 0;
-  top: 0;
-}
-
-.card-rental-icon {
-  width: 100px;
-  text-align: center;
-  vertical-align: middle;
-}
-
-.card-edit {
-  padding-left: 15px;
-  padding-top: 5px;
-  padding-bottom: 7px;
-  border-top: 1px solid $gray;
+.card-rental-info p {
+  line-height: $line-height-lg;
+  margin-bottom: 0;
 }
 
 .key {
   color: $green;
+}
+
+.card-rental-icon {
+  margin-left: 2.5rem;
+  margin-right: 1rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+// Edit part
+.card-edit {
+  border-top: 1px solid $gray;
+}
+
+.card-edit-links {
+  margin: 1rem .5rem;
 }

@@ -12,11 +12,12 @@
   </head>
   <body>
     <header>
+      <!-- Devise alerts and success messages -->
+      <%= render 'shared/flashes' %>
       <!-- Hides navbar on login and signup pages -->
       <% if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'%>
         <%= render 'shared/navbar' %>
       <% end %>
-      <%= render 'shared/flashes' %>
     </header>
     <!-- Puts everything that is not the navbar or the footer into main tag -->
     <main class="main">
