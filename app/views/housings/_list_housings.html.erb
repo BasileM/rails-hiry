@@ -1,0 +1,43 @@
+<div class="item-housing">
+  <div class="card-housing">
+    <div class="card-location">
+      <div class="card-location-text">
+        <%= housing.street %> <br>
+        <%= housing.zip_code %>
+        <%= housing.city.upcase %>
+        <div class="card-date">
+          <% if rental.present? && renter.present? %>
+            Loué depuis le <%= rental.start_date %> à <%= renter.first_name %> <%= renter.last_name %>
+          <% else %>
+            Créé en <%= housing.created_at.strftime("%B, %Y") %>
+          <% end %>
+        </div>
+        <%= link_to "Voir ce bien", housing_path(housing) %>
+      </div>
+			<!-- Adds a map to the housing car -->
+      <div class="card-location-map">
+        <% markers = [{ lat: housing.latitude, lng: housing.longitude }] %>
+        <div id=<%= "map#{housing.id}" %> class="mini_map" style="width: 100%; height: 100%;" data-markers="<%= markers.to_json %>"></div>
+      </div>
+    </div>
+
+    <!-- Adds a call to action to rent the housing if housing is empty -->
+    <% if !rental.present? %>
+      <div class="card-rental">
+        <div class="card-rental-icon">
+          <%= link_to new_housing_rental_path(housing) do %>
+            <i class="fa fas fa-key key" ></i>
+          <% end %>
+        </div>
+        <div class=card-rental-info>
+          <strong>Louez votre appartement</strong><br>
+          Votre appartement est inoccupé. Créez les documents pour le louer.
+        </div>
+      </div>
+    <% end %>
+		<!-- Adds links to the bottom of the card -->
+    <div class="card-edit">
+      <%= link_to "Supprimer", root_path %> - <%= link_to "Editer", root_path %>
+    </div>
+  </div>
+</div>
