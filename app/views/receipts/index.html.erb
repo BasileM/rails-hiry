@@ -2,13 +2,30 @@
 	<div class="container">
 	  <div class="row">
       <div class="col-md-8 offset-md-2">
-        <h1>Mes quittances</h1>
-        <p><%= @housing.street %> - <%= @renter.gender %> <%= @renter.first_name %> <%= @renter.last_name %><p>
-        <p><%= link_to "Contrat de location", rental_path(@rental) %> daté du <%= @rental.start_date %></p>
+        <ul class="list-inline align-center">
+          <li class="list-inline-item">
+            <h1>Mes quittances</h1>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to new_rental_receipt_path(@rental) do %>
+              <i class="fa fas fa-plus-circle plus-button"></i>
+            <% end %>
+         </li>
+        </ul>
 
-        <%= link_to "Créer une quittance", new_rental_receipt_path(@rental), class: "btn btn-primary btn-lg" %>
-        <%= link_to "Retourner à mon dashbaord", housing_path(@housing), class: "btn btn-primary btn-lg" %>
+        <!-- Info on the housing & renter -->
+        <div class="card-date-title h6 align-center" >
+          <%= @housing.street %> - <%= @renter.gender %> <%= @renter.first_name %> <%= @renter.last_name %> -
+          <%= link_to "Contrat de location", rental_path(@rental) %> daté du <%= @rental.start_date %>
+        </div>
 
+
+        <!-- Go to dashboard
+          <%= link_to "Tableau de bord", housing_path(@housing), class: "btn btn-primary btn-lg" %>
+        -->
+
+
+        <!-- All receipts -->
         <section id="receipt-index">
           <% @receipts.each do |receipt| %>
             <div class="card-receipt">
