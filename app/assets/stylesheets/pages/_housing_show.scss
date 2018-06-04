@@ -1,0 +1,34 @@
+.rental-info-cards {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.rental-info-card{
+  width: 200px;
+  height: 200px;
+  border: 1px solid $gray;
+  border-radius: 2px;
+  margin-left: 15px;
+  margin-right: 15px;
+  background-color: rgb(254, 254, 254);
+  padding: 7px;
+  text-align: center;
+  position: relative;
+}
+
+.rental-info-card-title {
+  position: absolute;
+  top: 50%;
+  text-align: center;
+}
+
+.housing-info {
+  width: 660px;
+  height: 300px;
+  border: 1px dashed $gray;
+  border-radius: 2px;
+  margin-left: 15px;
+  margin-right: 15px;
+  background-color: rgb(254, 254, 254);
+  padding: 7px;
+}
