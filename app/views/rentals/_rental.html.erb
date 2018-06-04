@@ -1,0 +1,89 @@
+<h1>Contrat de Location de Logement à Usage de Résidence Principale</h1>
+<hr>
+<h2>1 - Désignation des parties</h2>
+  <p>Le présent contrat est conclu entre les soussignés :</p>
+    <p><%= render 'owners.html.erb', rental: @owner %></p>
+    <p>Ci-après dénommé « le bailleur ».</p>
+    <p>Et</p>
+    <p><%= render 'renters.html.erb', rental: @renter %></p>
+
+    <p>Ci-après dénommé « le locataire ».</p>
+<hr>
+<h2>2 - Objet du contrat</h2>
+  <p>Le présent contrat a pour objet la location d’un logement ainsi déterminé :  </p>
+  <h3>2 A - Consistance du logement </h3>
+    <p><%= render 'housings.html.erb', rental: @housing %></p>
+    <p>Pièces du logement</p>
+      <% @housing.rooms.each do |room| %>
+            <li>
+              <%= room.type_of_room %> : <%= room.size %> m2
+            </li>
+          <% end %>
+  <h3>2 B - Destination des locaux </h3>
+    <p>Résidence principale à usage d'habitation</p>
+    <p>Le locataire déclarant connaître les lieux pour les avoir visités et reconnaissant l'existence des éléments ci-dessus énumérés.</p>
+    <p>Le logement est loué à titre de résidence principale c’est-à-dire un logement occupé au moins huit mois par an sauf obligation professionnelle, raison de santé ou cas de force majeur, soit par le locataire ou son conjoint, soit par une personne au sens du Code de la Construction et de l’Habitation. Cette condition peut être essentielle dans certains cas pour le bailleur afin de bénéficier de certains avantages fiscaux en matière d'investissement locatif. Ainsi, en cas de non-respect de cette condition, le bailleur pourrait engager la responsabilité contractuelle du preneur.
+</p>
+  <h3>2 C - Information sur les équipements d’accès aux technologies de l’information et de la communication de l’immeuble </h3>
+    <p>L'installation permet l'accès aux services nationaux en clair de télévision par voie hertzienne terrestre en mode numérique. Un réseau de communications électroniques interne à l'immeuble distribue des services de télévision.</p>
+<hr>
+<h2>3 - Date de prise d’effet et durée du contrat </h2>
+  <h3>3 A – Date de prise d’effet du contrat</h3>
+    </p>Le contrat prendra effet le : <%= @rental.start_date %> et prendra fin le : <%= @rental.end_date %></p>
+
+  <h3>3 B – Tacite reconduction – Renouvellement</h3>
+
+    <p>A l’expiration du bail, le bailleur ou le locataire pourra mettre en œuvre la procédure de renouvellement conformément à la Loi. A défaut le bail se renouvellera par tacite reconduction. En cas de tacite reconduction, la durée du contrat reconduit est de un an.
+    Les contrats de locations meublées consenties à un étudiant pour une durée de neuf mois ne sont pas reconduits tacitement à leur terme et le locataire peut mettre fin au bail à tout moment, après avoir donné congé. Le bailleur peut, quant à lui, mettre fin au bail à son échéance et après avoir donné congé. </p>
+
+
+  <h3>3 - C – Congé au terme du contrat</h3>
+    <p>En respectant un préavis de 3 mois avant l’échéance du contrat ou de son renouvellement, le bailleur peut donner congé. Ce congé devra être fondé soit sur sa décision de reprendre ou de vendre le logement, soit sur un motif légitime et sérieux, notamment l’inexécution par le locataire de l’une des obligations principales lui incombant.
+    Le congé devra indiquer le motif allégué :
+    En cas de reprise, les nom et adresse du bénéficiaire de la reprise qui ne peut être que l’une des personnes prévues à l’article 15-I de la Loi 25-8 du 6 juillet 1989.
+    En cas de vente, le congé pour vente ne vaut pas offre au profit du locataire et ce dernier ne dispose pas de droit de préemption.
+    Le congé s'accompagne d'une offre de relogement lorsqu'à la date d'échéance du contrat, le locataire est âgé de plus de soixante-cinq ans et que ses ressources annuelles sont inférieures à un plafond de ressources en vigueur pour l’attribution des logements locatifs conventionnés fixé par arrêté du ministre chargé du logement. Ces dispositions ne s'appliquent néanmoins pas si le bailleur est âgé, à la même date d'échéance du bail, de plus de soixante-cinq ans ou si ses ressources annuelles sont inférieures à un plafond de ressources en vigueur pour l’attribution des logements locatifs conventionnés fixé par arrêté du ministre chargé du logement. La condition d’âge et/ou de ressources est remplie dès lors qu’un seul des bailleurs en satisfait les conditions.
+    Dans tous les cas, le congé doit être notifié par lettre recommandée avec demande d'avis de réception, ou signifié par acte d'huissier de justice.
+    Si le logement ne constitue pas la résidence principale le bailleur peut se dispenser d’avoir à motiver le congé qu’il délivre.</p>
+
+  <h3>3 D – Résiliation par le locataire</h3>
+    <p>Le locataire peut résilier le contrat à tout moment, en cours d'exécution ou à son terme, sous réserve de respecter un préavis d’un mois, notifié par lettre recommandée avec accusé de réception, signifié par acte d’huissier ou remis en main propre contre récépissé ou émargement.
+    L’obligation de payer les loyers est maintenue jusqu’au terme du bail et ce, même si le locataire libère effectivement les lieux avant la date de départ résultant du congé qu’il a notifié au bailleur, sauf si le logement se trouve occupé avant la fin du préavis par un autre locataire avec l’accord express du bailleur.</p>
+
+<h2>4 – Conditions financières </h2>
+  <h3>4 A - Loyer</h3>
+    <p>La présente location est consentie et acceptée moyennant un loyer mensuel de <%= @rental.monthly_rent %> € hors charges, payable mensuellement et d'avance le 1ER de chaque mois.
+    Le montant des charges s'élèvent à <%= @rental.monthly_expenses %>€</p>
+
+  <h3>4 B - Révision Loyer</h3>
+    <p>Le loyer ainsi fixé sera révisé chaque année, à la date anniversaire du contrat en fonction de la variation de l'indice de référence des loyers (IRL) publié par l'INSEE ou en fonction de l'indice du taux d'évolution qui lui serait substitué.</p>
+    <p>Sur la base du calcul suivant loyer de base X (IRL du trimestre / IRL du trimestre n-1)</p>
+
+  <h3>4 C - Charges</h3>
+    <p>Le locataire est tenu de payer, en sus du loyer, les charges récupérables telles que définies par l'article 23 de la loi du 6 juillet 1989.</p>
+    <p>Le montant des provisions mensuelles sur charges est de : <%= @rental.monthly_expenses %>€</p>
+
+  <h3>4 D - Quittance</h3>
+    <p>Le loyer se décompose comme suit:</p>
+    <p><%= @rental.monthly_rent %>€</p>+<p><%= @rental.monthly_expenses %>€</p>
+    <p>Soit un total de <%= @rental.monthly_rent + @rental.monthly_expenses%> €</p>
+
+<h2>5 – Travaux </h2>
+    <p>Le locataire ne pourra faire aucune transformation des lieux loués ou des équipements mentionnés au contrat sans l'accord écrit du bailleur. A défaut, le bailleur pourra :
+soit accepter la restitution des locaux tel quel
+soit exiger leur remise en état conformément à l’état des lieux d’entrée
+soit exiger le versement d’une indemnité compensatrice
+Si les transformations mettent en péril le bon fonctionnement des équipements ou la sécurité du local, le bailleur pourra exiger une remise en état immédiate, aux frais du locataire.</p>
+
+
+<h2>6 – Clauses réoslutoires </h2>
+  <p>A défaut de paiement au terme convenu, de tout ou partie du loyer ou des charges, ou à défaut de versement du dépôt de garantie, le bail sera résilié de plein droit, deux mois après un commandement de payer demeuré infructueux, sans qu'il soit nécessaire de faire prononcer judiciairement la résolution. Si le locataire refuse de quitter les lieux, il suffira pour l'y contraindre d'une ordonnance de référé.
+  De même, à défaut de justification d'une assurance contre les risques locatifs dans les conditions de la loi , ou encore à défaut de respect de l'obligation d'user paisiblement des locaux loués, résultant de troubles de voisinage constatés par une décision de justice passée en force de chose jugée, le bail sera résilié de plein droit un mois après un commandement demeuré infructueux. Si le locataire refuse de quitter les lieux, il suffira pour l'y contraindre d'une ordonnance en référé.</p>
+
+<h2>7 – Etat des lieux </h2>
+  <p>Un état des lieux sera dressé contradictoirement entre les parties lors de la remise des clés et de leur restitution. En cas de désaccord sur l’état des lieux, il est établi par huissier à l’initiative de la partie la plus diligente à frais partagés par moitié. L’huissier avise les parties au moins sept jours à l’avance par lettre recommandée avec demande d’avis de réception.
+  L'état des lieux établi lors de la mise à disposition des locaux est joint au contrat. Cet état des lieux devra être dressé en autant d’exemplaires que de parties inscrites au bail.
+  En cas d’état des lieux incomplet, le locataire peut demander la modification dans un délai de dix jours à compter de son établissement.
+  La loi impose aux bailleurs la fourniture d’un détecteur de fumée et la vérification de son bon fonctionnement doit être effectuée lors de l’état des lieux ; l’entretien courant des détecteurs de fumée restant à la charge de l’occupant. Pendant le premier mois de la période de chauffe, le locataire peut demander que l'état des lieux soit complété par l'état des éléments de chauffage.</p>
+
+  <p>Fait à (lieu)  , le (date)</p>

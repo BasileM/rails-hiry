@@ -23,6 +23,12 @@ class RentalsController < ApplicationController
     @owner = current_user
     @renter = @rental.renter
     authorize @rental
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "rental"
+      end
+    end
   end
 
   private
