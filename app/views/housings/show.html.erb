@@ -6,10 +6,10 @@
 <h2><%= "Ma location" %></h2>
 
 <% if @rental.present? %>
-  <%= link_to "Contrat de location", rental_path(@rental), class: "btn btn-primary mt-2" %>
+  <%= link_to 'Contrat de location', rental_path(@rental, :format => :pdf), class: "btn btn-primary mt-2" %>
   <%= link_to "Quittances", rental_receipts_path(@rental), class: "btn btn-primary mt-2" %>
    <% if @housing.inventories.present? %>
-    <%= link_to "Etat des lieux", rental_inventories_path(@rental), class: "btn btn-primary mt-2" %>
+    <%= link_to 'Etat des lieux', rental_inventories_path(@rental, :format => :pdf), class: "btn btn-primary mt-2" %>
    <% else %>
      <%= link_to "Etablir l'état des lieux", new_rental_inventory_path(@rental), class: "btn btn-primary mt-2" %>
     <% end %>
