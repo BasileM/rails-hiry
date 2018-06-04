@@ -1,10 +1,17 @@
-<div class="page-content">
-	<div class="container">
-	  <div class="row">
-      <div class="col-md-8 offset-md-2">
-        <h1>Pages#home</h1>
-        <p>Find me in app/views/pages/home.html.erb</p>
+<div class="wrapper-home">
+  <div id="hiry"></div>
+  <div class="container" id="landing-img">
+    <div class="home-landing">
+      <div class="main">
+        <%= image_tag "landing.png", id: "landing-image" %>
+      </div>
+        <div class="description">
+          <h1 class="market_title">gérer simplement vos biens locatifs</h1>
+          <p class="market_p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <div class="button">
+            <%= link_to "Decouvrir Hiry", new_user_registration_path, class: "btn btn-primary" %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 </div>
