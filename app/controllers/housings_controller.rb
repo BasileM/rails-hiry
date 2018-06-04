@@ -2,7 +2,8 @@ class HousingsController < ApplicationController
   before_action :set_housing, only: [:show]
 
   def index
-    @housings = policy_scope(Housing)
+    @rented_housings = policy_scope(Housing).joins(:rentals)
+    @vacant_housings = Housing.where.not(id: @rented_housings.pluck(:id))
     @housings = current_user.housings
 
     # Geocoding
@@ -16,12 +17,12 @@ class HousingsController < ApplicationController
     end
   end
 
-
   def show
     authorize @housing
 
     @rentals = @housing.rentals
     @rental = @rentals.last
+    @image = @housing.images.first
   end
 
   def new

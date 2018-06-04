@@ -11,7 +11,7 @@
 
       <!-- Links when logged in -->
       <div class="navbar-wrapper">
-        <nav class="navbar-menu">
+        <nav class="navbar-menu navbar-white">
           <%= link_to "Ajouter un bien", new_housing_path, class: "navbar-item navbar-link" %>
           <%= link_to "Voir mes biens", housings_path, class: "navbar-item navbar-link" %>
         </nav>
@@ -44,11 +44,10 @@
       </div>
 
     <% else %>
-
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Se connecter"), new_user_session_path, class: "navbar-item navbar-link" %>
-
     <% end %>
+
   </div>
 
   <!-- Dropdown list appearing on mobile only -->

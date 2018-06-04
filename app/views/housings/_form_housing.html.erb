@@ -17,7 +17,7 @@
   <%= f.input :type_of_housing, {
     label: 'Type de bien',
     placeholder: 'Appartement ou maison',
-    collection: ["Appartement", "Maison"],
+    collection: Housing::TYPE_OF_HOUSING,
     }
   %>
   <%= f.input :floor, {

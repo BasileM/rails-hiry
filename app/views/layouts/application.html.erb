@@ -11,13 +11,13 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <header>
-      <!-- Devise alerts and success messages -->
-      <%= render 'shared/flashes' %>
+    <header class="<%= action_name %>">
       <!-- Hides navbar on login and signup pages -->
       <% if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'%>
         <%= render 'shared/navbar' %>
       <% end %>
+      <!-- Devise alerts and success messages -->
+      <%= render 'shared/flashes' %>
     </header>
     <!-- Puts everything that is not the navbar or the footer into main tag -->
     <main class="main">

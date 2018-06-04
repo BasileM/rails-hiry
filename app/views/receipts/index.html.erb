@@ -1,26 +1,50 @@
-<h1>Mes quittances</h1>
-<p><%= @housing.street %> - <%= @renter.gender %> <%= @renter.first_name %> <%= @renter.last_name %><p>
-<p><%= link_to "Contrat de location", rental_path(@rental) %> daté du <%= @rental.start_date %></p>
+<div class="page-content">
+	<div class="container">
+	  <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <ul class="list-inline align-center">
+          <li class="list-inline-item">
+            <h1>Mes quittances</h1>
+          </li>
+          <li class="list-inline-item">
+            <%= link_to new_rental_receipt_path(@rental) do %>
+              <i class="fa fas fa-plus-circle plus-button"></i>
+            <% end %>
+         </li>
+        </ul>
+
+        <!-- Info on the housing & renter -->
+        <div class="card-date-title h6 align-center" >
+          <%= @housing.street %> - <%= @renter.gender %> <%= @renter.first_name %> <%= @renter.last_name %> -
+          <%= link_to "Contrat de location", rental_path(@rental) %> daté du <%= @rental.start_date %>
+        </div>
 
 
-<%= link_to "Créer une quittance", new_rental_receipt_path(@rental), class: "btn btn-primary mt-2" %>
-<%= link_to "Retourner à mon dashbaord", housing_path(@housing), class: "btn btn-primary mt-2" %>
+        <!-- Go to dashboard
+          <%= link_to "Tableau de bord", housing_path(@housing), class: "btn btn-primary btn-lg" %>
+        -->
 
-<section id="receipt-index">
-  <% @receipts.each do |receipt| %>
-    <div class="card-receipt">
-      <div class="card-receipt-date">
-        <%= receipt.date.strftime("%B, %Y") %>
-      </div>
-      <div class="card-receipt-info">
-        Montant total: <%= receipt.monthly_invoice %>€
-      </div>
-      <div class="card-receipt-edit">
-        <%= link_to receipt_path(receipt) do %>
-          <i class="fa fas fa-eye"></i>
-        <% end %>
+
+        <!-- All receipts -->
+        <section id="receipt-index">
+          <% receipts_sorted = @receipts.sort_by &:date %>
+          <% receipts_sorted.reverse.each do |receipt| %>
+            <div class="card-receipt">
+              <div class="card-receipt-date">
+                <%= receipt.date.strftime("%B, %Y") %>
+              </div>
+              <div class="card-receipt-info">
+                Montant total: <%= receipt.monthly_invoice %>€
+              </div>
+              <div class="card-receipt-edit">
+                <%= link_to receipt_path(receipt, :format => :pdf) do %>
+                  <i class="fa fas fa-eye"></i>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </section>
       </div>
     </div>
-  <% end %>
-</section>
-
+  </div>
+</div>

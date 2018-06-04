@@ -30,6 +30,11 @@ class ReceiptsController < ApplicationController
     user_id    = @housing.user_id
     @user      = User.find(user_id)
     authorize @receipt
+    respond_to do |format|
+    format.html
+    format.pdf  {render :pdf => "receipts/show.pdf.erb",
+                        :template => 'receipts/show.pdf.erb', formats: :html, encoding: 'utf8'}
+    end
   end
 
   def create
@@ -39,7 +44,7 @@ class ReceiptsController < ApplicationController
     @receipt.monthly_invoice = @rental.monthly_rent + @rental.monthly_expenses
     authorize @receipt
     if @receipt.save
-      redirect_to receipt_path(@receipt), notice: 'Votre quittance a bien été crée.'
+      redirect_to  rental_receipts_path(@rental), notice: 'Votre quittance a bien été crée.'
     else
       render :new
     end
