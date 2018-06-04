@@ -1,58 +1,3 @@
-<!-- Container -->
-<div class="page-content">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 offset-md-2">
-
-
-
-
-        <!-- Rubrique location -->
-        <h2><%= "Ma location" %></h2>
-
-        <% if @rental.present? %>
-          <%= link_to 'Contrat de location', rental_path(@rental, :format => :pdf), class: "btn btn-primary" %>
-          <%= link_to "Quittances", rental_receipts_path(@rental), class: "btn btn-primary" %>
-           <% if @housing.inventories.present? %>
-            <%= link_to 'Etat des lieux',  rental_inventories_path(@rental, :format => :pdf), class: "btn btn-primary" %>
-           <% else %>
-             <%= link_to "Etablir l'état des lieux", new_rental_inventory_path(@rental), class: "btn btn-primary" %>
-            <% end %>
-         <% else %>
-           <%= link_to "Ajouter une nouvelle location", new_housing_rental_path(@housing), class: "btn btn-primary" %>
-         <% end %>
-         <hr>
-
-        <!-- Rubrique fiche de bien -->
-        <h2>Ma fiche de bien</h2>
-        <h3>Informations générales</h3>
-        <%= render 'details', housing: @housing %>
-        <hr>
-        <h3><%= "Pièces" %></h3>
-        <ul>
-          <% @housing.rooms.each do |room| %>
-            <li><%= room.type_of_room %> : <%= room.size %> m2</li>
-          <% end %>
-        </ul>
-        <%= link_to "Ajouter une nouvelle pièce", new_housing_room_path(@housing), class: "btn btn-primary btn-lg" %>
-
-        <!-- Rubrique statistique -->
-        <hr>
-        <h2><%= "Mes statistiques" %></h2>
-
-
-
-
-
-
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
 <!-- Background image -->
 <% if @image.photo.nil? %>
   <div class="fullscreen fullscreen-img" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(44,44,44,0.6) 50%), url('<%= cl_image_path @image.photo, height: 700, width: 1440, crop: :fill %>')">
@@ -86,44 +31,68 @@
           <!-- Inf on rental -->
           <div class="vacant-housings-list">
             <h2 id="vacant-housing" class="housings-list-title">Ma location</h2>
-              <% @renter = Renter.find_by(rental_id: @rental.id) %>
-              <ul class="list-unstyled">
+              <div class="rental-info-cards">
                 <% if @rental.present? %>
-                  <li class="big-links">
-                    <%= link_to 'Contrat de location 📋', rental_path(@rental, :format => :pdf) %>
-                  </li>
-                  <li class="big-links">
-                    <%= link_to "Quittances 💳 ", rental_receipts_path(@rental) %>
-                  </li>
-                  <li class="big-links">
-                    <% if @housing.inventories.present? %>
-                      <%= link_to 'Etat des lieux 🔍',  rental_inventories_path(@rental, :format => :pdf) %>
-                    <% else %>
-                      <%= link_to "Etablir l'état des lieux ➕ ", new_rental_inventory_path(@rental) %>
-                    <% end %>
-                  </li>
+                  <div class="rental-info-card">
+                    <div class="rental-info-card-title">
+                      <%= link_to 'Contrat de location ', rental_path(@rental, :format => :pdf) %>
+                    </div>
+                    <div class="rental-info-card-description">
+                      Description
+                    </div>
+                  </div>
+                  <div class="rental-info-card">
+                    <div class="rental-info-card-title">
+                      <%= link_to "Quittances", rental_receipts_path(@rental) %>
+                    </div>
+                    <div class="rental-info-card-description">
+                      Description
+                    </div>
+                  </div>
+                  <div class="rental-info-card">
+                    <div class="rental-info-card-title">
+                      <% if @housing.inventories.present? %>
+                          <%= link_to 'Etat des lieux',  rental_inventories_path(@rental, :format => :pdf) %>
+                      <% else %>
+                        <%= link_to "Etablir l'état des lieux", new_rental_inventory_path(@rental) %>
+                      <% end %>
+                    <div class="rental-info-card-description">
+                      Description
+                    </div>
+                  </div>
                 <% else %>
-                  <li class="big-links">
-                    <%= link_to "Démarrer une nouvelle location ➕", new_housing_rental_path(@housing) %>
-                  </li>
+                  <div class="rental-info-card">
+                    <div class="rental-info-card-title">
+                      <%= link_to new_housing_rental_path(@housing) do %>
+                        <i class="fa fas fa-plus-circle plus-button"></i>
+                      <% end %>
+                    </div>
+                    <div class="rental-info-card-description">
+                      Démarrer une nouvelle location
+                    </div>
+                  </div>
                 <% end %>
-              </ul>
-              <br>
+              </div>
           </div>
 
           <!-- Info on housing -->
           <div class="rented-housings-list">
             <h2 id="housing" class="housings-list-title">Ma fiche de bien</h2>
-              <%= render 'details', housing: @housing %>
-              Votre <%= @housing.type_of_housing %> a <%= @housing.rooms.count %> pièce(s)
-              <%= render 'rooms', housing: @housing %>
+              <div class="housing-info">
+                <%= render 'details', housing: @housing %>
+                Votre <%= @housing.type_of_housing %> a <%= @housing.rooms.count %> pièce(s)
+                <%= render 'rooms', housing: @housing %>
+                <%= link_to "Ajouter une nouvelle pièce",  new_housing_room_path(@housing) %>
+              </div>
           </div>
           <br>
 
           <!-- Stats -->
           <div class="rented-housings-list">
             <h2 id="stats" class="housings-list-title">Statistiques</h2>
-              <p> 1000 euros </p>
+              <div class="housing-info">
+                <p> 1000 euros </p>
+              </div>
           </div>
         </div>
 
