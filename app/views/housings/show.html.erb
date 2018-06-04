@@ -1,5 +1,5 @@
 <!-- Display first room image available if it exists-->
-<% if @image %>
+<% if @image.photo.nil? %>
   <div class="fullscreen fullscreen-img" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(44,44,44,0.6) 50%), url('<%= cl_image_path @image.photo, height: 700, width: 1440, crop: :fill %>')">
 <% else %>
   <%= render 'shared/banner' %>
