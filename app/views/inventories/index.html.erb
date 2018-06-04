@@ -1,5 +1,12 @@
-<%= link_to "Tableau de bord", housing_path(@rental.housing), class: "btn btn-primary mt-2" %>
-<%= link_to 'Version PDF',  rental_inventories_path(@rental, :format => :pdf), class: "btn btn-primary mt-2" %>
-<hr>
-
-<%= render 'inventory' %>
+<div class="page-content">
+	<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <%= link_to "Tableau de bord", housing_path(@rental.housing), class: "btn btn-primary mt-2" %>
+        <%= link_to 'Version PDF',  rental_inventories_path(@rental, :format => :pdf), class: "btn btn-primary mt-2" %>
+        <hr>
+        <%= render 'inventory' %>
+      </div>
+    </div>
+  </div>
+</div>
