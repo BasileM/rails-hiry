@@ -24,10 +24,9 @@ class RentalsController < ApplicationController
     @renter = @rental.renter
     authorize @rental
     respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf: "rental"
-      end
+    format.html
+    format.pdf  {render :pdf => "rentals/show.pdf.erb",
+                        :template => 'rentals/show.pdf.erb', formats: :html, encoding: 'utf8'}
     end
   end
 
