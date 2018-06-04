@@ -2,11 +2,12 @@ class HousingsController < ApplicationController
   before_action :set_housing, only: [:show]
 
   def index
-    @housings = policy_scope(Housing)
-    @housings = Housing.all
+    @rented_housings = policy_scope(Housing).joins(:rentals)
+    @vacant_housings = Housing.where.not(id: @rented_housings.pluck(:id))
+    @housings = current_user.housings
 
     # Geocoding
-    @housings = Housing.where.not(latitude: nil, longitude: nil)
+    @housings = @housings.where.not(latitude: nil, longitude: nil)
     @markers = @housings.map do |house|
       {
         lat: house.latitude,
@@ -15,7 +16,6 @@ class HousingsController < ApplicationController
       }
     end
   end
-
 
   def show
     authorize @housing
@@ -44,7 +44,7 @@ class HousingsController < ApplicationController
   private
 
   def set_housing
-    @housing = Housing.find(params[:id])
+    @housing = current_user.housings.find(params[:id])
   end
 
   def housing_params

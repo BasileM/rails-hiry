@@ -1,0 +1,17 @@
+.page-content {
+  margin: 5rem 0;
+}
+
+div.vacant-housings-list,
+div.rented-housings-list {
+  .item-housing {
+    margin-bottom: 3rem;
+  }
+  .item-housing:last-child {
+    margin-bottom: 5rem;
+  }
+}
+
+.housings-list-title {
+  margin-bottom: 2rem;
+}

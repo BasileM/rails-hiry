@@ -1,10 +1,13 @@
-<h1>
-  <%= @housing.street %>
-</h1>
+<div class="page-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h1><%= @housing.street %></h1>
 
-<!-- Rubrique location -->
-<h2><%= "Ma location" %></h2>
+        <!-- Rubrique location -->
+        <h2><%= "Ma location" %></h2>
 
+<<<<<<< HEAD
 <% if @rental.present? %>
   <%= link_to 'Contrat de location', rental_path(@rental, :format => :pdf), class: "btn btn-primary mt-2" %>
   <%= link_to "Quittances", rental_receipts_path(@rental), class: "btn btn-primary mt-2" %>
@@ -17,24 +20,38 @@
    <%= link_to "Ajouter une nouvelle location", new_housing_rental_path(@housing), class: "btn btn-primary mt-2" %>
  <% end %>
  <hr>
+=======
+        <% if @rental.present? %>
+          <%= link_to "Contrat de location", rental_path(@rental), class: "btn btn-primary mt-2" %>
+          <%= link_to "Quittances", rental_receipts_path(@rental), class: "btn btn-primary mt-2" %>
+           <% if @housing.inventories.present? %>
+            <%= link_to "Etat des lieux", rental_inventories_path(@rental), class: "btn btn-primary mt-2" %>
+           <% else %>
+             <%= link_to "Etablir l'état des lieux", new_rental_inventory_path(@rental), class: "btn btn-primary mt-2" %>
+            <% end %>
+         <% else %>
+           <%= link_to "Ajouter une nouvelle location", new_housing_rental_path(@housing), class: "btn btn-primary mt-2" %>
+         <% end %>
+         <hr>
+>>>>>>> master
 
+        <!-- Rubrique fiche de bien -->
+        <h2>Ma fiche de bien</h2>
+        <h3>Informations générales</h3>
+        <%= render 'details', housing: @housing %>
+        <hr>
+        <h3><%= "Pièces" %></h3>
+        <ul>
+          <% @housing.rooms.each do |room| %>
+            <li><%= room.type_of_room %> : <%= room.size %> m2</li>
+          <% end %>
+        </ul>
+        <%= link_to "Ajouter une nouvelle pièce", new_housing_room_path(@housing), class: "btn btn-primary mt-2" %>
 
-
-<!-- Rubrique fiche de bien -->
-<h2>Ma fiche de bien</h2>
-<h3>Informations générales</h3>
-<%= render 'details', housing: @housing %>
-<hr>
-<h3><%= "Pièces" %></h3>
-<ul>
-  <% @housing.rooms.each do |room| %>
-    <li><%= room.type_of_room %> : <%= room.size %> m2</li>
-  <% end %>
-</ul>
-<%= link_to "Ajouter une nouvelle pièce", new_housing_room_path(@housing), class: "btn btn-primary mt-2" %>
-
-<!-- Rubrique statistique -->
-<hr>
-<h2>
-  <%= "Mes statistiques" %>
-</h2>
+        <!-- Rubrique statistique -->
+        <hr>
+        <h2><%= "Mes statistiques" %></h2>
+      </div>
+    </div>
+  </div>
+</div>
