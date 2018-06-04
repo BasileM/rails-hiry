@@ -1,3 +1,19 @@
+// Shared CSS to make the footer sticky
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+// Section that we want to grow to fill the space (the main section in our case)
+.main {
+  flex: 1 0 auto;
+}
+
 .footer {
   width: 100%;
   padding: 2rem 4.5rem;

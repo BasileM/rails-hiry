@@ -1,0 +1,17 @@
+<h2>Editer vos informations</h2>
+
+<%= simple_form_for(current_user, url: profile_path, html: { method: :patch }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :street, required: true, autofocus: true %>
+    <%= f.input :zip_code, required: true %>
+    <%= f.input :city, required: true %>
+    <%= f.input :phone_number, required: true %>
+    <%= f.input :nationality, required: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Update", class: "btn btn-primary mt-2" %>
+  </div>
+<% end %>

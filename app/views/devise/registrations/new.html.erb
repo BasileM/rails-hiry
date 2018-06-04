@@ -1,32 +1,57 @@
-<h3 class="form-title align-center">
-  Bienvenue sur Hiry.</br>
-  Nous sommes heureux de vous voir.
-</h3>
-<div class="row">
-  <div class="col-md-4 offset-md-4">
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= f.error_notification %>
-      <%= f.input :email, {
-        label: 'E-mail',
-        placeholder: 'jean-michel.pignon@gmail.com',
-        required: true,
-        autofocus: true
-        }
-      %>
-      <%= f.input :password, {
-        required: true,
-        label: 'Mot de passe',
-        placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
-        }
-      %>
-      <%= f.input :password_confirmation, {
-        required: true,
-        label: 'Confirmation du mot de passe',
-        placeholder: 'Entrez-le de nouveau'
-        }
-      %>
-      <%= f.button :submit, 'Commencer', class: 'btn btn-primary btn-lg btn-block' %>
-    <% end %>
-    <%= render "devise/shared/links" %>
+<div class="form-page">
+  <div class="container">
+    <h3 class="form-title align-center">
+      Bienvenue sur Hiry.</br>
+      Nous sommes heureux de vous voir.
+    </h3>
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :first_name, {
+            label: 'Prénom',
+            placeholder: 'Jean-Michel',
+            required: true,
+            autofocus: true
+            }
+          %>
+          <%= f.input :last_name, {
+            label: 'Nom',
+            placeholder: 'Pignon',
+            required: true,
+            autofocus: true
+            }
+          %>
+          <%= f.input :date_of_birth, {
+            label: 'Date de naissance',
+            placeholder: '11/03/1983',
+            required: true,
+            autofocus: true
+            }
+          %>
+          <%= f.input :email, {
+            label: 'E-mail',
+            placeholder: 'jean-michel.pignon@gmail.com',
+            required: true,
+            autofocus: true
+            }
+          %>
+          <%= f.input :password, {
+            required: true,
+            label: 'Mot de passe',
+            placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+            }
+          %>
+          <%= f.input :password_confirmation, {
+            required: true,
+            label: 'Confirmation du mot de passe',
+            placeholder: 'Entrez-le de nouveau'
+            }
+          %>
+          <%= f.button :submit, 'Commencer', class: 'btn btn-primary btn-lg btn-block' %>
+        <% end %>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
   </div>
 </div>

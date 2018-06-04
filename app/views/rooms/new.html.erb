@@ -1,28 +1,32 @@
-<div class="row">
-  <div class="col-md-6 offset-md-3">
+<div class="form-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
 
-    <% if @rooms.present? %>
-      <%= link_to "Valider toutes mes pièces", housing_path(@housing), class: "btn btn-primary mt-2" %>
-    <% end %>
-
-    <% if @rooms.present? %>
-      <h3 class="form-subtitle align-center">Ajouter une nouvelle pièce</h3>
-    <% else %>
-      <h3 class="form-subtitle align-center">Ajouter une première pièce</h3>
-    <% end %>
-
-    <%= render 'form_room', housing: @housing, room: @room %>
-
-    <% if @rooms.present? %>
-      <h3> Pièces déjà ajoutées: </h3>
-      <ul class="list-unstyled">
-        <li>
-          <mark><%= @rooms.reverse.first.type_of_room %> - <%= @rooms.reverse.first.size %>m2</mark>
-        </li>
-        <% @rooms.reverse.drop(1).each do |room| %>
-          <li><%= room.type_of_room %> - <%= room.size %>m2</li>
+        <% if @rooms.present? %>
+          <%= link_to "Valider toutes mes pièces", housing_path(@housing), class: "btn btn-primary mt-2" %>
         <% end %>
-      </ul>
-    <% end %>
+
+        <% if @rooms.present? %>
+          <h3 class="form-subtitle align-center">Ajouter une nouvelle pièce</h3>
+        <% else %>
+          <h3 class="form-subtitle align-center">Ajouter une première pièce</h3>
+        <% end %>
+
+        <%= render 'form_room', housing: @housing, room: @room %>
+
+        <% if @rooms.present? %>
+          <h3> Pièces déjà ajoutées: </h3>
+          <ul class="list-unstyled">
+            <li>
+              <mark><%= @rooms.reverse.first.type_of_room %> - <%= @rooms.reverse.first.size %>m2</mark>
+            </li>
+            <% @rooms.reverse.drop(1).each do |room| %>
+              <li><%= room.type_of_room %> - <%= room.size %>m2</li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,58 +1,36 @@
-<div id="index_page" class="row">
-  <div class="col-md-8 offset-md-2">
-    <!-- Google Map -->
-    <div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>"></div>
+<div class="fullscreen fullscreen-img" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(44,44,44,0.2) 50%), url('https://res.cloudinary.com/bboulesteix/image/upload/v1528029627/housings-background_shrink.jpg')">
+	<div class="fullscreen-content">
+		<h1 class="fullscreen-title">Ma liste<br>de biens</h1>
+	</div>
+</div>
 
-    <!-- Housings lists -->
-    <h1>Ma liste de biens</h1>
-    <div>
-      <% @housings.each do |housing| %>
-        <% rental  = Rental.where(housing_id: housing.id).last %>
-        <% if rental.present? %>
-          <% renter  = Renter.where(rental_id: rental.id).last %>
-        <% end %>
+<div class="page-content">
+	<div class="container">
+	  <div id="index_page" class="row">
 
-        <div class="my-5">
-          <div class="card-housing">
-            <div class="card-location">
-              <div class="card-location-text">
-                <%= housing.street %> <br>
-                <%= housing.zip_code %>
-                <%= housing.city.upcase %>
-                <div class="card-date">
-                  <% if rental.present? && renter.present? %>
-                    Loué depuis le <%= rental.start_date %> à <%= renter.first_name %> <%= renter.last_name %>
-                  <% else %>
-                    Créé en <%= housing.created_at.strftime("%B, %Y") %>
-                  <% end %>
-                </div>
-                <%= link_to "Voir ce bien", housing_path(housing) %>
-              </div>
-              <div class="card-location-map">
-                <% markers = [{ lat: housing.latitude, lng: housing.longitude }] %>
-                <div id=<%= "map#{housing.id}" %> class="mini_map" style="width: 100%; height: 100%;" data-markers="<%= markers.to_json %>"></div>
-              </div>
-            </div>
-            <% if !rental.present? %>
-              <div class="card-rental">
-                <div class="card-rental-icon">
-                  <%= link_to new_housing_rental_path(housing) do %>
-                    <i class="fa fas fa-key key" ></i>
-                  <% end %>
-                </div>
-                <div class=card-rental-info>
-                  <strong>Louez votre appartement</strong><br>
-                  Votre appartement est inoccupé. Créez les documents pour le louer.
-                </div>
-              </div>
-            <% end %>
-            <div class="card-edit">
-              <%= link_to "Supprimer", root_path %> - <%= link_to "Editer", root_path %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <%= link_to "Ajouter un bien", new_housing_path, class: "btn btn-primary mt-2" %>
-  </div>
+			<!-- Sticky sidebar navigation -->
+			<div class="col-md-3">
+				<nav class="nav flex-column">
+				  <a class="nav-link" href="#"><h2>À louer</h2></a>
+				  <a class="nav-link" href="#"><h2>En location</a>
+				</nav>
+			</div>
+
+			<!-- Housings lists -->
+	    <div class="col-md-9">
+	      <div class="list-housing">
+					<% @housings.each do |housing| %>
+						<% rental = Rental.where(housing_id: housing.id).last %>
+						<% if rental.present? %>
+							<% renter = Renter.where(rental_id: rental.id).last %>
+						<% end %>
+						<%= render 'list_housings', housing: housing, renter: renter, rental: rental %>
+					<% end %>
+				</div>
+				<!-- Adds button to the bottom of the housing list -->
+	      <%= link_to "Ajouter un bien", new_housing_path, class: "btn btn-primary btn-lg" %>
+	    </div>
+
+	  </div>
+	</div>
 </div>
