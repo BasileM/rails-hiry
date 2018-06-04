@@ -27,7 +27,8 @@
 
         <!-- All receipts -->
         <section id="receipt-index">
-          <% @receipts.each do |receipt| %>
+          <% receipts_sorted = @receipts.sort_by &:date %>
+          <% receipts_sorted.reverse.each do |receipt| %>
             <div class="card-receipt">
               <div class="card-receipt-date">
                 <%= receipt.date.strftime("%B, %Y") %>
