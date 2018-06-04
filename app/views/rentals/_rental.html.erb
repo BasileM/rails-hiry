@@ -2,17 +2,17 @@
 <hr>
 <h2>1 - Désignation des parties</h2>
   <p>Le présent contrat est conclu entre les soussignés :</p>
-    <p><%= render 'owners.html.erb', rental: @owner %></p>
+    <p><%= render 'rentals/owners.html.erb', rental: @owner %></p>
     <p>Ci-après dénommé « le bailleur ».</p>
     <p>Et</p>
-    <p><%= render 'renters.html.erb', rental: @renter %></p>
+    <p><%= render 'rentals/renters.html.erb', rental: @renter %></p>
 
     <p>Ci-après dénommé « le locataire ».</p>
 <hr>
 <h2>2 - Objet du contrat</h2>
   <p>Le présent contrat a pour objet la location d’un logement ainsi déterminé :  </p>
   <h3>2 A - Consistance du logement </h3>
-    <p><%= render 'housings.html.erb', rental: @housing %></p>
+    <p><%= render 'rentals/housings.html.erb', rental: @housing %></p>
     <br>
     <p>Pièces du logement</p>
       <% @housing.rooms.each do |room| %>

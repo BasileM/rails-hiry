@@ -12,4 +12,10 @@ class Renter < ApplicationRecord
   validates :nationality,    presence: true
   validates :date_of_birth,  presence: true
   validates :marital_status, presence: true, inclusion: { in: MARITAL_STATS_TYPE }
+
+  def owner
+    @rental  = Rental.find(self.rental_id)
+    @housing = Housing.find(@rental.housing_id)
+    @owner   = User.find(@housing.user_id)
+  end
 end
