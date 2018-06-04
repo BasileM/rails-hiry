@@ -9,7 +9,6 @@ flatpickr(".datepicker", {
 
 hideFloorFieldIfHousingTypeIsHouse();
 
-
 if (document.getElementById("index_page")) {
  document.addEventListener("DOMContentLoaded", () => {
   const mini_maps = document.querySelectorAll(".mini_map");
