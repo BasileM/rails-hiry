@@ -7,6 +7,7 @@
         <!-- Rubrique location -->
         <h2><%= "Ma location" %></h2>
 
+
         <% if @rental.present? %>
           <%= link_to "Contrat de location", rental_path(@rental), class: "btn btn-primary" %>
           <%= link_to "Quittances", rental_receipts_path(@rental), class: "btn btn-primary" %>
