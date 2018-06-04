@@ -1,9 +1,11 @@
+<!-- Background image -->
 <div class="fullscreen fullscreen-img" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(44,44,44,0.2) 50%), url('https://res.cloudinary.com/bboulesteix/image/upload/v1528029627/housings-background_shrink.jpg')">
 	<div class="fullscreen-content">
 		<h1 class="fullscreen-title">Ma liste<br>de biens</h1>
 	</div>
 </div>
 
+<!-- Page container -->
 <div class="page-content">
 	<div class="container">
 	  <div id="index_page" class="row">
@@ -16,16 +18,18 @@
 				</nav>
 			</div>
 
-			<!-- Housings lists -->
+			<!-- Begin Housings lists -->
 	    <div class="col-md-9">
 
 	      <div class="list-housing">
+					<!-- Lists vacant housings first -->
 					<div class="vacant-housings-list">
 						<h2 id="vacant-housing" class="housings-list-title">À louer</h2>
 						<% @vacant_housings.each do |housing| %>
 							<%= render 'list_housings', housing: housing %>
 						<% end %>
 					</div>
+					<!-- Lists rented housings then -->
 					<div class="rented-housings-list">
 	          <h2 id="rented-housing" class="housings-list-title">En location</h2>
 						<% @rented_housings.each do |housing| %>
@@ -33,12 +37,11 @@
 							<% renter = Renter.where(rental_id: rental.id).last %>
 							<%= render 'list_housings', housing: housing, renter: renter, rental: rental %>
 						<% end %>
-					<div class="rented-housing">
+					</div>
 				</div>
 
-				<!-- Adds button to the bottom of the housing list -->
-	      <%= link_to "Ajouter un bien", new_housing_path, class: "btn btn-primary btn-lg" %>
 	    </div>
+			<!-- End housings list -->
 
 	  </div>
 	</div>
