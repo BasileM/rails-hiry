@@ -2,9 +2,9 @@ function onPlaceChanged() {
   var place = this.getPlace();
   var components = getAddressComponents(place);
 
-  var housingAddress = document.getElementById('housing_street');
-  housingAddress.blur();
-  housingAddress.value = components.street;
+  var address = document.getElementById('housing_street');
+  address.blur();
+  address.value = components.street;
 
   document.getElementById('housing_zip_code').value = components.zip_code;
   document.getElementById('housing_city').value = components.city;
@@ -58,12 +58,12 @@ function getAddressComponents(place) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  var housingAddress = document.getElementById('housing_street');
+  var address = document.getElementById('housing_street');
 
-  if (housingAddress) {
-    var autocomplete = new google.maps.places.Autocomplete(housingAddress, { types: ['geocode'] });
+  if (address) {
+    var autocomplete = new google.maps.places.Autocomplete(address, { types: ['geocode'] });
     google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
-    google.maps.event.addDomListener(housingAddress, 'keydown', function(e) {
+    google.maps.event.addDomListener(address, 'keydown', function(e) {
       if (e.key === "Enter") {
         e.preventDefault(); // Do not submit the form on Enter.
       }
