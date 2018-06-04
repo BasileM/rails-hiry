@@ -1,13 +1,17 @@
 .page-content {
-  margin: 9rem 0;
+  margin: 5rem 0;
 }
 
-div.list-housing {
-  div.item-housing:first-child {
-    margin-top: 0;
-    margin-bottom: 2rem;
+div.vacant-housings-list,
+div.rented-housings-list {
+  .item-housing {
+    margin-bottom: 3rem;
   }
-  div.item-housing {
-    margin-bottom: 2rem;
+  .item-housing:last-child {
+    margin-bottom: 5rem;
   }
+}
+
+.housings-list-title {
+  margin-bottom: 2rem;
 }

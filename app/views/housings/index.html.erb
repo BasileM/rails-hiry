@@ -10,23 +10,32 @@
 
 			<!-- Sticky sidebar navigation -->
 			<div class="col-md-3">
-				<nav class="nav flex-column">
-				  <a class="nav-link" href="#"><h2>À louer</h2></a>
-				  <a class="nav-link" href="#"><h2>En location</a>
+				<nav class="nav flex-column housing-nav">
+				  <a class="nav-link" href="#vacant-housing"><h4>À louer</h4></a>
+				  <a class="nav-link" href="#rented-housing"><h4>En location</h4></a>
 				</nav>
 			</div>
 
 			<!-- Housings lists -->
 	    <div class="col-md-9">
+
 	      <div class="list-housing">
-					<% @housings.each do |housing| %>
-						<% rental = Rental.where(housing_id: housing.id).last %>
-						<% if rental.present? %>
-							<% renter = Renter.where(rental_id: rental.id).last %>
+					<div class="vacant-housings-list">
+						<h2 id="vacant-housing" class="housings-list-title">À louer</h2>
+						<% @vacant_housings.each do |housing| %>
+							<%= render 'list_housings', housing: housing %>
 						<% end %>
-						<%= render 'list_housings', housing: housing, renter: renter, rental: rental %>
-					<% end %>
+					</div>
+					<div class="rented-housings-list">
+	          <h2 id="rented-housing" class="housings-list-title">En location</h2>
+						<% @rented_housings.each do |housing| %>
+							<% rental = Rental.where(housing_id: housing.id).last %>
+							<% renter = Renter.where(rental_id: rental.id).last %>
+							<%= render 'list_housings', housing: housing, renter: renter, rental: rental %>
+						<% end %>
+					<div class="rented-housing">
 				</div>
+
 				<!-- Adds button to the bottom of the housing list -->
 	      <%= link_to "Ajouter un bien", new_housing_path, class: "btn btn-primary btn-lg" %>
 	    </div>

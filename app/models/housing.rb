@@ -2,7 +2,6 @@ class Housing < ApplicationRecord
   TYPE_OF_HOUSING = ["Appartement", "Maison"]
   LEGAL_REGIME_TYPE = ["Mono propriété", "Copropriété"]
 
-
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :user
