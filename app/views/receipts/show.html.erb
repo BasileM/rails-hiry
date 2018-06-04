@@ -1,6 +1,6 @@
-<%= link_to "Retourner à mon tableau de bord", housing_path(@housing), type: "button", class: "btn btn-primary mt-2" %>
+<%= link_to "Retourner à mon tableau de bord", housing_path(@housing), class: "btn btn-primary mt-2" %>
 
-<%= link_to "Retourner à mes quittances", rental_receipts_path(@rental), type: "button", class: "btn btn-primary mt-2" %>
+<%= link_to "Retourner à mes quittances", rental_receipts_path(@rental), class: "btn btn-primary mt-2" %>
 <hr>
 
 <div>
@@ -17,7 +17,7 @@
 
   <br>
   <div class="text-justify">
-    Je soussigné <%= @user.email %> propriétaire du logement désigné ci-dessus, déclare avoir reçu de <%= @renter.first_name %> <%= @renter.last_name %>, la somme de <%= @receipt.monthly_invoice %>, au titre du paiement du loyer et des charges pour la période de location de <%= @receipt.date.strftime("%B, %Y") %> et lui en donne quittance, sous réserve de tous mes droits.
+    Je soussigné <%= @user.gender %><%= @user.first_name %><%= @user.last_name %> propriétaire du logement désigné ci-dessus, déclare avoir reçu de <%= @renter.gender %><%= @renter.first_name %> <%= @renter.last_name %>, la somme de <%= @receipt.monthly_invoice %>, au titre du paiement du loyer et des charges pour la période de location de <%= @receipt.date.strftime("%B, %Y") %> et lui en donne quittance, sous réserve de tous mes droits.
   </div>
 
   <br>
@@ -27,6 +27,16 @@
   </div>
 
   <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <hr>
+
+
   <div>
     <small>Cette quittance annule tous les reçus qui auraient pu être établis précédemment en cas de paiement partiel du montant du présent terme. Elle est à conserver pendant trois ans par le locataire (article 7-1 de la loi n° 89-462 du 6 juillet 1989)</small>
   </div>

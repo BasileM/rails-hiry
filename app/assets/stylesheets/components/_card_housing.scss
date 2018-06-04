@@ -1,0 +1,57 @@
+.card-housing {
+  border: 1px solid $gray;
+  position: relative;
+}
+
+.card-location {
+  position: relative;
+  height: 167px;
+  margin-top: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.card-location-text {
+  font-size: 32px;
+}
+
+.card-date {
+  font-size: 10px;
+  padding-top: 25px;
+}
+
+.card-rental {
+  display: flex;
+  border-top: 1px solid $gray;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.card-rental-info {
+  font-size: 15px;
+}
+
+.card-location-map {
+  position: absolute;
+  width: 250px;
+  height: 150px;
+  right: 0;
+  top: 0;
+}
+
+.card-rental-icon {
+  width: 100px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.card-edit {
+  padding-left: 15px;
+  padding-top: 5px;
+  padding-bottom: 7px;
+  border-top: 1px solid $gray;
+}
+
+.key {
+  color: $green;
+}

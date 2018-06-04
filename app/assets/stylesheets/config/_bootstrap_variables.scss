@@ -16,7 +16,9 @@ $font-weight-bold:        700 !default;
 $font-weight-black:       900 !default;
 
 // ## Font, line-height, and color for body text, headings, and more.
-$font-size-base: 1.125rem !default; // 18px
+$font-size-base: 1rem !default; // 16px (1 rem = 16px)
+$font-size-lg:   ($font-size-base * 1.25) !default; // 18px
+$font-size-sm:   ($font-size-base * .875) !default; // 14px
 $h1-font-size:   2.531em !default;  // 40.5px
 $h2-font-size:   2.25em !default;   // 36px
 $h3-font-size:   1.688em !default;  // 27px
@@ -25,7 +27,9 @@ $h5-font-size:   0.667em !default;  // 12px
 $h6-font-size:   0.5em !default;    // 8px
 
 //** Unit-less `line-height` for use in components like buttons.
-$line-height-base: 1.35 !default; // 24,3/18px
+$line-height-base: 1.35 !default; // 21,6/16px
+$line-height-lg:   1.5 !default;
+$line-height-sm:   1.5 !default;
 
 //== Colors
 $primary:       $green !default;
@@ -37,7 +41,7 @@ $danger:        $red !default;
 $light:         $light-gray !default;
 $dark:          $black !default;
 
-// Links
+//== Links
 //
 // Style anchor elements.
 $link-color:                $blue !default;
@@ -51,7 +55,7 @@ $link-hover-decoration:     underline !default;
 // You can add more entries to the $spacers map, should you need more variation.
 
 // ## Stylelint-disable
-$spacer: 1.125rem !default;
+$spacer: 1rem !default;
 $spacers: () !default;
 $spacers: map-merge((
   0: 0,
@@ -67,15 +71,44 @@ $spacers: map-merge((
 //** `<input>` background color
 $input-bg:                       #fff !default;
 //** `<input disabled>` background color
-$input-bg-disabled:              $light-gray !default;
+$input-bg-disabled:           $light-gray !default;
 //** Text color for `<input>`s
-$input-color:                    $black !default;
+$input-color:                 $black !default;
 //** `<input>` border color
-$input-border:                   $gray !default;
+$input-border:                $gray !default;
 //** Placeholder text color
-$input-color-placeholder:        $gray !default;
+$input-color-placeholder:     $gray !default;
 
 //== Buttons
 //
 // ** Font-weight for input field
 $btn-font-weight:     $font-weight-normal !default;
+// ** Border radius for elements
+$border-radius:               0 !default;
+$border-radius-lg:            0 !default;
+$border-radius-sm:            0 !default;
+// ** Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+$input-btn-padding-y:         1rem !default;
+$input-btn-padding-x:         1rem !default;
+$input-btn-line-height:       $line-height-base !default;
+
+$input-btn-padding-y-sm:      .75rem !default;
+$input-btn-padding-x-sm:      .75rem !default;
+$input-btn-line-height-sm:    $line-height-sm !default;
+
+$input-btn-padding-y-lg:      1.25rem !default;
+$input-btn-padding-x-lg:      1.25rem !default;
+$input-btn-line-height-lg:    $line-height-lg !default;
+
+// ** For each of Bootstrap's buttons, define text, background, and border color.
+$btn-padding-y:               .75rem !default;
+$btn-padding-x:               3rem !default;
+$btn-line-height:             $line-height-base !default;
+
+$btn-padding-y-sm:            .50rem !default;
+$btn-padding-x-sm:            2rem !default;
+$btn-line-height-sm:          $line-height-sm !default;
+
+$btn-padding-y-lg:            1rem !default;
+$btn-padding-x-lg:            4rem !default;
+$btn-line-height-lg:          $line-height-lg !default;

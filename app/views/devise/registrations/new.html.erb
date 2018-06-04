@@ -1,20 +1,59 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
-    <%= f.input :first_name, required: true %>
-    <%= f.input :last_name, required: true %>
-    <%= f.input :date_of_birth, required: true %>
+<div class="form-page">
+  <h3 class="form-title align-center">
+    Bienvenue sur Hiry.</br>
+    Nous sommes heureux de vous voir.
+  </h3>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+        
+        <%= f.input :first_name, {
+          label: 'Prénom',
+          placeholder: 'jean-michel',
+          required: true,
+          autofocus: true
+          }
+        %>
+      
+        <%= f.input :last_name, {
+          label: 'Nom',
+          placeholder: 'Pignon',
+          required: true,
+          autofocus: true
+          }
+        %>
+      
+         <%= f.input :date_of_birth, {
+          label: 'Date de naissance"',
+          placeholder: '11/03/1983',
+          required: true,
+          autofocus: true
+          }
+        %>
+      
+        <%= f.input :email, {
+          label: 'E-mail',
+          placeholder: 'jean-michel.pignon@gmail.com',
+          required: true,
+          autofocus: true
+          }
+        %>
+        <%= f.input :password, {
+          required: true,
+          label: 'Mot de passe',
+          placeholder: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+          }
+        %>
+        <%= f.input :password_confirmation, {
+          required: true,
+          label: 'Confirmation du mot de passe',
+          placeholder: 'Entrez-le de nouveau'
+          }
+        %>
+        <%= f.button :submit, 'Commencer', class: 'btn btn-primary btn-lg btn-block' %>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up", class: "btn btn-primary mt-2" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

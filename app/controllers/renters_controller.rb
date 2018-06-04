@@ -7,12 +7,11 @@ class RentersController < ApplicationController
   end
 
   def create
-    @rental = Rental.find(params[:rental_id])
-    @renter = Renter.new(rental_params)
-    @renter.rental = @rental
+    @renter = Renter.new(renter_params)
+    @renter.rental = Rental.find(params[:rental_id])
     authorize @renter
     if @renter.save!
-      redirect_to housing_path(@rental.housing), notice: 'Renter was successfully created.'
+      redirect_to rental_path(@renter.rental), notice: 'Renter was successfully created.'
     else
       render :new
     end
@@ -21,8 +20,9 @@ class RentersController < ApplicationController
 
   private
 
-  def rental_params
+  def renter_params
     params.require(:renter).permit(
+      :gender,
       :first_name,
       :last_name,
       :phone_number,

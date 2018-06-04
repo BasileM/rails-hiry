@@ -22,6 +22,7 @@ class RentalsController < ApplicationController
     @rental = Rental.find(params[:id])
     @housing = Housing.find(@rental.housing_id)
     @owner = current_user
+    @renter = @rental.renter
     authorize @rental
   end
 

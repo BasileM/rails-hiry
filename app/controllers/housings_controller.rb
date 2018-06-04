@@ -3,10 +3,10 @@ class HousingsController < ApplicationController
 
   def index
     @housings = policy_scope(Housing)
-    @housings = Housing.all
+    @housings = current_user.housings
 
     # Geocoding
-    @housings = Housing.where.not(latitude: nil, longitude: nil)
+    @housings = @housings.where.not(latitude: nil, longitude: nil)
     @markers = @housings.map do |house|
       {
         lat: house.latitude,
@@ -22,11 +22,6 @@ class HousingsController < ApplicationController
 
     @rentals = @housing.rentals
     @rental = @rentals.last
-    #précédente version conservée par sécurité
-    #@rentals = Rental.all
-    #@rental  = @rentals.last
-
-    #change to display only rental where housing_id == housing.id
   end
 
   def new
@@ -36,8 +31,9 @@ class HousingsController < ApplicationController
 
   def create
     @housing = Housing.new(housing_params)
-    @housing.user = current_user #need a user to save the housing.
+    @housing.user = current_user # Need a user to save the housing
     authorize @housing
+
     if @housing.save
       redirect_to new_housing_room_path(@housing), notice: 'Votre bien est créé.'
     else
@@ -48,7 +44,7 @@ class HousingsController < ApplicationController
   private
 
   def set_housing
-    @housing = Housing.find(params[:id])
+    @housing = current_user.housings.find(params[:id])
   end
 
   def housing_params

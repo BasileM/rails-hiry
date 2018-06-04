@@ -16,7 +16,7 @@ class RoomsController < ApplicationController
     @room.housing = Housing.find(params[:housing_id])
     authorize @room
     if @room.save
-      redirect_to new_housing_room_path(@room.housing), notice: 'Votre pièce est ajoutée.'
+      redirect_to new_housing_room_path(@room.housing)
     else
       render :new
     end

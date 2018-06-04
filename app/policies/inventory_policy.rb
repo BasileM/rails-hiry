@@ -18,7 +18,7 @@ class InventoryPolicy < ApplicationPolicy
   end
 
   def index
-    record.user == user
+    record.housing.user == user
   end
 end
 
