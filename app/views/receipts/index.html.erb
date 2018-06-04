@@ -19,7 +19,7 @@
                 Montant total: <%= receipt.monthly_invoice %>€
               </div>
               <div class="card-receipt-edit">
-                <%= link_to receipt_path(receipt) do %>
+                <%= link_to receipt_path(receipt, :format => :pdf) do %>
                   <i class="fa fas fa-eye"></i>
                 <% end %>
               </div>
