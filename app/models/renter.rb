@@ -2,6 +2,9 @@ class Renter < ApplicationRecord
   GENDER_TYPE = ["Monsieur", "Madame"]
   MARITAL_STATS_TYPE = ["Célibataire", "Marié", "Divorcé"]
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   belongs_to :rental
 
   validates :gender,         presence: true, inclusion: { in: GENDER_TYPE }
@@ -17,5 +20,15 @@ class Renter < ApplicationRecord
     @rental  = Rental.find(self.rental_id)
     @housing = Housing.find(@rental.housing_id)
     @owner   = User.find(@housing.user_id)
+  end
+
+  def address
+    return "#{street}, #{zip_code} #{city}"
+  end
+
+  private
+
+  def will_save_change_to_address?
+    will_save_change_to_street? || will_save_change_to_zip_code? || will_save_change_to_city?
   end
 end

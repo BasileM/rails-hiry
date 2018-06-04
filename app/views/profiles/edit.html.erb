@@ -3,15 +3,17 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <h3 class="form-title align-center">Complétez vos informations</h3>
-        <%= simple_form_for(current_user, url: profile_path, html: { method: :patch }) do |f| %>
+        <%= simple_form_for(current_user, url: profile_path, html: { method: :patch, autocomplete: 'on' } ) do |f| %>
           <%= f.error_notification %>
 
           <div class="form-inputs">
-            <%= f.input :street, label: 'Votre adresse personnelle', required: true, autofocus: true %>
-            <%= f.input :zip_code, label: 'Code postale', required: true %>
-            <%= f.input :city, label: 'Ville', required: true %>
-            <%= f.input :phone_number, label: 'Numéro de téléphone', required: true %>
-            <%= f.input :nationality, label: 'Nationalité', required: true %>
+            <%= f.input :street, label: 'Votre adresse personnelle', placeholder: '26 rue du Dragon' %>
+            <div class="form-row">
+              <%= f.input :zip_code, label: 'Code postal', placeholder: '75006', wrapper_html: { class: 'col' } %>
+              <%= f.input :city, label: 'Ville', placeholder: 'Paris', wrapper_html: { class: 'col' } %>
+            </div>
+            <%= f.input :phone_number, label: 'Numéro de téléphone' %>
+            <%= f.input :nationality, label: 'Nationalité' %>
           </div>
 
           <div class="form-actions">
