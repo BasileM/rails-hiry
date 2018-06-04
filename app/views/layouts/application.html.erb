@@ -28,7 +28,9 @@
       <%= javascript_pack_tag 'application' %>
     </main>
     <footer>
-      <%= render 'shared/footer' %>
+      <% if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'%>
+        <%= render 'shared/footer' %>
+      <% end %>
     </footer>
   </body>
 </html>
