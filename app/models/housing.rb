@@ -6,6 +6,7 @@ class Housing < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :user
   has_many :rooms
+  has_many :images, through: :rooms
   has_many :rentals
   has_many :renters, through: :rentals
   has_many :inventories, through: :rentals
