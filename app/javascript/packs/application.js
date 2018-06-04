@@ -1,11 +1,7 @@
 import "bootstrap";
-import "../plugins/flatpickr"
+import "../plugins/flatpickr" ;
 import { hideFloorFieldIfHousingTypeIsHouse } from '../components/housing';
 import { update_map } from '../packs/map';
-
-flatpickr(".datepicker", {
-
-});
 
 hideFloorFieldIfHousingTypeIsHouse();
 
