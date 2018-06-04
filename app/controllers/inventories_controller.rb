@@ -15,6 +15,11 @@ class InventoriesController < ApplicationController
     @owner = current_user
     @renter = @rental.renter
     policy_scope @rental.inventories
+    respond_to do |format|
+    format.html
+    format.pdf  {render :pdf => "inventories/index.pdf.erb",
+                        :template => 'inventories/index.pdf.erb', formats: :html, encoding: 'utf8'}
+    end
   end
 
 

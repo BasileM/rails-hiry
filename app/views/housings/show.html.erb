@@ -7,18 +7,19 @@
         <!-- Rubrique location -->
         <h2><%= "Ma location" %></h2>
 
+
         <% if @rental.present? %>
-          <%= link_to "Contrat de location", rental_path(@rental), class: "btn btn-primary mt-2" %>
-          <%= link_to "Quittances", rental_receipts_path(@rental), class: "btn btn-primary mt-2" %>
-           <% if @housing.inventories.present? %>
-            <%= link_to "Etat des lieux", rental_inventories_path(@rental), class: "btn btn-primary mt-2" %>
-           <% else %>
-             <%= link_to "Etablir l'état des lieux", new_rental_inventory_path(@rental), class: "btn btn-primary mt-2" %>
-            <% end %>
+        <%= link_to 'Contrat de location', rental_path(@rental, :format => :pdf), class: "btn btn-primary mt-2" %>
+        <%= link_to "Quittances", rental_receipts_path(@rental), class: "btn btn-primary mt-2" %>
+         <% if @housing.inventories.present? %>
+          <%= link_to 'Etat des lieux', rental_inventories_path(@rental, :format => :pdf), class: "btn btn-primary mt-2" %>
          <% else %>
-           <%= link_to "Ajouter une nouvelle location", new_housing_rental_path(@housing), class: "btn btn-primary mt-2" %>
-         <% end %>
-         <hr>
+           <%= link_to "Etablir l'état des lieux", new_rental_inventory_path(@rental), class: "btn btn-primary mt-2" %>
+          <% end %>
+        <% else %>
+         <%= link_to "Ajouter une nouvelle location", new_housing_rental_path(@housing), class: "btn btn-primary mt-2" %>
+        <% end %>
+        <hr>
 
         <!-- Rubrique fiche de bien -->
         <h2>Ma fiche de bien</h2>
