@@ -1,18 +1,18 @@
 .item-housing {
   border: 1px solid $gray;
   width: 100%;
+}
+
+// Top part of the card
+.card-housing {
+  text-transform: none;
+  text-decoration: none;
   a {
     color: $dark !important;
   }
   a:hover {
     color: $dark !important;
   }
-}
-
-// Top part of the card
-.card-link {
-  text-transform: none;
-  text-decoration: none;
 }
 
 // Main flex contaiener for location part
@@ -58,17 +58,6 @@
 }
 
 // Call to action part
-.card-rental-link {
-  text-decoration: none;
-  text-transform: none;
-  a {
-    color: $dark;
-  }
-  a:hover {
-    color: $dark;
-  }
-}
-
 .card-rental {
   border-top: 1px solid $gray;
   padding: 1rem 0;
@@ -77,6 +66,20 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
+  &:hover {
+    background-color: $light-gray;
+  }
+}
+
+.card-rental-link {
+  a {
+    color: $dark;
+    text-decoration: none;
+  }
+  a:hover {
+    color: $dark;
+    text-decoration: none;
+  }
 }
 
 .card-rental-info p {
@@ -102,4 +105,10 @@
 
 .card-edit-links {
   margin: 1rem .5rem;
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+  text-decoration: underline;
+  }
 }
