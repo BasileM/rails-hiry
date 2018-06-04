@@ -1,26 +1,32 @@
-<h1>Mes quittances</h1>
-<p><%= @housing.street %> - <%= @renter.gender %> <%= @renter.first_name %> <%= @renter.last_name %><p>
-<p><%= link_to "Contrat de location", rental_path(@rental) %> daté du <%= @rental.start_date %></p>
+<div class="page-content">
+	<div class="container">
+	  <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h1>Mes quittances</h1>
+        <p><%= @housing.street %> - <%= @renter.gender %> <%= @renter.first_name %> <%= @renter.last_name %><p>
+        <p><%= link_to "Contrat de location", rental_path(@rental) %> daté du <%= @rental.start_date %></p>
 
+        <%= link_to "Créer une quittance", new_rental_receipt_path(@rental), class: "btn btn-primary btn-lg" %>
+        <%= link_to "Retourner à mon dashbaord", housing_path(@housing), class: "btn btn-primary btn-lg" %>
 
-<%= link_to "Créer une quittance", new_rental_receipt_path(@rental), class: "btn btn-primary mt-2" %>
-<%= link_to "Retourner à mon dashbaord", housing_path(@housing), class: "btn btn-primary mt-2" %>
-
-<section id="receipt-index">
-  <% @receipts.each do |receipt| %>
-    <div class="card-receipt">
-      <div class="card-receipt-date">
-        <%= receipt.date.strftime("%B, %Y") %>
-      </div>
-      <div class="card-receipt-info">
-        Montant total: <%= receipt.monthly_invoice %>€
-      </div>
-      <div class="card-receipt-edit">
-        <%= link_to receipt_path(receipt) do %>
-          <i class="fa fas fa-eye"></i>
-        <% end %>
+        <section id="receipt-index">
+          <% @receipts.each do |receipt| %>
+            <div class="card-receipt">
+              <div class="card-receipt-date">
+                <%= receipt.date.strftime("%B, %Y") %>
+              </div>
+              <div class="card-receipt-info">
+                Montant total: <%= receipt.monthly_invoice %>€
+              </div>
+              <div class="card-receipt-edit">
+                <%= link_to receipt_path(receipt) do %>
+                  <i class="fa fas fa-eye"></i>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </section>
       </div>
     </div>
-  <% end %>
-</section>
-
+  </div>
+</div>

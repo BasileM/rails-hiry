@@ -1,6 +1,13 @@
-<%= link_to "Retourner à mon tableau de bord", housing_path(@housing), class: "btn btn-primary mt-2" %>
-<%= link_to "Retourner à mes quittances", rental_receipts_path(@rental), class: "btn btn-primary mt-2" %>
-<%= link_to 'Version PDF', receipt_path(@receipt, :format => :pdf), class: "btn btn-primary mt-2" %>
-<hr>
-
-<%= render 'receipt' %>
+<div class="page-content">
+	<div class="container">
+	  <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <%= link_to "Retourner à mon tableau de bord", housing_path(@housing), class: "btn btn-primary mt-2" %>
+        <%= link_to "Retourner à mes quittances", rental_receipts_path(@rental), class: "btn btn-primary mt-2" %>
+        <%= link_to 'Version PDF', receipt_path(@receipt, :format => :pdf), class: "btn btn-primary mt-2" %>
+        <hr>
+        <%= render 'receipt' %>
+      </div>
+    </div>
+  </div>
+</div>
