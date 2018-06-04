@@ -1,12 +1,20 @@
+<!-- Background image -->
+<% if @image %>
+  <div class="fullscreen fullscreen-img" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(44,44,44,0.8) 50%), url('<%= cl_image_path @image.photo, height: 700, width: 1440, crop: :fill %>')">
+  	<div class="fullscreen-content">
+  		<h1 class="fullscreen-title white-title"><%= @housing.street %></h1>
+  	</div>
+  </div>
+<% end %>
+
+<!-- Container -->
 <div class="page-content">
   <div class="container">
     <div class="row">
       <div class="col-md-8 offset-md-2">
-        <h1><%= @housing.street %></h1>
 
         <!-- Rubrique location -->
         <h2><%= "Ma location" %></h2>
-
 
         <% if @rental.present? %>
           <%= link_to 'Contrat de location', rental_path(@rental, :format => :pdf), class: "btn btn-primary" %>

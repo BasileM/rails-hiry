@@ -7,7 +7,9 @@ class RoomsController < ApplicationController
   def new
     @housing = Housing.find(params[:housing_id])
     @room = Room.new
+    @room.images.new # for photo upload
     authorize @room
+
     @rooms = Room.where(housing_id: @housing.id)
   end
 
@@ -25,6 +27,6 @@ class RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:type_of_room, :size, :state, :observations)
+    params.require(:room).permit(:type_of_room, :size, :state, :observations, images_attributes: [:photo])
   end
 end

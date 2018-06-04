@@ -22,6 +22,7 @@ class HousingsController < ApplicationController
 
     @rentals = @housing.rentals
     @rental = @rentals.last
+    @image = @housing.images.first
   end
 
   def new
