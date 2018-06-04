@@ -5,23 +5,45 @@
 // @import "map";
 // @import "background-effect";
 
+// .home-landing {
+//   display: grid;
+//   grid-template-rows: 80% 20% ;
+//   grid-template-columns: 600px fr;
+//   // height: calc(100vh - 300px);
+//   padding: 10px 0;
+// }
+
+// .main {
+//   grid-row: 1 / span 3;
+//   grid-columns: 1 / span 1;
+// }
+
+// .description {
+//   grid-row: 1 / span 1;
+//   grid-column: 2;
+// }
+
+// .button {
+//   grid-row: 2 / span 1;
+//   grid-column: 2;
+// }
+
 .home-landing {
-  display: grid;
-  grid-template-rows: 80% 20% ;
-  grid-template-columns: 600px fr;
-}
-
-.main {
-  grid-row: 1 / span 3;
-  grid-columns: 1 / span 1;
-}
-
-.description {
-  grid-row: 1 / span 1;
-  grid-column: 2;
-}
-
-.button {
-  grid-row: 2 / span 1;
-  grid-column: 2;
+  display: flex;
+  align-items: stretch;
+  margin-left: -20px;
+  padding-top: 20px;
+  .main {
+    flex: 0 0 auto;
+  }
+  .description {
+    flex: 0 0 400px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .button {
+      margin-top: 20px;
+    }
+  }
 }
