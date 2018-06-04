@@ -58,14 +58,28 @@
   border: 1px solid $gray;
 }
 
-/* Navbar link */
-.navbar-link {
-  color: $black;
+/* Change navbar link color depending on action type */
+.edit a,
+.new a,
+.create a,
+.navbar-dark a {
+  color: $black !important;
   font-size: $font-size-base;
+  &:hover {
+    color: $black-alt !important;
+    text-decoration: underline;
+  }
 }
-.navbar-link:hover {
-  color: $black-alt;
-  text-decoration: underline;
+
+.index a,
+.show a,
+.navbar-white a {
+  color: $white;
+  font-size: $font-size-base;
+  &:hover {
+    color: $white;
+    text-decoration: underline;
+  }
 }
 
 /* Basic navbar item */

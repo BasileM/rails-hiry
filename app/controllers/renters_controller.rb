@@ -11,6 +11,7 @@ class RentersController < ApplicationController
     @renter.rental = Rental.find(params[:rental_id])
     authorize @renter
     if @renter.save!
+      UserMailer.contract(@renter).deliver_now
       redirect_to rental_path(@renter.rental), notice: 'Renter was successfully created.'
     else
       render :new

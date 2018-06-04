@@ -1,44 +1,13 @@
-<%= link_to "Retourner à mon tableau de bord", housing_path(@housing), class: "btn btn-primary mt-2" %>
-
-<%= link_to "Retourner à mes quittances", rental_receipts_path(@rental), class: "btn btn-primary mt-2" %>
-<hr>
-
-<div>
-  <div class="text-center full-width-green">
-    <strong>QUITTANCE DE LOYER</strong>
-  </div>
-
-  <p>Quittance de loyer pour le mois de <%= @receipt.date.strftime("%B, %Y") %></p>
-
-  <div class="black-border">
-    <strong><u>Adresse de location</u></strong> <br>
-    <%= @housing.street %>, <%= @housing.zip_code %>, <%= @housing.city %>
-  </div>
-
-  <br>
-  <div class="text-justify">
-    Je soussigné <%= @user.gender %><%= @user.first_name %><%= @user.last_name %> propriétaire du logement désigné ci-dessus, déclare avoir reçu de <%= @renter.gender %><%= @renter.first_name %> <%= @renter.last_name %>, la somme de <%= @receipt.monthly_invoice %>, au titre du paiement du loyer et des charges pour la période de location de <%= @receipt.date.strftime("%B, %Y") %> et lui en donne quittance, sous réserve de tous mes droits.
-  </div>
-
-  <br>
-  <div class="black-border">
-    <strong><u>Réglement</u></strong> <br>
-    Loyer de <%= @receipt.date.strftime("%B, %Y") %>: <%= @receipt.monthly_invoice %>€
-  </div>
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <hr>
-
-
-  <div>
-    <small>Cette quittance annule tous les reçus qui auraient pu être établis précédemment en cas de paiement partiel du montant du présent terme. Elle est à conserver pendant trois ans par le locataire (article 7-1 de la loi n° 89-462 du 6 juillet 1989)</small>
+<div class="page-content">
+	<div class="container">
+	  <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <%= link_to "Retourner à mon tableau de bord", housing_path(@housing), class: "btn btn-primary mt-2" %>
+        <%= link_to "Retourner à mes quittances", rental_receipts_path(@rental), class: "btn btn-primary mt-2" %>
+        <%= link_to 'Version PDF', receipt_path(@receipt, :format => :pdf), class: "btn btn-primary mt-2" %>
+        <hr>
+        <%= render 'receipt' %>
+      </div>
+    </div>
   </div>
 </div>
-
