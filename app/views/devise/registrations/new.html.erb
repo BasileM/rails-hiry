@@ -8,6 +8,27 @@
       <div class="col-md-4 offset-md-4">
         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
           <%= f.error_notification %>
+          <%= f.input :first_name, {
+            label: 'Prénom',
+            placeholder: 'Jean-Michel',
+            required: true,
+            autofocus: true
+            }
+          %>
+          <%= f.input :last_name, {
+            label: 'Nom',
+            placeholder: 'Pignon',
+            required: true,
+            autofocus: true
+            }
+          %>
+          <%= f.input :date_of_birth, {
+            label: 'Date de naissance',
+            placeholder: '11/03/1983',
+            required: true,
+            autofocus: true
+            }
+          %>
           <%= f.input :email, {
             label: 'E-mail',
             placeholder: 'jean-michel.pignon@gmail.com',
