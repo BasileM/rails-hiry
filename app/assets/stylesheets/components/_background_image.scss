@@ -10,6 +10,7 @@
 }
 
 .fullscreen-img {
+  width: 100%;
   background-repeat: no-repeat;
   background-position: 50%;
   background-size: cover;
@@ -25,4 +26,5 @@
   line-height: 5.1rem;
   text-transform: uppercase;
   font-weight: $font-weight-bold;
+  color: $white;
 }

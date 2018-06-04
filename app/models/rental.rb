@@ -10,4 +10,6 @@ class Rental < ApplicationRecord
   validates :monthly_expenses, presence: true, numericality: { only_integer: true, greater_than: 1,  less_than: 1_000_000 }
 
   accepts_nested_attributes_for :inventories
+  # Carrierwave gem
+  mount_uploader :file, FileUploader
 end
