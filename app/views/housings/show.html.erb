@@ -9,10 +9,10 @@
 
 
         <% if @rental.present? %>
-          <%= link_to "Contrat de location", rental_path(@rental), class: "btn btn-primary" %>
+          <%= link_to 'Contrat de location', rental_path(@rental, :format => :pdf), class: "btn btn-primary" %>
           <%= link_to "Quittances", rental_receipts_path(@rental), class: "btn btn-primary" %>
            <% if @housing.inventories.present? %>
-            <%= link_to "Etat des lieux", rental_inventories_path(@rental), class: "btn btn-primary" %>
+            <%= link_to 'Etat des lieux',  rental_inventories_path(@rental, :format => :pdf), class: "btn btn-primary" %>
            <% else %>
              <%= link_to "Etablir l'état des lieux", new_rental_inventory_path(@rental), class: "btn btn-primary" %>
             <% end %>
