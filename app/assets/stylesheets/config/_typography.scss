@@ -12,6 +12,12 @@ h1 {
   font-size: $h1-font-size;
 }
 
+h1.market_title {
+    text-transform: uppercase;
+    text-align: left;
+    color: white;
+}
+
 h2 {
   font-size: $h2-font-size;
 }
@@ -28,7 +34,13 @@ h5 {
   font-size: $h5-font-size;
 }
 
-p,
+p.market_p {
+  text-align: left;
+  color: #d9fcff;
+
+}
+
+
 a,
 li,
 body {

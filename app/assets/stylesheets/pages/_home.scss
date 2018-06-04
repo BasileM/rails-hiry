@@ -1,1 +1,12 @@
 // Specific CSS for your home-page
+.main-container {
+  display: flex;
+  top: 20px;
+  justify-content: space-evenly;
+}
+
+.market-container {
+  display: flex;
+  top: 20px;
+  justify-content: right;
+}

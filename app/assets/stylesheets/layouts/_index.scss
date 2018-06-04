@@ -3,3 +3,25 @@
 // @import "dashboard";
 // @import "profile";
 // @import "map";
+// @import "background-effect";
+
+.home-landing {
+  display: grid;
+  grid-template-rows: 80% 20% ;
+  grid-template-columns: 600px fr;
+}
+
+.main {
+  grid-row: 1 / span 3;
+  grid-columns: 1 / span 1;
+}
+
+.description {
+  grid-row: 1 / span 1;
+  grid-column: 2;
+}
+
+.button {
+  grid-row: 2 / span 1;
+  grid-column: 2;
+}
