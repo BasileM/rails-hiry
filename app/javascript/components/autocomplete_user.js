@@ -1,16 +1,16 @@
-function onPlaceChanged() {
+function onUserChanged() {
   var place = this.getPlace();
   var components = getAddressComponents(place);
 
-  var address = document.getElementById('housing_street');
+  var address = document.getElementById('user_street');
   address.blur();
   address.value = components.street;
 
-  document.getElementById('housing_zip_code').value = components.zip_code;
-  document.getElementById('housing_city').value = components.city;
+  document.getElementById('user_zip_code').value = components.zip_code;
+  document.getElementById('user_city').value = components.city;
 
   if (components.country_code) {
-    var selector = '#housing_country option[value="' + components.country_code + '"]';
+    var selector = '#user_country option[value="' + components.country_code + '"]';
     document.querySelector(selector).selected = true;
   }
 }
@@ -58,11 +58,11 @@ function getAddressComponents(place) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-  var address = document.getElementById('housing_street');
+  var address = document.getElementById('user_street');
 
   if (address) {
     var autocomplete = new google.maps.places.Autocomplete(address, { types: ['geocode'] });
-    google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+    google.maps.event.addListener(autocomplete, 'place_changed', onUserChanged);
     google.maps.event.addDomListener(address, 'keydown', function(e) {
       if (e.key === "Enter") {
         e.preventDefault(); // Do not submit the form on Enter.
@@ -71,4 +71,4 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-export { onPlaceChanged };
+export { onUserChanged };

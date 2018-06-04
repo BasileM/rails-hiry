@@ -1,6 +1,8 @@
 // app/javascript/packs/map.js
 import GMaps from 'gmaps/gmaps.js';
-import { onPlaceChanged } from '../components/autocomplete';
+import { onHousingChanged } from '../components/autocomplete_housing';
+import { onRenterChanged } from '../components/autocomplete_renter';
+import { onUserChanged } from '../components/autocomplete_user';
 
 function update_map (map_id) {
   const mapElement = document.getElementById(map_id);
