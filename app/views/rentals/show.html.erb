@@ -1,5 +1,5 @@
+<%= link_to "Tableau de bord", housing_path(@housing), class: "btn btn-primary mt-2" %>
+<%= link_to 'Version PDF', rental_path(@rental, :format => :pdf), class: "btn btn-primary mt-2" %>
+<hr>
+
 <%= render 'rental' %>
-
-<%= link_to "Retourner à mon tableau de bord", housing_path(@housing), class: "btn btn-primary mt-2" %>
-
-<%= link_to 'Create PDF', rental_path(@rental, :format => :pdf) %>
