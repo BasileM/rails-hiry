@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   end
   resources :receipts, only: [:show]
   resources :rooms, only: [:edit, :update]
+  get 'profile/edit', to: 'profiles#edit'
+  patch 'profile', to: 'profiles#update'
 end
