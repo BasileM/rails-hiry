@@ -30,6 +30,11 @@ class ReceiptsController < ApplicationController
     user_id    = @housing.user_id
     @user      = User.find(user_id)
     authorize @receipt
+    respond_to do |format|
+    format.html
+    format.pdf  {render :pdf => "receipts/show.pdf.erb",
+                        :template => 'receipts/show.pdf.erb', formats: :html, encoding: 'utf8'}
+    end
   end
 
   def create
