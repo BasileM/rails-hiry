@@ -33,48 +33,49 @@
           <!-- Inf on rental -->
           <div class="vacant-housings-list">
             <h2 id="vacant-housing" class="housings-list-title">Ma location</h2>
-              <div class="rental-info-cards">
-                <% if @rental.present? %>
-                  <div class="rental-info-card">
-                    <div class="rental-info-card-title">
-                      <%= link_to 'Contrat de location ', rental_path(@rental, :format => :pdf) %>
-                    </div>
-                    <div class="rental-info-card-description">
-                      Description
-                    </div>
+            <div class="rental-info-cards">
+              <% if @rental.present? %>
+                <div class="rental-info-card">
+                  <div class="rental-info-card-title">
+                    <%= link_to 'Contrat de location ', rental_path(@rental, :format => :pdf) %>
                   </div>
-                  <div class="rental-info-card">
-                    <div class="rental-info-card-title">
-                      <%= link_to "Quittances", rental_receipts_path(@rental) %>
-                    </div>
-                    <div class="rental-info-card-description">
-                      Description
-                    </div>
+                  <div class="rental-info-card-description">
+                    Description
                   </div>
-                  <div class="rental-info-card">
-                    <div class="rental-info-card-title">
-                      <% if @housing.inventories.present? %>
-                          <%= link_to 'Etat des lieux',  rental_inventories_path(@rental, :format => :pdf) %>
-                      <% else %>
-                        <%= link_to "Etablir l'état des lieux", new_rental_inventory_path(@rental) %>
-                      <% end %>
-                    <div class="rental-info-card-description">
-                      Description
-                    </div>
+                </div>
+                <div class="rental-info-card">
+                  <div class="rental-info-card-title">
+                    <%= link_to "Quittances", rental_receipts_path(@rental) %>
                   </div>
-                <% else %>
-                  <div class="rental-info-card">
-                    <div class="rental-info-card-title">
-                      <%= link_to new_housing_rental_path(@housing) do %>
-                        <i class="fa fas fa-plus-circle plus-button"></i>
-                      <% end %>
-                    </div>
-                    <div class="rental-info-card-description">
-                      Démarrer une nouvelle location
-                    </div>
+                  <div class="rental-info-card-description">
+                    Description
                   </div>
-                <% end %>
-              </div>
+                </div>
+                <div class="rental-info-card">
+                  <div class="rental-info-card-title">
+                    <% if @housing.inventories.present? %>
+                        <%= link_to 'Etat des lieux',  rental_inventories_path(@rental, :format => :pdf) %>
+                    <% else %>
+                      <%= link_to "Etablir l'état des lieux", new_rental_inventory_path(@rental) %>
+                    <% end %>
+                  </div>
+                  <div class="rental-info-card-description">
+                    Description
+                  </div>
+                </div>
+              <% else %>
+                <div class="rental-info-card">
+                  <div class="rental-info-card-title">
+                    <%= link_to new_housing_rental_path(@housing) do %>
+                      <i class="fa fas fa-plus-circle plus-button"></i>
+                    <% end %>
+                  </div>
+                  <div class="rental-info-card-description">
+                    Démarrer une nouvelle location
+                  </div>
+                </div>
+              <% end %>
+            </div>
           </div>
 
           <!-- Info on housing -->

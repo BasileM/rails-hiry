@@ -14,12 +14,21 @@
   padding: 7px;
   text-align: center;
   position: relative;
+  flex: 0 0 auto;
 }
+
 
 .rental-info-card-title {
   position: absolute;
-  top: 50%;
+  top: 30%;
   text-align: center;
+}
+
+.rental-info-card-description {
+  position: absolute;
+  top: 60%;
+  color: gray;
+  font-size: 12px;
 }
 
 .housing-info {
