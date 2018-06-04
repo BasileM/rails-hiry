@@ -12,21 +12,20 @@
   </head>
   <body>
     <header>
+      <!-- Devise alerts and success messages -->
+      <%= render 'shared/flashes' %>
       <!-- Hides navbar on login and signup pages -->
       <% if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'%>
         <%= render 'shared/navbar' %>
       <% end %>
-      <%= render 'shared/flashes' %>
     </header>
-    <!-- Puts everything that is not the navbar or the footer into a bootstrap container -->
-    <main class="main my-5">
-      <div class="container">
-        <%= yield %>
-        <%= javascript_pack_tag "map" %>
-        <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
-        <%= javascript_include_tag 'application' %>
-        <%= javascript_pack_tag 'application' %>
-      </div>
+    <!-- Puts everything that is not the navbar or the footer into main tag -->
+    <main class="main">
+      <%= yield %>
+      <%= javascript_pack_tag "map" %>
+      <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_pack_tag 'application' %>
     </main>
     <footer>
       <% if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'%>

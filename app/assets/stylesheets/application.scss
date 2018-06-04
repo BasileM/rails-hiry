@@ -14,24 +14,3 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
-
-// Improve the display of type
-html {
-  -webkit-font-smoothing: antialiased;
-}
-
-// Shared CSS to make the footer sticky
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-.main {
-  flex: 1 0 auto;
-  margin-bottom: 5rem;
-}

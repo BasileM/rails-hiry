@@ -2,9 +2,10 @@
  * Sizes and colors for typography
 * ------------------------------------- */
 
-// Set size for main typographic elements
+// Set size for main typographic elements and mprove the display of type
 html {
   font-size: $font-size-base !important;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1 {
