@@ -21,7 +21,6 @@ class RentersController < ApplicationController
     end
   end
 
-
   private
 
   def renter_params
