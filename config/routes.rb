@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     resources :rentals, only: [:new, :create]
   end
   resources :rentals, only: [:show] do
+    member do
+      post :generate_lease_pdf
+    end
+
     resources :renters, only: [:new, :create]
     resources :inventories, only: [:new, :create, :index]
     resources :receipts, only: [:new, :create, :index]

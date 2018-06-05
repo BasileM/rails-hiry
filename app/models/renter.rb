@@ -2,10 +2,6 @@ class Renter < ApplicationRecord
   GENDER_TYPE = ["Monsieur", "Madame"]
   MARITAL_STATS_TYPE = ["Célibataire", "Marié", "Divorcé"]
 
-
-  # geocoded_by :address
-  # after_validation :geocode
-
   belongs_to :rental
 
   validates :gender,         presence: true, inclusion: { in: GENDER_TYPE }

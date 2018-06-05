@@ -1,17 +1,17 @@
-<div class="wrapper-home">
-  <div id="hiry"></div>
-  <div class="container" id="landing-img">
-    <div class="home-landing">
-      <div class="main">
+<div class="gradient"></div>
+<div class="homepage">
+	<div class="container">
+    <div class="row">
+      <div class="col-md-8">
         <%= image_tag "landing.png", id: "landing-image" %>
       </div>
+      <div class="col-md-4">
         <div class="description">
-          <h1 class="market_title">gérer simplement vos biens locatifs</h1>
-          <p class="market_p">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-          <div class="button">
-            <%= link_to "Decouvrir Hiry", new_user_registration_path, class: "btn btn-primary" %>
-          </div>
+          <h1 class="text-white">Gérez simplement vos biens locatifs</h1>
+          <p class="text-white">Hiry, c’est la façon simple et rapide de gérer vos locations d’appatement ou de maison.</p>
+          <div class="button"><%= link_to "Decouvrir Hiry", new_user_registration_path, class: "btn btn-primary btn-lg" %></div>
         </div>
       </div>
     </div>
+  </div>
 </div>

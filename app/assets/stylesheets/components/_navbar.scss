@@ -77,7 +77,8 @@ nav.navbar-menu a {
 }
 
 header.index a,
-header.show a {
+header.show a,
+a.navbar-link {
   color: $white !important;
   font-size: $font-size-base;
   &:hover {
