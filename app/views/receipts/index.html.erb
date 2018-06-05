@@ -14,10 +14,16 @@
         </ul>
 
         <!-- Info on the housing & renter -->
-        <div class="card-date-title h6 align-center" >
-          <%= @housing.street %> - <%= @renter.gender %> <%= @renter.first_name %> <%= @renter.last_name %> -
-          <%= link_to "Contrat de location", rental_path(@rental) %> daté du <%= @rental.start_date %>
-        </div>
+        <% if @renter.nil? %>
+          <div>
+            Vous n'avez pas encore défini de locataire
+          </div>
+        <% else %>
+          <div class="card-date-title h6 align-center" >
+            <%= @housing.street %> - <%= @renter.gender %> <%= @renter.first_name %> <%= @renter.last_name %> -
+            <%= link_to "Contrat de location", rental_path(@rental) %> daté du <%= @rental.start_date %>
+          </div>
+        <% end %>
 
 
         <!-- Go to dashboard
