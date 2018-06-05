@@ -13,7 +13,7 @@ class RentalsController < ApplicationController
     authorize @rental
 
     if @rental.save!
-      redirect_to new_rental_renter_path(@rental), notice: 'Rental was successfully created.'
+      redirect_to new_rental_renter_path(@rental), notice: 'Location Crée. Veuillez maintenant renseigner les informations sur le locataire.'
     else
       render :new
     end

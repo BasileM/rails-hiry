@@ -7,13 +7,26 @@
           <%= f.error_notification %>
 
           <div class="form-inputs">
-            <%= f.input :street, label: 'Votre adresse personnelle', placeholder: '26 rue du Dragon' %>
+            <%= f.input :street, {
+              label: 'Votre adresse personnelle',
+              placeholder: '26 rue du Dragon'
+              }
+            %>
             <div class="form-row">
-              <%= f.input :zip_code, label: 'Code postal', placeholder: '75006', wrapper_html: { class: 'col' } %>
-              <%= f.input :city, label: 'Ville', placeholder: 'Paris', wrapper_html: { class: 'col' } %>
+              <%= f.input :zip_code, {
+                label: 'Code postal',
+                placeholder: '75006',
+                wrapper_html: { class: 'col' }
+                }
+              %>
+              <%= f.input :city, {
+                label: 'Ville',
+                placeholder: 'Paris',
+                wrapper_html: { class: 'col' }
+              %>
             </div>
             <%= f.input :phone_number, label: 'Numéro de téléphone' %>
-            <%= f.input :nationality, label: 'Nationalité' %>
+            <%= f.input :nationality, label: 'Nationalité',  collection: NATIONALITIES %>
           </div>
 
           <div class="form-actions">

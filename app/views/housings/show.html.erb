@@ -1,6 +1,7 @@
 <!-- Background image -->
-<% if @image.photo.nil? %>
-  <div class="fullscreen fullscreen-img" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(44,44,44,0.6) 50%), url('<%= cl_image_path @image.photo, height: 700, width: 1440, crop: :fill %>')">
+<% if !@image.nil? && if !@image.photo.url.nil? %>
+    <div class="fullscreen fullscreen-img" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(44,44,44,0.6) 50%), url('<%= cl_image_path @image.photo, height: 700, width: 1440, crop: :fill %>')">
+  <% end %>
 <% else %>
   <%= render 'shared/banner' %>
 <% end %>
@@ -31,48 +32,55 @@
           <!-- Inf on rental -->
           <div class="vacant-housings-list">
             <h2 id="vacant-housing" class="housings-list-title">Ma location</h2>
-              <div class="rental-info-cards">
-                <% if @rental.present? %>
-                  <div class="rental-info-card">
-                    <div class="rental-info-card-title">
-                      <%= link_to 'Contrat de location ', rental_path(@rental, :format => :pdf) %>
-                    </div>
-                    <div class="rental-info-card-description">
-                      Description
-                    </div>
+            <div class="rental-info-cards">
+              <% if @rental.present? %>
+                <div class="rental-info-card">
+                  <div class="rental-info-card-title">
+                    <%= link_to 'Contrat de location ', rental_path(@rental, :format => :pdf) %>
                   </div>
-                  <div class="rental-info-card">
-                    <div class="rental-info-card-title">
-                      <%= link_to "Quittances", rental_receipts_path(@rental) %>
-                    </div>
-                    <div class="rental-info-card-description">
-                      Description
-                    </div>
+                  <div class="rental-info-card-description">
+                    Visualisez votre contrat de bail en version PDF
                   </div>
-                  <div class="rental-info-card">
-                    <div class="rental-info-card-title">
-                      <% if @housing.inventories.present? %>
-                          <%= link_to 'Etat des lieux',  rental_inventories_path(@rental, :format => :pdf) %>
-                      <% else %>
-                        <%= link_to "Etablir l'état des lieux", new_rental_inventory_path(@rental) %>
+                </div>
+                <div class="rental-info-card">
+                  <div class="rental-info-card-title">
+                    <%= link_to "Quittances", rental_receipts_path(@rental) %>
+                  </div>
+                  <div class="rental-info-card-description">
+                    Générez et visualisez vos quittances de loyers
+                  </div>
+                </div>
+                <div class="rental-info-card">
+                  <div class="rental-info-card-title">
+                    <% if @housing.inventories.present? %>
+                        <%= link_to 'Etat des lieux',  rental_inventories_path(@rental, :format => :pdf) %>
+                    <% else %>
+                      <%= link_to "Etablir l'état des lieux",  new_rental_inventory_path(@rental) %>
+                    <% end %>
+                  </div>
+                  <div class="rental-info-card-description">
+                    <% if @housing.inventories.present? %>
+                      Visualisez votre état des lieux
+                    <% else %>
+                      <%= link_to new_rental_inventory_path(@rental) do %>
+                        <i class="fa fas fa-plus plus-button"></i>
                       <% end %>
-                    <div class="rental-info-card-description">
-                      Description
-                    </div>
+                    <% end %>
                   </div>
-                <% else %>
-                  <div class="rental-info-card">
-                    <div class="rental-info-card-title">
-                      <%= link_to new_housing_rental_path(@housing) do %>
-                        <i class="fa fas fa-plus-circle plus-button"></i>
-                      <% end %>
-                    </div>
-                    <div class="rental-info-card-description">
-                      Démarrer une nouvelle location
-                    </div>
+                </div>
+              <% else %>
+                <div class="rental-info-card">
+                  <div class="rental-info-card-title">
+                    <%= link_to new_housing_rental_path(@housing) do %>
+                      <i class="fas fa-plus plus-button"></i>
+                    <% end %>
                   </div>
-                <% end %>
-              </div>
+                  <div class="rental-info-card-description">
+                    Démarrer une nouvelle location
+                  </div>
+                </div>
+              <% end %>
+            </div>
           </div>
 
           <!-- Info on housing -->
@@ -80,9 +88,6 @@
             <h2 id="housing" class="housings-list-title">Ma fiche de bien</h2>
               <div class="housing-info">
                 <%= render 'details', housing: @housing %>
-                Votre <%= @housing.type_of_housing %> a <%= @housing.rooms.count %> pièce(s)
-                <%= render 'rooms', housing: @housing %>
-                <%= link_to "Ajouter une nouvelle pièce",  new_housing_room_path(@housing) %>
               </div>
           </div>
           <br>

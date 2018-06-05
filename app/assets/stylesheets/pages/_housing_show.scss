@@ -11,24 +11,35 @@
   margin-left: 15px;
   margin-right: 15px;
   background-color: rgb(254, 254, 254);
-  padding: 7px;
-  text-align: center;
+  padding: 30px;
   position: relative;
+  flex: 0 0 auto;
 }
+
 
 .rental-info-card-title {
   position: absolute;
-  top: 50%;
+  top: 30%;
   text-align: center;
+}
+
+.rental-info-card-description {
+  position: absolute;
+  top: 60%;
+  color: gray;
+  font-size: 12px;
 }
 
 .housing-info {
   width: 660px;
-  height: 300px;
   border: 1px dashed $gray;
   border-radius: 2px;
   margin-left: 15px;
   margin-right: 15px;
   background-color: rgb(254, 254, 254);
-  padding: 7px;
+  padding: 20px;
+}
+
+.housing-details li {
+  height: 1.7rem;
 }
