@@ -4,7 +4,7 @@
       <div class="col-md-8 offset-md-2">
         <%= link_to "Tableau de bord",  housing_path(@housing), class: "button-navigation-small" %>
         <%= link_to 'Version PDF',      rental_path(@rental, :format => :pdf),   class: "button-navigation-small" %>
-        <%= link_to 'Envoyez par mail', rental_path(@rental),   class: "button-navigation-small" %>
+        <%= link_to 'Envoyez par mail', send_email_contract_rental_path(@rental), remote: true,  class: "button-navigation-small" %>
         <hr>
         <%= render 'rental' %>
       </div>
