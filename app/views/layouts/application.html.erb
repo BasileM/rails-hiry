@@ -11,26 +11,30 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <header class="<%= action_name %>">
-      <!-- Hides navbar on login and signup pages -->
-      <% if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'%>
-        <%= render 'shared/navbar' %>
-      <% end %>
-      <!-- Devise alerts and success messages -->
-      <%= render 'shared/flashes' %>
-    </header>
-    <!-- Puts everything that is not the navbar or the footer into main tag -->
-    <main class="main">
-      <%= yield %>
-      <%= javascript_pack_tag "map" %>
-      <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
-      <%= javascript_include_tag 'application' %>
-      <%= javascript_pack_tag 'application' %>
-    </main>
-    <footer>
-      <% if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'%>
-        <%= render 'shared/footer' %>
-      <% end %>
-    </footer>
+    <div class="content">
+      <div class="is-absolute">
+        <%= render 'shared/flashes' %>
+        <header class="<%= action_name %> navbar-flex-container">
+          <!-- Hides navbar on login and signup pages -->
+          <% if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'%>
+            <%= render 'shared/navbar' %>
+          <% end %>
+          <!-- Devise alerts and success messages -->
+        </header>
+      </div>
+      <!-- Puts everything that is not the navbar or the footer into main tag -->
+      <main class="main">
+        <%= yield %>
+        <%= javascript_pack_tag "map" %>
+        <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
+        <%= javascript_include_tag 'application' %>
+        <%= javascript_pack_tag 'application' %>
+      </main>
+      <footer>
+        <% if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'%>
+          <%= render 'shared/footer' %>
+        <% end %>
+      </footer>
+    </div>
   </body>
 </html>
