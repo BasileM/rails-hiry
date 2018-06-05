@@ -2,7 +2,7 @@
   <%= f.input :furnished, {
     label: 'Meublé ?',
     placeholder: 'Meublé ou non meublé',
-    collection: ["Meublé", "Non meublé"]
+    collection: Housing::TYPE_OF_HOUSING
     }
   %>
   <%= f.input :start_date, {
