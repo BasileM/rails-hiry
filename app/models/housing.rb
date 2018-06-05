@@ -2,8 +2,8 @@ class Housing < ApplicationRecord
   TYPE_OF_HOUSING = ["Appartement", "Maison"]
   LEGAL_REGIME_TYPE = ["Mono propriété", "Copropriété"]
 
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  # geocoded_by :address
+  # after_validation :geocode
   belongs_to :user
   has_many :rooms
   has_many :images, through: :rooms
@@ -17,14 +17,4 @@ class Housing < ApplicationRecord
   validates :year_of_construction, presence: true, numericality: { greater_than: 1000,  less_than: 2018 }
   validates :size,                 presence: true, numericality: { greater_than: 1,  less_than: 10_000 }
   validates :city,                 presence: true
-
-  def address
-    return "#{street}, #{zip_code} #{city}"
-  end
-
-  private
-
-  def will_save_change_to_address?
-    will_save_change_to_street? || will_save_change_to_zip_code? || will_save_change_to_city?
-  end
 end
