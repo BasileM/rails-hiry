@@ -86,6 +86,7 @@ GEM
     geocoder (1.4.9)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    gravtastic (3.2.6)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.0.1)
@@ -247,6 +248,7 @@ DEPENDENCIES
   figaro
   font-awesome-sass (~> 5.0.9)
   geocoder
+  gravtastic
   jbuilder (~> 2.0)
   letter_opener
   listen (~> 3.0.5)

@@ -1,3 +1,5 @@
+require 'digest/md5'
+
 class ProfilesController < ApplicationController
   def edit
     authorize(current_user)

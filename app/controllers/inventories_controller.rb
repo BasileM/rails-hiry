@@ -22,7 +22,6 @@ class InventoriesController < ApplicationController
     end
   end
 
-
   def create
     @rental = Rental.find(params[:rental_id])
 
@@ -37,9 +36,9 @@ class InventoriesController < ApplicationController
   end
 
   private
+
   def rental_params
     params.require(:rental).permit(inventories_attributes: [:room_id, :state, :observations])
   end
-
 
 end

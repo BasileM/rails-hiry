@@ -10,7 +10,6 @@ class ReceiptsController < ApplicationController
     @receipts  = policy_scope(Receipt)
     @rental    = Rental.find(params[:rental_id])
     @receipts  = Receipt.where(rental_id: @rental.id)
-
     rental_id  = @rental.id
     housing_id = @rental.housing_id
     @housing   = Housing.find(housing_id)
