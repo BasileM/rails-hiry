@@ -2,6 +2,7 @@ class Renter < ApplicationRecord
   GENDER_TYPE = ["Monsieur", "Madame"]
   MARITAL_STATS_TYPE = ["Célibataire", "Marié", "Divorcé"]
 
+
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
