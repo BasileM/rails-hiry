@@ -4,7 +4,7 @@
 }
 
 .rental-info-card{
-  width: 200px;
+  width: 25%;
   height: 200px;
   border: 1px dashed $gray;
   border-radius: 2px;
@@ -23,15 +23,20 @@
   text-align: center;
 }
 
+.rental-info-card-title a {
+  font-weight: bold;
+}
+
 .rental-info-card-description {
   position: absolute;
   top: 60%;
   color: gray;
   font-size: 12px;
+  width: 75%;
 }
 
 .housing-info {
-  width: 660px;
+  width: 82.2%;
   border: 1px dashed $gray;
   border-radius: 2px;
   margin-left: 15px;
@@ -42,4 +47,10 @@
 
 .housing-details li {
   height: 1.7rem;
+}
+
+.rental-info-card-title-plus {
+  position: absolute;
+  top: 56%;
+  left: 40%;
 }
