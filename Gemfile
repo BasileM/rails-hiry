@@ -25,6 +25,7 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+gem 'gravtastic'
 
 
 group :development do
