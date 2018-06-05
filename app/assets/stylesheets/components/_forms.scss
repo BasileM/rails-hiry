@@ -23,9 +23,14 @@
 
 // Set font-size and font-weight of input field and placeholder
 .form-control,
-.form-control::placeholder {
+.form-control::placeholder,
+.custom-file-label {
   font-size: $font-size-base;
   font-weight: $font-weight-light;
+}
+
+.custom-file-label {
+ color: $input-color-placeholder !important;
 }
 
 // Set color of input field and placeholder

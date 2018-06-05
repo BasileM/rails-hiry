@@ -22,7 +22,7 @@
               <mark><%= @rooms.reverse.first.type_of_room %> - <%= @rooms.reverse.first.size %>m2</mark>
             </li>
             <% @rooms.reverse.drop(1).each do |room| %>
-              <li><%= room.type_of_room %> - <%= room.size %>m2</li>
+              <li><%= room.type_of_room %> - <%= room.size %>m<sup>2</sup></li>
             <% end %>
           </ul>
         <% end %>
