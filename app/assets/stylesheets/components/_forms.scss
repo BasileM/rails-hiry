@@ -1,7 +1,26 @@
 // Style for form-only page
 .form-page {
   min-height: 100%;
-  border: 12rem solid #fff;
+  margin: 12rem 0;
+}
+
+.steps-indicator {
+  margin-top: 6rem;
+  position: sticky;
+  top: 6rem;
+}
+
+.step-section {
+  line-height: 1.35;
+  margin: 2rem;
+  padding-top: 0.3rem;
+}
+
+.flex-success {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 // Style for H3 title of forms

@@ -6,6 +6,7 @@
 html {
   font-size: $font-size-base !important;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
@@ -86,6 +87,26 @@ p.muted {
     font-size: $font-size-sm;
     font-weight: $font-weight-light;
   }
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-gray {
+  color: $gray;
+}
+
+.text-bold {
+  font-weight: $font-weight-bold;
+}
+
+.text-lighter {
+  opacity: 0.4;
+}
+
+.text-success {
+  color: $green-alt;
 }
 
 .small-text {

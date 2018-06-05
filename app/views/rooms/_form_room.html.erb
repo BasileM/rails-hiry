@@ -5,10 +5,11 @@
   <div class="input-group">
     <%= f.simple_fields_for :images do |image_form| %>
       <%= image_form.input :photo, {
+        as: :file,
         label: 'Choisir une photo',
         label_html:  { class: "custom-file-label"},
         class: "custom-file-input",
-        wrapper_html: { class: 'custom-file' }
+        wrapper_html: { class: "custom-file" }
         }
       %>
       <%= image_form.input :photo_cache, as: :hidden %>
