@@ -7,10 +7,14 @@ class RentersController < ApplicationController
   end
 
   def create
+    @rental = Rental.find(params[:rental_id])
     @renter = Renter.new(renter_params)
-    @renter.rental = Rental.find(params[:rental_id])
+    @renter.rental = @rental
     authorize @renter
+
     if @renter.save!
+      GenerateLeasePdfService.new(@rental).call
+      UserMailer.contract(@renter).deliver_now
       redirect_to rental_path(@renter.rental), notice: 'Le locataire a bien été ajouté.'
     else
       render :new

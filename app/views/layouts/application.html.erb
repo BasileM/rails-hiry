@@ -32,13 +32,13 @@
     <div class="content">
       <div class="is-absolute">
         <%= render 'shared/flashes' %>
-        <header class="<%= action_name %> navbar-flex-container">
           <!-- Hides navbar on login and signup pages -->
           <% if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'%>
-            <%= render 'shared/navbar' %>
+            <header class="<%= controller_name %> <%= action_name %> navbar-flex-container">
+              <%= render 'shared/navbar' %>
+            </header>
           <% end %>
           <!-- Devise alerts and success messages -->
-        </header>
       </div>
       <!-- Puts everything that is not the navbar or the footer into main tag -->
       <main class="main">
