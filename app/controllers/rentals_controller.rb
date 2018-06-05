@@ -11,6 +11,7 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.housing = Housing.find(params[:housing_id])
     authorize @rental
+
     if @rental.save!
       redirect_to new_rental_renter_path(@rental), notice: 'Location Crée. Veuillez maintenant renseigner les informations sur le locataire.'
     else
