@@ -36,7 +36,7 @@
               <% if @rental.present? %>
                 <div class="rental-info-card">
                   <div class="rental-info-card-title">
-                    <%= link_to 'Contrat de location ', rental_path(@rental, :format => :pdf) %>
+                    <%= link_to 'Contrat de location ', rental_path(@rental) %>
                   </div>
                   <div class="rental-info-card-description">
                     Visualisez votre contrat de bail en version PDF
@@ -53,7 +53,7 @@
                 <div class="rental-info-card">
                   <div class="rental-info-card-title">
                     <% if @housing.inventories.present? %>
-                        <%= link_to 'Etat des lieux',  rental_inventories_path(@rental, :format => :pdf) %>
+                        <%= link_to 'Etat des lieux',  rental_inventories_path(@rental) %>
                     <% else %>
                       <%= link_to "Etablir l'état des lieux",  new_rental_inventory_path(@rental) %>
                     <% end %>
