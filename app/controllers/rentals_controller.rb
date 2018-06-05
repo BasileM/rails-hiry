@@ -11,6 +11,7 @@ class RentalsController < ApplicationController
     @rental = Rental.new(rental_params)
     @rental.housing = Housing.find(params[:housing_id])
     authorize @rental
+
     if @rental.save!
       redirect_to new_rental_renter_path(@rental), notice: 'Rental was successfully created.'
     else
