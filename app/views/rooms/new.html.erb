@@ -22,30 +22,30 @@
         </aside>
       </div>
 
-      <!-- Display room#new form -->
-      <div class="col-md-5 offset-md-1">
-        <% if @rooms.present? %>
-          <%= link_to "Valider toutes mes pièces", housing_path(@housing), class: "btn btn-primary mt-2" %>
-        <% end %>
 
+      <div class="col-md-5 offset-md-1">
+
+        <!-- Set title of form depending on the presence of rooms -->
         <% if @rooms.present? %>
           <h3 class="form-subtitle align-center">Ajouter une nouvelle pièce</h3>
         <% else %>
           <h3 class="form-subtitle align-center">Ajouter une première pièce</h3>
         <% end %>
 
+        <!-- Display room#new form -->
         <%= render 'form_room', housing: @housing, room: @room %>
 
+        <!-- Display list of added rooms -->
+        <div id="rooms">
+          <h3>Pièces ajoutées: </h3>
+          <% @rooms.each do |room| %>
+            <%= render'show_room', room: room %>
+          <% end %>
+        </div>
+
+        <!-- Display save button -->
         <% if @rooms.present? %>
-          <h3> Pièces déjà ajoutées: </h3>
-          <ul class="list-unstyled">
-            <li>
-              <mark><%= @rooms.reverse.first.type_of_room %> - <%= @rooms.reverse.first.size %>m2</mark>
-            </li>
-            <% @rooms.reverse.drop(1).each do |room| %>
-              <li><%= room.type_of_room %> - <%= room.size %>m<sup>2</sup></li>
-            <% end %>
-          </ul>
+          <%= link_to "Valider toutes mes pièces", housing_path(@housing), class: "btn btn-outline-primary btn-lg btn-block" %>
         <% end %>
       </div>
 

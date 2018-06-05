@@ -15,12 +15,20 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.new(room_params)
-    @room.housing = Housing.find(params[:housing_id])
+    @housing = Housing.find(params[:housing_id])
+    @room.housing = @housing
     authorize @room
+
     if @room.save
-      redirect_to new_housing_room_path(@room.housing)
+      respond_to do |format|
+        format.html { redirect_to new_housing_room_path(@room.housing) }
+        format.js  # <-- will render `app/views/room/create.js.erb`
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new }
+        format.js  # <-- idem
+      end
     end
   end
 

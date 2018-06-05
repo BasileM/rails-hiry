@@ -1,0 +1,17 @@
+// Here you generate *JavaScript* that would be executed in the browser
+function refreshForm(innerHTML) {
+  const newRoomForm = document.getElementById('new_room');
+  newRoomForm.innerHTML = innerHTML;
+}
+
+function addRoom(roomHTML) {
+  const rooms = document.getElementById('rooms');
+  rooms.insertAdjacentHTML('beforeend', roomHTML);
+}
+
+<% if @room.errors.any? %>
+  refreshForm('<%= j render "form_room", housing: @housing, room: @room %>');
+<% else %>
+  addRoom('<%= j render "show_room", room: @room %>');
+  refreshForm('<%= j render "form_room", housing: @housing, room: Room.new %>');
+<% end %>
