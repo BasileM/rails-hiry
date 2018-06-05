@@ -29,7 +29,7 @@ class Renter < ApplicationRecord
 
   private
 
-  # def will_save_change_to_address?
-  #   will_save_change_to_street? || will_save_change_to_zip_code? || will_save_change_to_city?
-  # end
+  def will_save_change_to_address?
+    will_save_change_to_street? || will_save_change_to_zip_code? || will_save_change_to_city?
+  end
 end
