@@ -12,7 +12,7 @@ class RentersController < ApplicationController
     authorize @renter
     if @renter.save!
       UserMailer.contract(@renter).deliver_now
-      redirect_to rental_path(@renter.rental), notice: 'Renter was successfully created.'
+      redirect_to rental_path(@renter.rental), notice: 'Le locataire a bien été ajouté.'
     else
       render :new
     end

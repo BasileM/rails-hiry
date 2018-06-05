@@ -55,14 +55,14 @@
                     <% if @housing.inventories.present? %>
                         <%= link_to 'Etat des lieux',  rental_inventories_path(@rental, :format => :pdf) %>
                     <% else %>
-                      <%= link_to "Etablir l'état des lieux", new_rental_inventory_path(@rental) %>
+                      <%= link_to "Etablir l'état des lieux",  new_rental_inventory_path(@rental) %>
                     <% end %>
                   </div>
                   <div class="rental-info-card-description">
                     <% if @housing.inventories.present? %>
                       Visualisez votre état des lieux
                     <% else %>
-                      <%= link_to new_rental_receipt_path(@rental) do %>
+                      <%= link_to new_rental_inventory_path(@rental) do %>
                         <i class="fa fas fa-plus plus-button"></i>
                       <% end %>
                     <% end %>
