@@ -4,25 +4,3 @@
 // @import "profile";
 // @import "map";
 // @import "background-effect";
-
-.home-landing {
-  display: flex;
-  align-items: stretch;
-  margin-left: -20px;
-  padding-top: 20px;
-  .main {
-    flex: 0 0 auto;
-  }
-  .description {
-    flex: 0 0 400px;
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    .button {
-      margin-top: 35px;
-      margin-left: 25%;
-
-    }
-  }
-}
