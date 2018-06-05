@@ -88,9 +88,6 @@
             <h2 id="housing" class="housings-list-title">Ma fiche de bien</h2>
               <div class="housing-info">
                 <%= render 'details', housing: @housing %>
-                Votre <%= @housing.type_of_housing %> a <%= @housing.rooms.count %> pièce(s)
-                <%= render 'rooms', housing: @housing %>
-                <%= link_to "Ajouter une nouvelle pièce",  new_housing_room_path(@housing) %>
               </div>
           </div>
           <br>

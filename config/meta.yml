@@ -1,0 +1,5 @@
+meta_product_name: "Hiry"
+meta_title: "Hiry - Gérez simplement vos biens locatifs"
+meta_description: "Hiry automatise la gestion de biens locatifs"
+meta_image: "landing.png"                       # should exist in `app/assets/images/`
+twitter_account: "@BasileM"   # required for Twitter Cards
