@@ -3,4 +3,5 @@ class Image < ApplicationRecord
 
   # Carrierwave gem
   mount_uploader :photo, PhotoUploader
+
 end

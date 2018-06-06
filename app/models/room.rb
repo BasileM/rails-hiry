@@ -7,5 +7,5 @@ class Room < ApplicationRecord
   validates :size,         presence: true, numericality: { greater_than: 1,  less_than: 10_000 }
   validates :type_of_room, presence: true, inclusion: { in: ROOM_TYPE }
 
-  accepts_nested_attributes_for :images
+  accepts_nested_attributes_for :images, reject_if: proc { |attributes| attributes['photo'].blank? }
 end

@@ -1,5 +1,4 @@
 require_relative 'boot'
-
 require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
@@ -8,6 +7,7 @@ Bundler.require(*Rails.groups)
 
 module RailsHiry
   class Application < Rails::Application
+    config.action_view.embed_authenticity_token_in_remote_forms = true
     config.generators do |generate|
           generate.assets false
           generate.helper false
