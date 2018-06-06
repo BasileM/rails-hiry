@@ -10,6 +10,7 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(rental_params)
     @rental.housing = Housing.find(params[:housing_id])
+    @rental.renter_token = SecureRandom.hex(10)
     authorize @rental
 
     if @rental.save!
@@ -35,6 +36,7 @@ class RentalsController < ApplicationController
   def send_email_contract
     @rental = Rental.find(params[:id])
     @renter = @rental.renter
+
     UserMailer.contract(@renter).deliver_now
   end
 

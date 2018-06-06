@@ -28,7 +28,7 @@ class CreateDocusignEnvelopService
           role_name: 'Issuer',
           sign_here_tabs: [
             {
-              anchor_string: 'Signature du locataire',
+              anchor_string: 'UserSign',
               anchor_x_offset: '-30',
               anchor_y_offset: '35'
             }
@@ -41,7 +41,7 @@ class CreateDocusignEnvelopService
           role_name: 'Attorney',
           sign_here_tabs: [
             {
-              anchor_string: 'Signature du propriétaire',
+              anchor_string: 'RenterSign',
               anchor_x_offset: '-30',
               anchor_y_offset: '35'
             },
@@ -54,15 +54,6 @@ class CreateDocusignEnvelopService
       status: 'sent'
     )
 
-    binding.pry
-
-    # url = client.get_recipient_view(
-    #   envelope_id: document_envelope_response['envelopeId'],
-    #   name: @rental.housing.user.full_name,
-    #   email: @rental.housing.user.email,
-    #   return_url: 'http://google.com'
-    # )['url']
-    # `open #{url}`
+    @rental.update!(lease_docusign_envelope_id: document_envelope_response['envelopeId'])
   end
-
 end
