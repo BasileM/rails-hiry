@@ -2,9 +2,19 @@
 	<div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <%= link_to "Tableau de bord", housing_path(@rental.housing), class: "button-navigation-small" %>
-        <%= link_to 'Version PDF', rental_inventories_path(@rental, target: :_blank, :format => :pdf), class: "button-navigation-small" %>
-        <%= link_to "Envoyez par mail", housing_path(@rental.housing), class: "button-navigation-small" %>
+        <br>
+        <br>
+        <div class="navigaton-container">
+          <%= link_to housing_path(@rental.housing), class: "button-navigation-small" do  %>
+            <i class="fa fas fa-long-arrow-alt-left"></i>
+          <% end %>
+          <%= link_to rental_inventories_path(@rental, :format => :pdf), class: "button-navigation-small" do %>
+            <i class="fa far fa-file-pdf"></i>
+          <% end %>
+          <%= link_to housing_path(@rental.housing), class: "button-navigation-small" do %>
+            <i class="fa far fa-envelope-open"></i>
+          <% end %>
+        </div>
         <hr>
         <%= render 'inventory' %>
       </div>
