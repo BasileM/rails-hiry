@@ -8,7 +8,7 @@
 <p><%= render 'renter_specs.html.erb', renter: @renter %></p>
 <hr>
 <h3>Les pièces</h3>
-<ul>
+<ul class="list-unstyled">
   <% @rental.inventories.each do |inventory| %>
   <li>
     <%= inventory.room.type_of_room %>
