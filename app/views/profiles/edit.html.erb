@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <h3 class="form-title align-center">Complétez vos informations</h3>
+        <h3 class="form-title align-center bold">Complétez vos informations</h3>
         <%= simple_form_for(current_user, url: profile_path, html: { method: :patch, autocomplete: 'on' } ) do |f| %>
           <%= f.error_notification %>
 
