@@ -1,57 +1,64 @@
 <%= simple_form_for [@rental, @renter] do |f| %>
   <div class="row">
-    <%= f.input :first_name, label: 'Prénom', placeholder: 'Boris', wrapper_html: { class: 'col' } %>
-    <%= f.input :last_name, label: 'Nom', placeholder: 'Paillard', wrapper_html: { class: 'col' } %>
+    <%= f.input :first_name, {
+      label: 'Prénom',
+      placeholder: 'Boris',
+      wrapper_html: { class: 'col' }
+      }
+    %>
+    <%= f.input :last_name, {
+      label: 'Nom',
+      placeholder: 'Paillard',
+      wrapper_html: { class: 'col' }
+      }
+    %>
   </div>
   <div class="row">
-    <%= f.input :date_of_birth, label: 'Date de naissance', as: :date, start_year: 1950, wrapper_html: { class: 'col' } %>
+    <%= f.input :date_of_birth, {
+      label: 'Date de naissance',
+      as: :date,
+      start_year: 1950,
+      wrapper_html: { class: 'col' }
+      }
+    %>
   </div>
   <div class="row">
-    <%= f.input :nationality, label: 'Nationalité', collection: NATIONALITIES, wrapper_html: { class: 'col' } %>
+    <%= f.input :nationality, {
+      label: 'Nationalité',
+      collection: NATIONALITIES,
+      wrapper_html: { class: 'col' }
+      }
+    %>
   </div>
-    <!-- ligne supprimée -->
-    <%#= f.input :gender, label: 'Civilité', collection: Renter::GENDER_TYPE, wrapper_html: { class: 'col' } %>
-  <div class="row">
-    <div class="col">
-      <div class="form-control-label">
-        <p>Civilité : </p>
-      </div>
-    </div>
+  <div>
+    <%= f.input :gender, {
+      as: :radio_buttons,
+      label: 'Civilité',
+      collection: Renter::GENDER_TYPE,
+      class: 'form-check-input',
+      wrapper_html: { class: 'form-check form-check-inline' }
+      }
+    %>
   </div>
-  <div class="row">
-    <% Renter::GENDER_TYPE.each do |gender| %>
-      <div class="col">
-        <div class="funkyradio" >
-          <div class="funkyradio-success">
-            <input type="radio" name="renter[gender]" id="gender-<%= gender.parameterize %>" value="<%= gender %>" />
-            <label for="gender-<%= gender.parameterize %>" class="funky-label"><%= gender %></label>
-          </div>
-        </div>
-      </div>
-    <% end %>
+  <div>
+    <%= f.input :marital_status, {
+      as: :radio_buttons,
+      label: 'Status',
+      collection: Renter::MARITAL_STATS_TYPE,
+      class: 'form-check-input',
+      wrapper_html: { class: 'form-check form-check-inline' }
+      }
+    %>
   </div>
-  <div class="row">
-    <div class="col">
-      <div class="form-control-label">
-        <p>Statut : </p>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <% Renter::MARITAL_STATS_TYPE.each do |marital_type| %>
-      <div class="col">
-        <div class="funkyradio">
-          <div class="funkyradio-success">
-            <input type="radio" name="renter[marital_type]" id="marital_type-<%= marital_type.parameterize %>" value="<%= marital_type %>" />
-            <label for="marital_type-<%= marital_type.parameterize %>" class="funky-label"><%= marital_type %></label>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-    <%= f.input :phone_number, label: 'Téléphone', placeholder: '07 82 16 08 01' %>
-    <%= f.input :email, label: 'E-mail', placeholder: 'user@hiry.com' %>
-    <%= f.submit "Ajouter le locataire", class: "btn btn-primary btn-lg btn-block" %>
-  </div>
-
+  <%= f.input :phone_number, {
+    label: 'Téléphone',
+    placeholder: '07 82 16 08 01'
+    }
+  %>
+  <%= f.input :email, {
+    label: 'E-mail',
+    placeholder: 'user@hiry.com'
+    }
+  %>
+  <%= f.submit "Ajouter le locataire", class: "btn btn-primary btn-lg btn-block" %>
 <% end %>

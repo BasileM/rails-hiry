@@ -4,14 +4,14 @@
 <h2>1 - Désignation des parties</h2>
   <p>Le présent contrat est conclu entre les soussignés :</p>
     <p><%= render 'rentals/owners.html.erb', rental: @owner %></p>
-    <p>Ci-après dénommé « le bailleur ».</p>
+    <p>Ci-après dénommé « le bailleur ».</p>
     <p>Et</p>
     <p><%= render 'rentals/renters.html.erb', rental: @renter %></p>
 
-    <p>Ci-après dénommé « le locataire ».</p>
+    <p>Ci-après dénommé « le locataire ».</p>
 <hr>
 <h2>2 - Objet du contrat</h2>
-  <p>Le présent contrat a pour objet la location d’un logement ainsi déterminé :  </p>
+  <p>Le présent contrat a pour objet la location d’un logement ainsi déterminé :  </p>
   <h3>2 A - Consistance du logement </h3>
     <p><%= render 'rentals/housings.html.erb', rental: @housing %></p>
     <br>
@@ -38,7 +38,7 @@
   <h3>3 B – Tacite reconduction – Renouvellement</h3>
 
     <p align="justify">A l’expiration du bail, le bailleur ou le locataire pourra mettre en œuvre la procédure de renouvellement conformément à la Loi. A défaut le bail se renouvellera par tacite reconduction. En cas de tacite reconduction, la durée du contrat reconduit est de un an.
-    Les contrats de locations meublées consenties à un étudiant pour une durée de neuf mois ne sont pas reconduits tacitement à leur terme et le locataire peut mettre fin au bail à tout moment, après avoir donné congé. Le bailleur peut, quant à lui, mettre fin au bail à son échéance et après avoir donné congé. </p>
+    Les contrats de locations meublées consenties à un étudiant pour une durée de neuf mois ne sont pas reconduits tacitement à leur terme et le locataire peut mettre fin au bail à tout moment, après avoir donné congé. Le bailleur peut, quant à lui, mettre fin au bail à son échéance et après avoir donné congé. </p>
 
   <br>
   <h3>3 - C – Congé au terme du contrat</h3>
@@ -64,8 +64,8 @@
     <p>Sur la base du calcul suivant loyer de base X (IRL du trimestre / IRL du trimestre n-1)</p>
   <br>
   <h3>4 C - Charges</h3>
-    <p align="justify">Le locataire est tenu de payer, en sus du loyer, les charges récupérables telles que définies par l'article 23 de la loi du 6 juillet 1989.</p>
-    <p align="justify">Le montant des provisions mensuelles sur charges est de : <%= @rental.monthly_expenses %>€</p>
+    <p align="justify">Le locataire est tenu de payer, en sus du loyer, les charges récupérables telles que définies par l'article 23 de la loi du 6 juillet 1989.</p>
+    <p align="justify">Le montant des provisions mensuelles sur charges est de : <%= @rental.monthly_expenses %>€</p>
   <br>
   <h3>4 D - Quittance</h3>
     <p>Le loyer se décompose comme suit:</p>
@@ -76,7 +76,7 @@
     <p>Soit un total de <%= @rental.monthly_rent + @rental.monthly_expenses%> €</p>
 <hr>
 <h2>5 – Travaux </h2>
-    <p align="justify">Le locataire ne pourra faire aucune transformation des lieux loués ou des équipements mentionnés au contrat sans l'accord écrit du bailleur. A défaut, le bailleur pourra :
+    <p align="justify">Le locataire ne pourra faire aucune transformation des lieux loués ou des équipements mentionnés au contrat sans l'accord écrit du bailleur. A défaut, le bailleur pourra :
 soit accepter la restitution des locaux tel quel
 soit exiger leur remise en état conformément à l’état des lieux d’entrée
 soit exiger le versement d’une indemnité compensatrice
@@ -91,6 +91,6 @@ Si les transformations mettent en péril le bon fonctionnement des équipements 
   <p align="justify">Un état des lieux sera dressé contradictoirement entre les parties lors de la remise des clés et de leur restitution. En cas de désaccord sur l’état des lieux, il est établi par huissier à l’initiative de la partie la plus diligente à frais partagés par moitié. L’huissier avise les parties au moins sept jours à l’avance par lettre recommandée avec demande d’avis de réception.
   L'état des lieux établi lors de la mise à disposition des locaux est joint au contrat. Cet état des lieux devra être dressé en autant d’exemplaires que de parties inscrites au bail.
   En cas d’état des lieux incomplet, le locataire peut demander la modification dans un délai de dix jours à compter de son établissement.
-  La loi impose aux bailleurs la fourniture d’un détecteur de fumée et la vérification de son bon fonctionnement doit être effectuée lors de l’état des lieux ; l’entretien courant des détecteurs de fumée restant à la charge de l’occupant. Pendant le premier mois de la période de chauffe, le locataire peut demander que l'état des lieux soit complété par l'état des éléments de chauffage.</p>
+  La loi impose aux bailleurs la fourniture d’un détecteur de fumée et la vérification de son bon fonctionnement doit être effectuée lors de l’état des lieux ; l’entretien courant des détecteurs de fumée restant à la charge de l’occupant. Pendant le premier mois de la période de chauffe, le locataire peut demander que l'état des lieux soit complété par l'état des éléments de chauffage.</p>
 
   <p>Fait à (lieu)  , le (date)</p>
