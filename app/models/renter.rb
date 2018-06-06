@@ -18,4 +18,8 @@ class Renter < ApplicationRecord
     @housing = Housing.find(@rental.housing_id)
     @owner   = User.find(@housing.user_id)
   end
+
+   def full_name
+    "#{first_name} #{last_name}"
+  end
 end

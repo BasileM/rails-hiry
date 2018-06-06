@@ -12,4 +12,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :housings
   has_many :rentals, through: :housings
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
