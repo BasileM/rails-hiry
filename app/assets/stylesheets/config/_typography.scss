@@ -11,6 +11,7 @@ html {
 
 h1 {
   font-size: $h1-font-size;
+  font-family: $headers-font;
 }
 
 h1.market_title {
@@ -21,18 +22,22 @@ h1.market_title {
 
 h2 {
   font-size: $h2-font-size;
+  font-family: $headers-font;
 }
 
 h3 {
   font-size: $h3-font-size;
+  font-family: $headers-font;
 }
 
 h4 {
   font-size: $h4-font-size;
+  font-family: $headers-font;
 }
 
 h5 {
   font-size: $h5-font-size;
+  font-family: $headers-font;
 }
 
 p.market_p {
@@ -85,7 +90,7 @@ p.muted {
     color: $danger;
     opacity: 0.6;
     font-size: $font-size-sm;
-    font-weight: $font-weight-light;
+    font-weight: $font-weight-normal;
   }
 }
 
