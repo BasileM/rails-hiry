@@ -2,8 +2,8 @@
 	<div class="container">
     <div class="row">
       <div class="col-md-6 offset-md-3">
-        <%= link_to "Tableau de bord",  housing_path(@rental.housing), class: "button-navigation-small" %>
-        <%= link_to 'Version PDF',      rental_inventories_path(@rental, :format => :pdf), class: "button-navigation-small" %>
+        <%= link_to "Tableau de bord", housing_path(@rental.housing), class: "button-navigation-small" %>
+        <%= link_to 'Version PDF', rental_inventories_path(@rental, target: :_blank, :format => :pdf), class: "button-navigation-small" %>
         <%= link_to "Envoyez par mail", housing_path(@rental.housing), class: "button-navigation-small" %>
         <hr>
         <%= render 'inventory' %>

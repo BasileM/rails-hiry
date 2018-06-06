@@ -6,9 +6,11 @@
         <br>
         <br>
         <br>
-        <%= link_to "Tableau de bord",  housing_path(@housing),                  class: "button-navigation-small" %>
-        <%= link_to 'Version PDF',      rental_path(@rental, :format => :pdf),   class: "button-navigation-small" %>
-        <%= link_to 'Envoyer par mail', send_email_contract_rental_path(@rental), remote: true,  class: "button-navigation-small" %>
+        <div align="center">
+          <%= link_to "Tableau de bord",  housing_path(@housing),                                  class: "button-navigation-small" %>
+          <%= link_to 'Version PDF',      rental_path(@rental, :format => :pdf), target: :_blank,  class: "button-navigation-small" %>
+          <%= link_to 'Envoyez par mail', send_email_contract_rental_path(@rental), remote: true,  class: "button-navigation-small" %>
+        </div>
         <hr>
         <%= render 'rental' %>
       </div>
