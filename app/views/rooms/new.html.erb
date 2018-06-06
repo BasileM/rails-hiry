@@ -1,32 +1,59 @@
 <div class="form-page">
-  <div class="container">
+  <div class="container-fluid">
+
+    <!-- Sidebar showing progression -->
     <div class="row">
-      <div class="col-md-6 offset-md-3">
 
-        <% if @rooms.present? %>
-          <%= link_to "Valider toutes mes pièces", housing_path(@housing), class: "btn btn-primary mt-2" %>
-        <% end %>
+      <div class="col-md-3 offset-md-1">
+        <aside class="steps-indicator sticky-top">
+          <div class="step-section">
+            <h5 class="text-uppercase text-gray text-bold sans-serif">Étape 1</h5>
+            <div class="flex-success">
+              <h4 class="d-inline sans-serif">Ajoutez votre bien</h4><h3><i class="fas fa-check-circle text-success"></i><h3>
+            </div>
+            <p>Adresse, type de bien…</p>
+          </div>
+          <hr>
+          <div class="step-section">
+            <h5 class="text-uppercase text-gray text-bold sans-serif">Étape 2</h5>
+            <h4 class="sans-serif">Ajoutez vos pièces</h4>
+            <p>Cuisine, salle de bain, salon…</p>
+          </div>
+        </aside>
+      </div>
 
+
+      <div class="col-md-5 offset-md-1">
+
+        <!-- Set title of form depending on the presence of rooms -->
         <% if @rooms.present? %>
           <h3 class="form-subtitle align-center">Ajouter une nouvelle pièce</h3>
         <% else %>
           <h3 class="form-subtitle align-center">Ajouter une première pièce</h3>
         <% end %>
 
+        <!-- Display room#new form -->
         <%= render 'form_room', housing: @housing, room: @room %>
 
-        <% if @rooms.present? %>
-          <h3> Pièces déjà ajoutées: </h3>
+        <!-- Display list of added rooms -->
+        <div id="rooms">
+          <h3 class="sans-serif">Pièces ajoutées :</h3>
           <ul class="list-unstyled">
-            <li>
-              <mark><%= @rooms.reverse.first.type_of_room %> - <%= @rooms.reverse.first.size %>m2</mark>
-            </li>
-            <% @rooms.reverse.drop(1).each do |room| %>
-              <li><%= room.type_of_room %> - <%= room.size %>m<sup>2</sup></li>
+            <% @rooms.each do |room| %>
+              <%= render'show_room', room: room %>
             <% end %>
           </ul>
+        </div>
+
+        <!-- Display save button -->
+        <% if @rooms.present? %>
+          <%= link_to "Valider toutes mes pièces", housing_path(@housing), class: "btn btn-outline-primary btn-lg btn-block" %>
         <% end %>
       </div>
+
+    <!-- Row ends -->
     </div>
+
+  <!-- Fluid container ends -->
   </div>
 </div>

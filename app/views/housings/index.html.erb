@@ -12,9 +12,15 @@
 
 			<!-- Sticky sidebar navigation -->
 			<div class="col-md-3">
-				<nav class="nav flex-column housing-nav">
-				  <a class="nav-link" href="#vacant-housing"><h4>À louer</h4></a>
-				  <a class="nav-link" href="#rented-housing"><h4>En location</h4></a>
+				<nav class="navbar sticky-top">
+					<ul class="nav flex-column">
+						<li class="nav-item">
+							<a href="#vacant-housing"><h4>À louer</h4></a>
+						</li>
+						<li class="nav-item">
+							<a href="#rented-housing"><h4>En location</h4></a>
+						</li>
+					</ul>
 				</nav>
 			</div>
 
@@ -22,21 +28,25 @@
 	    <div class="col-md-9">
 
 	      <div class="list-housing">
-					<!-- Lists vacant housings first -->
-					<div class="vacant-housings-list">
-						<h2 id="vacant-housing" class="housings-list-title">À louer</h2>
-						<% @vacant_housings.each do |housing| %>
-							<%= render 'list_housings', housing: housing %>
-						<% end %>
-					</div>
-					<!-- Lists rented housings then -->
-					<div class="rented-housings-list">
-	          <h2 id="rented-housing" class="housings-list-title">En location</h2>
-						<% @rented_housings.each do |housing| %>
-							<% rental = Rental.where(housing_id: housing.id).last %>
-							<% renter = Renter.where(rental_id: rental.id).last %>
-							<%= render 'list_housings', housing: housing, renter: renter, rental: rental %>
-						<% end %>
+					<div data-spy="scroll" data-target="#navbar-example3" data-offset="0">
+
+						<!-- Lists vacant housings first -->
+						<div class="vacant-housings-list">
+							<h2 id="vacant-housing" class="housings-list-title">À louer</h2>
+							<% @vacant_housings.each do |housing| %>
+								<%= render 'list_housings', housing: housing %>
+							<% end %>
+						</div>
+						<!-- Lists rented housings then -->
+						<div class="rented-housings-list">
+		          <h2 id="rented-housing" class="housings-list-title">En location</h2>
+							<% @rented_housings.each do |housing| %>
+								<% rental = Rental.where(housing_id: housing.id).last %>
+								<% renter = Renter.where(rental_id: rental.id).last %>
+								<%= render 'list_housings', housing: housing, renter: renter, rental: rental %>
+							<% end %>
+						</div>
+
 					</div>
 				</div>
 

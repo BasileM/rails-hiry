@@ -1,3 +1,10 @@
+// Sticky nav element
+.nav {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 2rem;
+}
+
 /* Main navbar */
 .navbar-flex-container {
   border-bottom: 1px solid rgba(0,0,0,.05);
@@ -20,7 +27,8 @@
 }
 
 .page-content {
-  border: 5em solid #fff;
+  border: 7em solid #fff;
+  min-height: calc(100vh - 113px);
 }
 
 /* Logo */
@@ -63,15 +71,22 @@
 }
 
 /* Change navbar link color depending on action type */
+.navbar-link {
+  letter-spacing: .05rem;
+  font-size: $font-size-sm;
+}
+
 header.edit a,
 header.new a,
 header.create a,
 nav.navbar-dark a,
-nav.navbar-menu a {
-  color: $black;
-  font-size: $font-size-base;
+nav.navbar-menu a,
+.receipts.index a,
+.rentals.show a {
+  color: $black !important;
+
   &:hover {
-    color: $black-alt;
+    color: $black-alt !important;
     text-decoration: underline;
   }
 }
@@ -80,7 +95,6 @@ header.index a,
 header.show a,
 a.navbar-link {
   color: $white !important;
-  font-size: $font-size-base;
   &:hover {
     color: $white !important;
     text-decoration: underline;

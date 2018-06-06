@@ -3,12 +3,17 @@
 	  <div class="row">
       <div class="col-md-8 offset-md-2">
         <br>
-        <br>
-        <br>
-        <br>
-        <%= link_to "Tableau de bord",  housing_path(@housing),                  class: "button-navigation-small" %>
-        <%= link_to 'Version PDF',      rental_path(@rental, :format => :pdf),   class: "button-navigation-small" %>
-        <%= link_to 'Envoyez par mail', send_email_contract_rental_path(@rental), remote: true,  class: "button-navigation-small" %>
+        <div class="navigaton-container">
+          <%= link_to housing_path(@housing), class: "button-navigation-small" do %>
+            <i class="fa fas fa-long-arrow-alt-left"></i>
+          <% end %>
+          <%= link_to rental_path(@rental, :format => :pdf), class: "button-navigation-small" do %>
+            <i class="fa far fa-file-pdf"></i>
+          <% end %>
+          <%= link_to send_email_contract_rental_path(@rental), remote: true, class: "button-navigation-small" do %>
+            <i class="fa far fa-envelope-open"></i>
+          <% end %>
+        </div>
         <hr>
         <%= render 'rental' %>
       </div>

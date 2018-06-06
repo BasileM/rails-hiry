@@ -7,6 +7,12 @@
             <br>
             <br>
             <br>
+            <div class="navigaton-container">
+              <%= link_to housing_path(@rental.housing), class: "button-navigation-small" do %>
+                <i class="fa fas fa-long-arrow-alt-left"></i>
+              <% end %>
+            </div>
+            <br>
             <h1>Mes quittances</h1>
           </li>
           <li class="list-inline-item">
@@ -46,7 +52,7 @@
                 Montant total: <%= receipt.monthly_invoice %>€
               </div>
               <div class="card-receipt-edit">
-                <%= link_to receipt_path(receipt, :format => :pdf) do %>
+                <%= link_to receipt_path(receipt, :format => :pdf, target: :_blank) do %>
                   <i class="fa fas fa-print"></i>
                 <% end %>
               </div>
