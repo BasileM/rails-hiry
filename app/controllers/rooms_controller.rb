@@ -18,13 +18,15 @@ class RoomsController < ApplicationController
     @housing = Housing.find(params[:housing_id])
     @room.housing = @housing
     authorize @room
-
     if @room.save
+      @new_room = Room.new
+      @new_room.images.new # for photo upload
       respond_to do |format|
         format.html { redirect_to new_housing_room_path(@room.housing) }
         format.js  # <-- will render `app/views/room/create.js.erb`
       end
     else
+      @room.images.new # for photo upload
       respond_to do |format|
         format.html { render :new }
         format.js  # <-- idem

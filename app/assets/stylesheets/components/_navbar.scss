@@ -86,10 +86,10 @@ nav.navbar-menu a {
 header.index a,
 header.show a,
 a.navbar-link {
-  color: $white;
+  color: $white !important;
   font-size: $font-size-base;
   &:hover {
-    color: $white;
+    color: $white !important;
     text-decoration: underline;
   }
 }

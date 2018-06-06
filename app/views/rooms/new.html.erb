@@ -38,9 +38,11 @@
         <!-- Display list of added rooms -->
         <div id="rooms">
           <h3>Pièces ajoutées: </h3>
-          <% @rooms.each do |room| %>
-            <%= render'show_room', room: room %>
-          <% end %>
+          <ul class="list-unstyled">
+            <% @rooms.each do |room| %>
+              <%= render'show_room', room: room %>
+            <% end %>
+          </ul>
         </div>
 
         <!-- Display save button -->

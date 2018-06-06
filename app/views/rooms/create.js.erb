@@ -13,5 +13,5 @@ function addRoom(roomHTML) {
   refreshForm('<%= j render "form_room", housing: @housing, room: @room %>');
 <% else %>
   addRoom('<%= j render "show_room", room: @room %>');
-  refreshForm('<%= j render "form_room", housing: @housing, room: Room.new %>');
+  refreshForm('<%= j render "form_room", housing: @housing, room: @new_room %>');
 <% end %>
