@@ -25,3 +25,4 @@ class UserMailer < ApplicationMailer
     mail to: @renter.email, subject: 'Bonjour'
   end
 end
+
