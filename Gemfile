@@ -26,6 +26,7 @@ gem 'wkhtmltopdf-binary'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem 'gravtastic'
+gem 'docusign_rest'
 
 
 group :development do

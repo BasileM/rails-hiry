@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   resources :rentals, only: [:show] do
     member do
-      get :send_email
+      get :send_email_contract
     end
 
     resources :renters, only: [:new, :create]
