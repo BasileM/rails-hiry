@@ -32,7 +32,8 @@ class RentalsController < ApplicationController
     end
   end
 
-  def send_email
+  def send_email_contract
+    @rental = Rental.find(params[:id])
     @renter = @rental.renter
     UserMailer.contract(@renter).deliver_now
   end

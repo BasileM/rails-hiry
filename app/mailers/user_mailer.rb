@@ -6,11 +6,12 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.contract.subject
   #
   def contract(renter)
-    @renter  = renter
-    @rental  = Rental.find(@renter.rental_id)
-    @housing = Housing.find(@rental.housing_id)
-    @owner   = User.find(@housing.user_id)
-
-    mail(to: @renter.email, subject: 'Contrat de Location')
+    @renter = renter
+    temp_pdf_file = Tempfile.new(["contrat-de-location", ".pdf"])
+    File.open(temp_pdf_file, 'wb') do |file|
+      file << open(@renter.rental.lease_pdf.url).read
+    end
+    attachments['contrat-de-location.pdf'] = File.read(temp_pdf_file.path)
+    mail to: @renter.email, subject: 'Bonjour'
   end
 end
