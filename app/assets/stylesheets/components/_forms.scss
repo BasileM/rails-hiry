@@ -16,17 +16,18 @@
 // Style for form labels
 .form-control-label {
   color: $black;
-  font-weight: $font-weight-bold;
-  font-size: $font-size-sm;
-  margin-left: 1rem;
+  font-size: 20px;
+  margin-left: 0rem;
 }
 
 // Set font-size and font-weight of input field and placeholder
 .form-control,
 .form-control::placeholder,
 .custom-file-label {
-  font-size: $font-size-base;
-  font-weight: $font-weight-light;
+  // font-size: $font-size-base;
+  // font-weight: $font-weight-light;
+  font-size: 15px;
+  font-style: roboto;
 }
 
 .custom-file-label {
@@ -36,10 +37,91 @@
 // Set color of input field and placeholder
 .form-control {
   color: $input-color !important;
+  border-radius: 3px;
   &::placeholder {
     color: $input-color-placeholder !important;
   }
 }
+
+.funkyradio {
+  div {
+    clear: both;
+    overflow: hidden;
+  }
+
+  label {
+    width: 100%;
+    // height: calc(3.35rem + 2px);
+    border-radius: 3px;
+    border: 1px solid #D1D3D4;
+    font-weight: normal;
+  }
+
+  input[type="radio"],{
+    &:empty {
+      display: none;
+      ~ label {
+        position: relative;
+        line-height: 2.5em;
+        text-indent: 3.25em;
+        margin-top: 2em;
+        cursor: pointer;
+        user-select: none;
+        &:before {
+          position: absolute;
+          display: block;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          content: '';
+          width: 2.5em;
+          background: #D1D3D4;
+          border-radius: 3px 0 0 3px;
+        }
+      }
+    }
+    &:hover:not(:checked) ~ label {
+      color: #00AF46;
+      &:before {
+        content: '\2714';
+        text-indent: .9em;
+        color: #00AF46;
+      }
+    }
+    &:checked ~ label {
+      color: #333;
+        &:before {
+          content: '\2714';
+          text-indent: .9em;
+          color: #888;
+          background-color: #ccc;
+        }
+      }
+    &:focus ~ label:before {
+      box-shadow: 0 0 0 3px #999;
+    }
+  }
+  &-success {
+    padding-top: 0;
+    input[type="radio"] {
+      &:checked ~ label:before {
+        color: #fff;
+        background-color: #00AF46;
+      }
+    }
+  }
+}
+
+.funky-label {
+  margin-top: 0 !important;
+  margin-bottom: 30px;
+  // font-size: $font-size-base;
+  // font-weight: $font-weight-light;
+  font-size: 15px;
+  font-style: roboto;
+  color: #777;
+}
+
 
 // Add vertical margin to form submit button
 input[type="submit"].btn-block {
