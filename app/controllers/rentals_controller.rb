@@ -38,7 +38,6 @@ class RentalsController < ApplicationController
     UserMailer.contract(@renter).deliver_now
   end
 
-
   private
 
   def user_info_completed

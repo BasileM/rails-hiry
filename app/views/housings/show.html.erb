@@ -58,15 +58,17 @@
                       <%= link_to "Etablir l'état des lieux",  new_rental_inventory_path(@rental) %>
                     <% end %>
                   </div>
-                  <div class="rental-info-card-description">
-                    <% if @housing.inventories.present? %>
+                  <% if @housing.inventories.present? %>
+                    <div class="rental-info-card-description">
                       Visualisez votre état des lieux
-                    <% else %>
-                      <%= link_to new_rental_inventory_path(@rental) do %>
-                        <i class="fa fas fa-plus plus-button"></i>
-                      <% end %>
-                    <% end %>
-                  </div>
+                    </div>
+                  <% else %>
+                      <div class="rental-info-card-title-plus">
+                        <%= link_to new_rental_inventory_path(@rental) do %>
+                          <i class="fa fas fa-plus plus-button"></i>
+                        <% end %>
+                      </div>
+                  <% end %>
                 </div>
               <% else %>
                 <div class="rental-info-card">
