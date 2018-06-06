@@ -11,7 +11,7 @@
           <%= link_to rental_inventories_path(@rental, :format => :pdf), class: "button-navigation-small" do %>
             <i class="fa far fa-file-pdf"></i>
           <% end %>
-          <%= link_to housing_path(@rental.housing), class: "button-navigation-small" do %>
+          <%= link_to send_email_inventory_rental_path(@rental), remote: true, class: "button-navigation-small" do %>
             <i class="fa far fa-envelope-open"></i>
           <% end %>
         </div>

@@ -1,11 +1,11 @@
 <h1 align = "center">Etat des lieux</h1>
 <p align="justify">L’état des lieux doit être établi de façon contradictoire entre les deux parties lors de la remise des clés au locataire et lors de leur restitution en fin de bail. L'état des lieux prévu à l'article 3-2 de la loi du 6 juillet 1989 doit porter sur l'ensemble des locaux et équipements d'usage privatif mentionnés au contrat de bail et dont le locataire a la jouissance exclusive.</p>
 <hr>
-<p><%= render 'housing_specs.html.erb', rental: @rental  %></p>
+<p><%= render 'inventories/housing_specs.html.erb', rental: @rental  %></p>
 <hr>
-<p><%= render 'owner_specs.html.erb', owner: @owner %></p>
+<p><%= render 'inventories/owner_specs.html.erb', owner: @owner %></p>
 <hr>
-<p><%= render 'renter_specs.html.erb', renter: @renter %></p>
+<p><%= render 'inventories/renter_specs.html.erb', renter: @renter %></p>
 <hr>
 <h3>Les pièces</h3>
 <ul class="list-unstyled">
