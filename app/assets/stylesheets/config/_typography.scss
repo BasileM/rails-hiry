@@ -2,45 +2,39 @@
  * Sizes and colors for typography
 * ------------------------------------- */
 
-// Set size for main typographic elements and mprove the display of type
+// Set size for main typographic elements and improve the display of type
 html {
   font-size: $font-size-base !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: none;
 }
 
 h1 {
   font-size: $h1-font-size;
-}
-
-h1.market_title {
-    text-transform: uppercase;
-    text-align: left;
-    color: white;
+  font-weight: $font-weight-normal; // 400
+  font-family: $serif;
 }
 
 h2 {
   font-size: $h2-font-size;
+  font-family: $serif;
 }
 
 h3 {
   font-size: $h3-font-size;
+  font-family: $serif;
 }
 
 h4 {
   font-size: $h4-font-size;
+  font-family: $serif;
 }
 
 h5 {
   font-size: $h5-font-size;
+  font-family: $serif;
 }
-
-p.market_p {
-  text-align: left;
-  color: #d9fcff;
-
-}
-
 
 a,
 li,
@@ -55,13 +49,13 @@ h3,
 h4,
 h5 {
   font-weight: 400; // regular
-  line-height: 1.20; // 21,6px
+  line-height: 1.20; // 19.2px
 }
 
 body {
   color: $black-alt !important;
   font-weight: 400; // normal
-  line-height: 1.35; // 24,3px
+  line-height: 1.35; // 21.36px
 }
 
 a {
@@ -74,31 +68,60 @@ a {
   }
 }
 
-.align-center {
-  text-align: center;
-  vertical-align: center;
-}
-
 p.muted {
   margin-bottom: ($spacer * 3);
   a {
     color: $danger;
     opacity: 0.6;
     font-size: $font-size-sm;
-    font-weight: $font-weight-light;
+    font-weight: $font-weight-normal;
   }
+}
+
+// Set alignments
+.align-center {
+  text-align: center;
+  vertical-align: center;
+}
+
+// Set custom styles
+
+// Font-families
+.serif {
+  font-family: $serif;
+}
+
+.sans-serif {
+  font-family: $sans-serif;
+}
+
+// Font-weight
+.light {
+  font-weight: $font-weight-light; // 300
+}
+
+.normal {
+  font-weight: $font-weight-normal; // 400
+}
+
+.bold {
+  font-weight: $font-weight-bold; // 700
+}
+
+.black {
+  font-weight: $font-weight-black; // 900
 }
 
 .text-uppercase {
   text-transform: uppercase;
 }
 
-.text-gray {
-  color: $gray;
-}
-
 .text-bold {
   font-weight: $font-weight-bold;
+}
+
+.text-gray {
+  color: $gray;
 }
 
 .text-lighter {

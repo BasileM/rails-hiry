@@ -21,8 +21,8 @@ class HousingsController < ApplicationController
     authorize @housing
 
     @rentals = @housing.rentals
-    @rental = @rentals.last
-    @image = @housing.images.first
+    @rental  = @rentals.last
+    @image   = @housing.images.first
   end
 
   def new
