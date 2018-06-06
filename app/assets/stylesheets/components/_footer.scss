@@ -1,21 +1,19 @@
 // Shared CSS to make the footer sticky
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  position: relative;
-}
-
 html,
 body {
   height: 100%;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+// Section that we want to grow to fill the space (the content section in our case)
 .content {
   flex: 1 0 auto;
 }
 
-// Section that we want to grow to fill the space (the main section in our case)
 .main {
   width: 100%;
   max-width: 1440px;
@@ -25,6 +23,7 @@ body {
 }
 
 .footer {
+  flex-shrink: 0;
   width: 100%;
   line-height: 3rem;
   padding: 3rem 0;
@@ -34,5 +33,4 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
 }
