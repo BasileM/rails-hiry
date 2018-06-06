@@ -1,8 +1,12 @@
 class HousingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all.order(created_at: :desc)
+      scope.where(user: user).order(created_at: :desc)
     end
+  end
+
+  def index?
+    record.user == user
   end
 
   def create?

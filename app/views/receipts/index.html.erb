@@ -50,7 +50,7 @@
                 Montant total: <%= receipt.monthly_invoice %>€
               </div>
               <div class="card-receipt-edit">
-                <%= link_to receipt_path(receipt, :format => :pdf) do %>
+                <%= link_to receipt_path(receipt, :format => :pdf, target: :_blank) do %>
                   <i class="fa fas fa-print"></i>
                 <% end %>
               </div>

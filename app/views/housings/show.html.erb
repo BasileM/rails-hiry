@@ -19,9 +19,8 @@
       <!-- Sticky sidebar navigation -->
       <div class="col-md-3">
         <nav class="nav flex-column housing-nav">
-          <a class="nav-link" href="#rental"><h4><span class="underline-title">Ma location</span></h4></a>
+          <a class="nav-link" href="#rental"><h4><span>Ma location</span></h4></a>
           <a class="nav-link" href="#housing"><h4>Ma fiche de bien</h4></a>
-          <a class="nav-link" href="#stats"><h4>Mes statistiques</h4></a>
         </nav>
       </div>
 
@@ -31,7 +30,7 @@
         <div class="list-housing">
           <!-- Inf on rental -->
           <div class="vacant-housings-list">
-            <h2 id="vacant-housing" class="housings-list-title"><span class="underline-title">Ma location</span></h2>
+            <h2 id="vacant-housing" class="housings-list-title"><span>Ma location</span></h2>
             <div class="rental-info-cards">
               <% if @rental.present? %>
                 <div class="rental-info-card">
@@ -91,15 +90,7 @@
           </div>
           <br>
 
-          <!-- Stats -->
-          <div class="rented-housings-list">
-            <h2 id="stats" class="housings-list-title">Statistiques</h2>
-              <div class="housing-info">
-                <p> 1000 euros </p>
-              </div>
-          </div>
         </div>
-
       </div>
       <!-- End housings list -->
     </div>
