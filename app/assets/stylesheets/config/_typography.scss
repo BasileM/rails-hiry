@@ -124,6 +124,13 @@ p.muted {
   color: $gray;
 }
 
+.text-black {
+  color:$black;
+  &:hover {
+    color:$black;
+  }
+}
+
 .text-lighter {
   opacity: 0.4;
 }

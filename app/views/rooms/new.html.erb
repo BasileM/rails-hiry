@@ -46,9 +46,11 @@
         </div>
 
         <!-- Display save button -->
-        <% if @rooms.present? %>
+        <div id="rooms-validation">
+          <% if @rooms.present? %>
           <%= link_to "Valider toutes mes pièces", housing_path(@housing), class: "btn btn-outline-primary btn-lg btn-block" %>
-        <% end %>
+          <% end %>
+        </div>
       </div>
 
     <!-- Row ends -->
