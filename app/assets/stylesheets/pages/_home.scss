@@ -8,10 +8,10 @@
   color: $white;
 }
 
-flex-container {
+.flex-container {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .gradient {
