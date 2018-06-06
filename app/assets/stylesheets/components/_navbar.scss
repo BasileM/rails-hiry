@@ -27,7 +27,8 @@
 }
 
 .page-content {
-  border: 5em solid #fff;
+  border: 7em solid #fff;
+  min-height: calc(100vh - 113px);
 }
 
 /* Logo */
@@ -74,7 +75,9 @@ header.edit a,
 header.new a,
 header.create a,
 nav.navbar-dark a,
-nav.navbar-menu a {
+nav.navbar-menu a,
+.receipts.index a,
+.rentals.show a {
   color: $black !important;
   font-size: $font-size-base;
   &:hover {
