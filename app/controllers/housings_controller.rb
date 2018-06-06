@@ -36,7 +36,7 @@ class HousingsController < ApplicationController
     authorize @housing
 
     if @housing.save
-      redirect_to new_housing_room_path(@housing), notice: 'Votre bien est créé.'
+      redirect_to new_housing_room_path(@housing) #, notice: 'Votre bien est créé.'
     else
       render :new
     end

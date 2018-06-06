@@ -1,3 +1,10 @@
+// Sticky nav element
+.nav {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 2rem;
+}
+
 /* Main navbar */
 .navbar-flex-container {
   border-bottom: 1px solid rgba(0,0,0,.05);
@@ -68,10 +75,10 @@ header.new a,
 header.create a,
 nav.navbar-dark a,
 nav.navbar-menu a {
-  color: $black;
+  color: $black !important;
   font-size: $font-size-base;
   &:hover {
-    color: $black-alt;
+    color: $black-alt !important;
     text-decoration: underline;
   }
 }
