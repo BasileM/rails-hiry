@@ -4,6 +4,7 @@
   margin: 12rem 0;
 }
 
+// Style for steps
 .steps-indicator {
   margin-top: 6rem;
   position: sticky;
@@ -33,12 +34,20 @@
 }
 
 // Style for form labels
-.form-control-label {
+.form-control-label,
+.col-form-label {
   color: $black;
   font-weight: $font-weight-bold;
   font-size: $font-size-sm;
   margin-left: 1rem;
 }
+
+// label.collection_radio_buttons {
+//   color: $black;
+//   &:hover {
+//     color: $black-alt;
+//   }
+// }
 
 // Set font-size and font-weight of input field and placeholder
 .form-control,
