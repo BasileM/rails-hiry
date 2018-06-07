@@ -17,7 +17,7 @@
 }
 
 .rental-info-card{
-  width: 200px;
+  width: 25%;
   height: 200px;
   border: 1px dashed $gray;
   border-radius: 2px;
@@ -35,12 +35,9 @@
 }
 
 
-
-
 .rental-info-card-title {
   position: absolute;
   top: 30%;
-  text-align: center;
 }
 
 .rental-info-card-title a {
@@ -73,6 +70,7 @@
 .rental-info-card-title-plus {
   position: absolute;
   top: 56%;
+  left: 40%;
 }
 
 .rental-info-card-icon {
