@@ -19,7 +19,11 @@
         <!-- Adds a map to the housing car -->
         <div class="card-location-map">
           <% markers = [{ lat: housing.latitude, lng: housing.longitude }] %>
-          <div id=<%= "map#{housing.id}" %> class="mini_map" style="width: 100%; height: 100%;" data-markers="<%= markers.to_json %>"></div>
+          <% if housing.latitude != nil %>
+            <div id=<%= "map#{housing.id}" %> class="mini_map" style="width: 100%; height: 100%;" data-markers="<%= markers.to_json %>"></div>
+          <% else %>
+            <div id=<%= "map#{housing.id}" %> class="mini_map" style="width: 100%; height: 100%;" data-markers='[{"lat":0,"lng":0}]'></div>
+          <% end %>
         </div>
       </div>
     <% end %>
