@@ -7,6 +7,7 @@ class UserMailer < ApplicationMailer
   #
   def contract(renter)
     @renter = renter
+    @rental = renter.rental
 
     # download cloudinary PDF file
     temp_pdf_file = Tempfile.new(["contrat-de-location", ".pdf"])

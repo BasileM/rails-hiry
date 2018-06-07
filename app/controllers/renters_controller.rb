@@ -14,6 +14,7 @@ class RentersController < ApplicationController
 
     if @renter.save!
       GenerateLeasePdfService.new(@rental).call
+
       redirect_to rental_path(@renter.rental), notice: 'Le locataire a bien été ajouté.'
     else
       render :new

@@ -35,9 +35,12 @@ class RentalsController < ApplicationController
 
   def send_email_contract
     @rental = Rental.find(params[:id])
+    authorize @rental
     @renter = @rental.renter
 
+    CreateDocusignEnvelopService.new(@rental).call
     UserMailer.contract(@renter).deliver_now
+    redirect_to signing_rental_docusign_owner_path(@rental)
   end
 
   private
