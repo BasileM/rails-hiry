@@ -11,8 +11,8 @@ hideFloorFieldIfHousingTypeIsHouse();
 if (document.getElementById("index_page")) {
  document.addEventListener("DOMContentLoaded", () => {
   const mini_maps = document.querySelectorAll(".mini_map");
-    mini_maps.forEach((mini_map) => {
-      update_map(`${mini_map.id}`);
+    mini_maps.forEach((map) => {
+      update_map(`${map.id}`);
     });
   });
 }
