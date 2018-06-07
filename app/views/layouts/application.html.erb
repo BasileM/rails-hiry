@@ -23,7 +23,15 @@
     <meta name="twitter:image:src" content="<%= meta_image %>">
 
     <!-- Favicon -->
-    <%= favicon_link_tag %>
+    <!-- For iPhone with high-resolution Retina display: -->
+    <%= favicon_link_tag 'favicon-144.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+
+    <!-- For first- and second-generation iPad: -->
+    <%= favicon_link_tag 'favicon-72.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+
+    <!-- For all other devices -->
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+
 
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
