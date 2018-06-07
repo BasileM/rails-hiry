@@ -26,49 +26,59 @@
 
       <!-- Begin Housing infos -->
       <div class="col-md-9">
-
         <div class="list-housing">
-          <!-- Inf on rental -->
+          <!-- Info on rental -->
           <div class="vacant-housings-list">
             <h2 id="vacant-housing" class="housings-list-title"><span>Ma location</span></h2>
             <div class="rental-info-cards">
               <% if @rental.present? %>
-                <div class="rental-info-card">
-                  <div class="rental-info-card-title">
-                    <%= link_to 'Contrat de location ', rental_path(@rental) %>
-                  </div>
-                  <div class="rental-info-card-description">
-                    Visualisez votre contrat de bail en version PDF
-                  </div>
-                </div>
-                <div class="rental-info-card">
-                  <div class="rental-info-card-title">
-                    <%= link_to "Quittances", rental_receipts_path(@rental) %>
-                  </div>
-                  <div class="rental-info-card-description">
-                    Générez et visualisez vos quittances de loyers
-                  </div>
-                </div>
-                <div class="rental-info-card">
-                  <div class="rental-info-card-title">
-                    <% if @housing.inventories.present? %>
-                        <%= link_to 'État des lieux',  rental_inventories_path(@rental) %>
-                    <% else %>
-                      <%= link_to 'État des lieux',  new_rental_inventory_path(@rental) %>
-                    <% end %>
-                  </div>
-                  <% if @housing.inventories.present? %>
-                    <div class="rental-info-card-description">
-                      Visualisez votre état des lieux
+                <!-- Contract -->
+                <%= link_to rental_path(@rental) do %>
+                  <div class="rental-info-card">
+                    <div class="rental-info-card-title">
+                      Contrat de location
                     </div>
-                  <% else %>
-                      <div class="rental-info-card-title-plus">
-                        <%= link_to new_rental_inventory_path(@rental) do %>
-                          <i class="fa fas fa-plus plus-button"></i>
-                        <% end %>
+                    <div class="rental-info-card-description">
+                      Visualisez votre contrat de bail en version PDF
+                    </div>
+                  </div>
+                <% end %>
+                <!-- Receipts -->
+                <%= link_to rental_receipts_path(@rental) do %>
+                  <div class="rental-info-card">
+                    <div class="rental-info-card-title">
+                      Quittances
+                    </div>
+                    <div class="rental-info-card-description">
+                      Générez et visualisez vos quittances de loyers
+                    </div>
+                  </div>
+                <% end %>
+                <!-- Inventory -->
+                <% if @housing.inventories.present? %>
+                  <%= link_to rental_inventories_path(@rental) do %>
+                    <div class="rental-info-card">
+                      <div class="rental-info-card-title">
+                        Etat des lieux
                       </div>
+                      <div class="rental-info-card-description">
+                        Visualisez votre état des lieux
+                      </div>
+                    </div>
                   <% end %>
-                </div>
+                <% else %>
+                  <%= link_to new_rental_inventory_path(@rental) do %>
+                    <div class="rental-info-card">
+                      <div class="rental-info-card-title">
+                        Etat des lieux
+                      </div>
+                      <div class="rental-info-card-title-plus">
+                        <i class="fa fas fa-plus plus-button"></i>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+              <!-- if there is no rentals -->
               <% else %>
                 <div class="rental-info-card">
                   <div class="rental-info-card-icon">
@@ -84,10 +94,11 @@
           <!-- Info on housing -->
           <div class="rented-housings-list">
             <h2 id="housing" class="housings-list-title">Ma fiche de bien</h2>
-              <div class="housing-info">
-                <%= render 'details', housing: @housing %>
-              </div>
+            <div class="housing-info">
+              <%= render 'details', housing: @housing %>
+            </div>
           </div>
+
         </div>
       </div>
       <!-- End housings list -->
