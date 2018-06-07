@@ -78,6 +78,21 @@ p.muted {
   }
 }
 
+div.housing-index-links,
+div.housing-show-links {
+  h4 {
+    line-height: 2rem;
+    text-transform: uppercase;
+  }
+  a {
+    color: $black;
+  }
+}
+
+.housings-list-title {
+  text-transform: uppercase;
+}
+
 // Set alignments
 .align-center {
   text-align: center;

@@ -3,7 +3,7 @@
   <%= f.simple_fields_for :inventories do |field| %>
     <%= field.input :room_id, as: :hidden %>
 
-    <h4 class="mt-5 mb-3"><%= field.object.room.type_of_room %> | <%= field.object.room.size %> m2</h4>
+    <h4 class="mt-5 mb-3"><%= field.object.room.type_of_room %> | <%= field.object.room.size %> m<sup>2</sup></h4>
     <%= field.input :state, label: 'État de la pièce', as: :select, collection: Inventory::STATES %>
     <%= field.input :observations, label: 'Observations', placeholder: 'Vos commentaires sur la pièce' %>
   <% end %>
