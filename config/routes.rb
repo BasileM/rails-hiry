@@ -19,7 +19,23 @@ Rails.application.routes.draw do
     resources :inventories, only: [:new, :create, :index]
     resources :receipts, only: [:new, :create, :index]
 
+    namespace :docusign do
+      resource :owner, only: [], controller: :owner do
+        member do
+          get :signing
+          get :docusign_response
+        end
+      end
+
+      resource :renter, only: [], controller: :renter do
+        member do
+          get :signing
+          get :docusign_response
+        end
+      end
+    end
   end
+
   resources :receipts, only: [:show]
   resources :rooms, only: [:edit, :update]
   get 'profile/edit', to: 'profiles#edit'

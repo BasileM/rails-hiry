@@ -3,7 +3,7 @@ class HousingsController < ApplicationController
 
   def index
     @rented_housings = policy_scope(Housing).joins(:rentals)
-    @vacant_housings = Housing.where.not(id: @rented_housings.pluck(:id))
+    @vacant_housings = policy_scope(Housing).where.not(id: @rented_housings.pluck(:id))
     @housings = current_user.housings
 
     # Geocoding
