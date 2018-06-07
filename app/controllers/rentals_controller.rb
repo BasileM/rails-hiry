@@ -10,6 +10,7 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(rental_params)
     @rental.housing = Housing.find(params[:housing_id])
+    @rental.renter_token = SecureRandom.hex(10)
     authorize @rental
 
     if @rental.save!
@@ -34,8 +35,12 @@ class RentalsController < ApplicationController
 
   def send_email_contract
     @rental = Rental.find(params[:id])
+    authorize @rental
     @renter = @rental.renter
+
+    CreateDocusignEnvelopService.new(@rental).call
     UserMailer.contract(@renter).deliver_now
+    redirect_to signing_rental_docusign_owner_path(@rental)
   end
 
   def send_email_inventory

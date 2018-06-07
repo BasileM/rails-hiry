@@ -12,4 +12,16 @@ class RentalPolicy < ApplicationPolicy
   def update?
     record.housing.user == user
   end
+
+  def signing?
+    record.housing.user == user
+  end
+
+  def docusign_response?
+    record.housing.user == user
+  end
+
+  def send_email_contract?
+    record.housing.user == user
+  end
 end

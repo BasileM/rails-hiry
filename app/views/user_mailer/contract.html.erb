@@ -1,13 +1,16 @@
 <% @rental  = Rental.find(@renter.rental_id) %>
 <% @housing = Housing.find(@rental.housing_id) %>
 
-
 Bonjour <%= @renter.first_name %> <%= @renter.last_name %>, <br>
 <br>
-Veuillez trouver en PJ le contrat de bail de votre <%= @housing.type_of_housing.downcase %>
+Veuillez trouver dans le lien ci-dessous, le contrat de bail à signer de votre <%= @housing.type_of_housing.downcase %>
 <% if @housing.type_of_housing = "Appartement" %>
   situé au: <br>
 <% else %>
   située au: <br>
 <% end %>
 <%= @housing.street %>, <%= @housing.zip_code %> <%= @housing.city %>.
+
+<%= link_to "Contract", signing_rental_docusign_renter_url(@rental.renter_token) %>
+
+Merci
