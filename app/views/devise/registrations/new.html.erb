@@ -23,6 +23,9 @@
             }
           %>
           <%= f.input :date_of_birth, {
+            start_year: Date.today.year - 95,
+            end_year: Date.today.year - 18,
+            order: [:day, :month, :year],
             label: 'Date de naissance',
             placeholder: '11/03/1983',
             required: true,

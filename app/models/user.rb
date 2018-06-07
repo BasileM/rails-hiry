@@ -14,5 +14,10 @@ class User < ApplicationRecord
   has_many :housings
   has_many :rentals, through: :housings
 
-  validates :date_of_birth,  numericality: { only_integer: true, greater_than: 0 }
+  validates :date_of_birth,  presence: true
+
+  def address
+    return "#{street}, #{zip_code} #{city}"
+  end
+
 end

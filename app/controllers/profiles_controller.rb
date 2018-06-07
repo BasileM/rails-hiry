@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
 
   def update
     authorize current_user
-    current_user.update(user_params)
+    current_user.update!(user_params)
     redirect_to housings_path
   end
 
