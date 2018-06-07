@@ -54,7 +54,7 @@
                     <% if @housing.inventories.present? %>
                         <%= link_to 'Etat des lieux',  rental_inventories_path(@rental) %>
                     <% else %>
-                      <%= link_to "Etablir l'état des lieux",  new_rental_inventory_path(@rental) %>
+                      <%= link_to "Etat des lieux",  new_rental_inventory_path(@rental) %>
                     <% end %>
                   </div>
                   <% if @housing.inventories.present? %>
