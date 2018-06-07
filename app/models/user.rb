@@ -2,8 +2,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
-  # geocoded_by :address
-  # after_validation :geocode
+  # Required for address autocomplete (do not comment out please)
+  geocoded_by :address
+  after_validation :geocode
   # Gravatar
   include Gravtastic
   gravtastic
@@ -12,7 +13,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :housings
   has_many :rentals, through: :housings
+  validates :date_of_birth,  presence: true
 
+  def address
+    return "#{street}, #{zip_code} #{city}"
+  end
+  
   def full_name
     "#{first_name} #{last_name}"
   end

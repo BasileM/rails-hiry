@@ -74,6 +74,8 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.6.2)
+      devise (>= 4.4)
     docusign_rest (0.4.1)
       json
       multipart-post (>= 1.2)
@@ -165,6 +167,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
+    rails-i18n (5.1.1)
+      i18n (>= 0.7, < 2)
+      railties (>= 5.0, < 6)
     railties (5.2.0)
       actionpack (= 5.2.0)
       activesupport (= 5.2.0)
@@ -250,6 +255,7 @@ DEPENDENCIES
   carrierwave (~> 1.2)
   cloudinary
   devise
+  devise-i18n
   docusign_rest
   figaro
   font-awesome-sass (~> 5.0.9)
@@ -264,6 +270,7 @@ DEPENDENCIES
   puma
   pundit
   rails (= 5.2.0)
+  rails-i18n
   redis
   sass-rails
   simple_form
