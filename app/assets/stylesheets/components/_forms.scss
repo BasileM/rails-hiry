@@ -42,12 +42,12 @@
   margin-left: 1rem;
 }
 
-// label.collection_radio_buttons {
-//   color: $black;
-//   &:hover {
-//     color: $black-alt;
-//   }
-// }
+// Remove margin on first radio button to keep it aligned with other fields
+fieldset.radio_buttons {
+  div.form-check:first-of-type {
+    padding-left: 0;
+  }
+}
 
 // Set font-size and font-weight of input field and placeholder
 .form-control,
@@ -71,7 +71,7 @@
 
 // Add vertical margin to form submit button
 input[type="submit"].btn-block {
-  margin: ($spacer * 2.5) 0 !important;
+  margin: ($spacer * 2) 0 !important;
 }
 
 // Remove horizontal margin for date of birth input field
