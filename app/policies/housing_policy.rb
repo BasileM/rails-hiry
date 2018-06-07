@@ -1,7 +1,7 @@
 class HousingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user).order(created_at: :desc)
+      scope.all.where(user_id: user.id).order(created_at: :desc)
     end
   end
 
