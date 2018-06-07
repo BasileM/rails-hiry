@@ -1,6 +1,5 @@
 <% @rental  = Rental.find(@renter.rental_id) %>
 <% @housing = Housing.find(@rental.housing_id) %>
-<% @user    = User.find(@housing.user_id %>
 
 
 Bonjour <%= @renter.first_name %> <%= @renter.last_name %>, <br>
