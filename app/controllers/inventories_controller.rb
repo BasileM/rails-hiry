@@ -28,6 +28,7 @@ class InventoriesController < ApplicationController
     authorize Inventory.new
 
     if @rental.update(rental_params)
+      GenerateInventoryPdfService.new(@rental).call
       redirect_to rental_inventories_path(@rental), notice: 'Votre état des lieux est enregistré.'
     else
       render :new

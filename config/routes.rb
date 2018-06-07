@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :rentals, only: [:show] do
     member do
       get :send_email_contract
+      get :send_email_inventory
     end
 
     resources :renters, only: [:new, :create]

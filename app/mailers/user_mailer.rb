@@ -19,4 +19,15 @@ class UserMailer < ApplicationMailer
     attachments['contrat-de-location.pdf'] = File.read(temp_pdf_file.path)
     mail to: @renter.email, subject: 'Bonjour'
   end
+
+  def inventory(renter)
+    @renter = renter
+    temp_pdf_file = Tempfile.new(["etat-des-lieux", ".pdf"])
+    File.open(temp_pdf_file, 'wb') do |file|
+      file << open(@renter.rental.inventory_pdf.url).read
+    end
+    attachments['etat-des-lieux.pdf'] = File.read(temp_pdf_file.path)
+    mail to: @renter.email, subject: 'Bonjour'
+  end
 end
+

@@ -43,6 +43,12 @@ class RentalsController < ApplicationController
     redirect_to signing_rental_docusign_owner_path(@rental)
   end
 
+  def send_email_inventory
+    @rental = Rental.find(params[:id])
+    @renter = @rental.renter
+    UserMailer.inventory(@renter).deliver_now
+  end
+
   private
 
   def user_info_completed

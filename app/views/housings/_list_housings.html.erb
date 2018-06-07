@@ -5,21 +5,25 @@
     <%= link_to housing_path(housing), class: 'card-link' do %>
       <div class="card-location">
         <div class="card-location-text">
-          <h3 class="card-location-title">
+          <h3 class="card-location-title sans-serif light">
             <%= housing.street %><br><%= housing.zip_code %> <%= housing.city.upcase %>
           </h3>
           <div class="card-date">
             <% if defined?(rental) && renter.present? %>
-              <h6 class="card-date-title">Loué depuis le <%= rental.start_date %> à <%= renter.first_name %> <%= renter.last_name %></h6>
+              <h6 class="card-date-title bold sans-serif">Loué depuis le <%= rental.start_date %> à <%= renter.first_name %> <%= renter.last_name %></h6>
             <% else %>
-              <h6 class="card-date-title">Créé en <%= housing.created_at.strftime("%B, %Y") %></h6>
+              <h6 class="card-date-title bold sans-serif">Créé en <%= housing.created_at.strftime("%B, %Y") %></h6>
             <% end %>
           </div>
         </div>
         <!-- Adds a map to the housing car -->
         <div class="card-location-map">
           <% markers = [{ lat: housing.latitude, lng: housing.longitude }] %>
-          <div id=<%= "map#{housing.id}" %> class="mini_map" style="width: 100%; height: 100%;" data-markers="<%= markers.to_json %>"></div>
+          <% if housing.latitude != nil %>
+            <div id=<%= "map#{housing.id}" %> class="mini_map" style="width: 100%; height: 100%;" data-markers="<%= markers.to_json %>"></div>
+          <% else %>
+            <div id=<%= "map#{housing.id}" %> class="mini_map" style="width: 100%; height: 100%;" data-markers='[{"lat":0,"lng":0}]'></div>
+          <% end %>
         </div>
       </div>
     <% end %>
@@ -47,7 +51,7 @@
     <div class="card-edit-links">
       <ul class="nav">
         <li class="nav-item"><%= link_to "Supprimer", root_path, class: 'nav-link' %></li>
-        <li class="nav-item"><%= link_to "Editer", root_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to "Modifier", root_path, class: 'nav-link' %></li>
       </ul>
     </div>
   </div>

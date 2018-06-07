@@ -1,7 +1,27 @@
 // Style for form-only page
 .form-page {
   min-height: 100%;
-  border: 12rem solid #fff;
+  margin: 12rem 0;
+}
+
+// Style for steps
+.steps-indicator {
+  margin-top: 6rem;
+  position: sticky;
+  top: 6rem;
+}
+
+.step-section {
+  line-height: 1.35;
+  margin: 2rem;
+  padding-top: 0.3rem;
+}
+
+.flex-success {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 // Style for H3 title of forms
@@ -14,19 +34,27 @@
 }
 
 // Style for form labels
-.form-control-label {
+.form-control-label,
+.col-form-label {
   color: $black;
   font-weight: $font-weight-bold;
   font-size: $font-size-sm;
   margin-left: 1rem;
 }
 
+// label.collection_radio_buttons {
+//   color: $black;
+//   &:hover {
+//     color: $black-alt;
+//   }
+// }
+
 // Set font-size and font-weight of input field and placeholder
 .form-control,
 .form-control::placeholder,
 .custom-file-label {
   font-size: $font-size-base;
-  font-weight: $font-weight-light;
+  font-weight: $font-weight-normal;
 }
 
 .custom-file-label {

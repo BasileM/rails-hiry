@@ -5,6 +5,10 @@ class HousingPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    record.user == user
+  end
+
   def create?
     return true
   end
