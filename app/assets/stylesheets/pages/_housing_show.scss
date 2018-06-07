@@ -4,7 +4,7 @@
 }
 
 .rental-info-card{
-  width: 25%;
+  width: 207px;
   height: 200px;
   border: 1px dashed $gray;
   border-radius: 2px;
@@ -16,17 +16,8 @@
   flex: 0 0 auto;
 }
 
-.rental-info-card{
-  width: 25%;
-  height: 200px;
-  border: 1px dashed $gray;
-  border-radius: 2px;
-  margin-left: 15px;
-  margin-right: 15px;
-  background-color: rgb(254, 254, 254);
-  padding: 30px;
-  position: relative;
-  flex: 0 0 auto;
+.rental-info-card a {
+  font-weight: bold;
 }
 
 .rental-info-card:hover {
@@ -38,11 +29,9 @@
 .rental-info-card-title {
   position: absolute;
   top: 30%;
-}
-
-.rental-info-card-title a {
   font-weight: bold;
 }
+
 
 .rental-info-card-description {
   position: absolute;
@@ -54,13 +43,17 @@
 }
 
 .housing-info {
-  width: 82.2%;
+  width: 682px;
   border: 1px dashed $gray;
   border-radius: 2px;
   margin-left: 15px;
   margin-right: 15px;
   background-color: rgb(254, 254, 254);
   padding: 20px;
+}
+
+.housing-info:hover {
+  border: 1px solid $gray;
 }
 
 .housing-details li {
