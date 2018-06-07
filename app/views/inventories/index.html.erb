@@ -8,7 +8,7 @@
           <%= link_to housing_path(@rental.housing), class: "button-navigation-small" do  %>
             <i class="fa fas fa-long-arrow-alt-left"></i>
           <% end %>
-          <%= link_to rental_inventories_path(@rental, :format => :pdf), target: :_blank, class: "button-navigation-small" do %>
+          <%= link_to rental_inventories_path(@rental, :format => :pdf), target: :_blank, :target=>'blank', class: "button-navigation-small" do %>
             <i class="fa far fa-file-pdf"></i>
           <% end %>
           <%= link_to send_email_inventory_rental_path(@rental), remote: true, class: "button-navigation-small" do %>
