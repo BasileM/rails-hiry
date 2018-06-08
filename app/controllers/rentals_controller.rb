@@ -10,11 +10,12 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(rental_params)
     @rental.housing = Housing.find(params[:housing_id])
+    @housing = @rental.housing
     @rental.renter_token = SecureRandom.hex(10)
     authorize @rental
 
-    if @rental.save!
-      redirect_to new_rental_renter_path(@rental), notice: 'Location Crée. Veuillez maintenant renseigner les informations sur le locataire.'
+    if @rental.save
+      redirect_to new_rental_renter_path(@rental), notice: 'Location Créée. Veuillez maintenant renseigner les informations sur le locataire.'
     else
       render :new
     end
