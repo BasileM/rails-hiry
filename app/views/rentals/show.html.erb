@@ -34,28 +34,25 @@
 				<%= render 'rental', housing: @housing %>
 
         <!-- Show success or not if contract signed -->
-        <div>
+				<h3 class="text-bold mt-5">État des signatures</h3>
+        <div class="card mt-3">
+					<div class="card-body">
           <!-- Signed by owner text -->
-          <% if @rental.signed_by_owner %>
-            <h5><i class="fas fa-check-circle text-success"></i><h5>
-            Vous avez bien signé le contrat de bail
-          <% else %>
-            <h5><i class="fas fa-times-circle text-fail"></i><h5>
-            En attente de votre signature
-          <% end %>
-          <!-- Signed by renter text -->
-          <% if @rental.signed_by_renter %>
-            <h5><i class="fas fa-check-circle text-success"></i><h5>
-            Votre locataire a bien signé le contrat de bail
-          <% else %>
-            <h5><i class="far fa-times-circle text-fail"></i><h5>
-            En attente de la signature de votre locataire
-          <% end %>
+	          <% if @rental.signed_by_owner %>
+	            <p><i class="fas fa-check-circle text-success"></i>  Vous avez bien signé le contrat de bail<p>
+	          <% else %>
+	            <p><i class="fas fa-times-circle text-fail"></i>  En attente de votre signature<p>
+	          <% end %>
+
+	          <!-- Signed by renter text -->
+	          <% if @rental.signed_by_renter %>
+	            <p><i class="fas fa-check-circle text-success"></i>  Votre locataire a bien signé le contrat de bail<p>
+	          <% else %>
+	            <p><i class="far fa-times-circle text-fail"></i>  En attente de la signature de votre locataire<p>
+	          <% end %>
+					</div>
         </div>
 
     </div>
   </div>
 </div>
-
-<i class="far fa-times-circle"></i>
-
