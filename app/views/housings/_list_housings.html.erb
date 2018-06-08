@@ -11,10 +11,10 @@
           <div class="card-date">
             <% if defined?(rental) && renter.present? %>
               <h6 class="card-date-title bold sans-serif">
-                Loué depuis le <%= I18n.localize(rental.start_date, format: '%e %b %Y') %> à <%= renter.first_name %> <%= renter.last_name %>
+                Loué depuis le <%= I18n.localize(rental.start_date, format: '%e %B %Y') %> à <%= renter.first_name %> <%= renter.last_name %>
               </h6>
             <% else %>
-              <h6 class="card-date-title bold sans-serif">Créé le <%= I18n.localize(housing.created_at, format: '%e %b, %Y') %></h6>
+              <h6 class="card-date-title bold sans-serif">Créé le <%= I18n.localize(housing.created_at, format: '%e %B %Y') %></h6>
             <% end %>
           </div>
         </div>

@@ -7,17 +7,17 @@
       <div class="col-md-3 offset-md-1">
         <aside class="steps-indicator sticky-top">
           <div class="step-section">
-            <h5 class="text-uppercase text-gray text-bold sans-serif">Étape 1</h5>
+            <h5 class="text-uppercase text-bold">Étape 1</h5>
             <div class="flex-success">
               <h4 class="d-inline sans-serif">Ajoutez votre bien</h4><h3><i class="fas fa-check-circle text-success"></i><h3>
             </div>
-            <p>Adresse, type de bien…</p>
+            <p class="text-gray-dark">Adresse, type de bien…</p>
           </div>
           <hr>
           <div class="step-section">
-            <h5 class="text-uppercase text-gray text-bold sans-serif">Étape 2</h5>
+            <h5 class="text-uppercase text-bold">Étape 2</h5>
             <h4 class="sans-serif">Ajoutez vos pièces</h4>
-            <p>Cuisine, salle de bain, salon…</p>
+            <p class="text-gray-dark">Cuisine, salle de bain, salon…</p>
           </div>
         </aside>
       </div>
@@ -27,18 +27,19 @@
 
         <!-- Set title of form depending on the presence of rooms -->
         <% if @rooms.present? %>
-          <h3 class="form-subtitle align-center">Ajouter une nouvelle pièce</h3>
+          <h2 class="form-title align-center">Ajouter une nouvelle pièce</h2>
         <% else %>
-          <h3 class="form-subtitle align-center">Ajouter une première pièce</h3>
+          <h2 class="form-title align-center">Ajouter une première pièce</h2>
         <% end %>
 
         <!-- Display room#new form -->
         <%= render 'form_room', housing: @housing, room: @room %>
+        <hr class="my-5">
 
         <!-- Display list of added rooms -->
         <div id="rooms">
-          <h3 class="sans-serif">Pièces ajoutées :</h3>
-          <ul class="list-unstyled">
+          <h3 id="rooms-title" class="serif text-gray text-uppercase mb-3">Pièces ajoutées</h3>
+          <ul class="list-unstyled my-3">
             <% @rooms.each do |room| %>
               <%= render'show_room', room: room %>
             <% end %>
@@ -48,7 +49,7 @@
         <!-- Display save button -->
         <div id="rooms-validation">
           <% if @rooms.present? %>
-          <%= link_to "Valider toutes mes pièces", housing_path(@housing), class: "btn btn-outline-primary btn-lg btn-block" %>
+            <%= link_to "Valider toutes mes pièces", housing_path(@housing), class: "btn btn-outline-primary btn-lg btn-block mt-3" %>
           <% end %>
         </div>
       </div>

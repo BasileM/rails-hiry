@@ -1,20 +1,37 @@
-<div class="page-content">
-	<div class="container">
+<div id="rental-show" class="page-content">
+	<div class="container-fluid">
 	  <div class="row">
-      <div class="col-md-8 offset-md-2">
-        <br>
 
-        <div class="navigaton-container">
-          <%= link_to housing_path(@housing), class: "button-navigation-small" do %>
-            <i class="fa fas fa-long-arrow-alt-left"></i>
-          <% end %>
-          <%= link_to rental_path(@rental, :format => :pdf), :target=>'blank', class: "button-navigation-small" do %>
-            <i class="fa far fa-file-pdf"></i>
-          <% end %>
-          <%= link_to send_email_contract_rental_path(@rental), class: "button-navigation-small" do %>
-            <i class="fa far fa-envelope-open"></i>
-          <% end %>
+			<!-- Sticky sidebar navigation -->
+			<div id="#navbar-sticky" class="col-md-4 housing-index-links">
+				<nav class="nav flex-column sticky-top">
+					<a class="nav-link" href="#section-1"><h4>Parties prenantes</h4></a>
+					<a class="nav-link" href="#section-2"><h4>Objet du contrat</h4></a>
+					<a class="nav-link" href="#section-3"><h4>Dates</h4></a>
+					<a class="nav-link" href="#section-4"><h4>Conditions financières</h4></a>
+					<a class="nav-link" href="#section-5"><h4>Travaux</h4></a>
+					<a class="nav-link" href="#section-6"><h4>Clauses résolutoires</h4></a>
+					<a class="nav-link" href="#section-7"><h4>État des lieux </h4></a>
+				</nav>
+			</div>
+
+      <div class="col-md-7 offset-md-1">
+        <div class="row mb-5">
+					<div class="col-md-4 align-center">
+	          <%= link_to "Revenir au bien", housing_path(@housing), class: "btn btn-outline-primary" %>
+					</div>
+					<div class="col-md-4 align-center">
+	          <%= link_to rental_path(@rental, :format => :pdf), :target=>'blank', class: "btn btn-primary" do %>
+	            <span>Voir en PDF</span>
+	          <% end %>
+					</div>
+					<div class="col-md-4 align-center">
+	          <%= link_to send_email_contract_rental_path(@rental), class: "btn btn-primary" do %>
+	            <span>Envoyer par e-mail</span>
+	          <% end %>
+					</div>
         </div>
+				<%= render 'rental', housing: @housing %>
 
         <!-- Show success or not if contract signed -->
         <div>
@@ -35,9 +52,7 @@
             En attente de la signature de votre locataire
           <% end %>
         </div>
-        <hr>
-        <%= render 'rental' %>
-      </div>
+
     </div>
   </div>
 </div>

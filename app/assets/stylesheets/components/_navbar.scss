@@ -1,8 +1,16 @@
 // Sticky nav element
-.nav {
+nav.sticky-top {
   position: sticky;
   position: -webkit-sticky;
   top: 2rem;
+}
+
+.nav-link {
+  padding: 0;
+  &:hover {
+    text-decoration: underline;
+    color: $black-alt;
+  }
 }
 
 /* Main navbar */

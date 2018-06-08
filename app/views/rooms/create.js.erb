@@ -20,9 +20,14 @@ function detectFileUpload() {
   }
 }
 
+function setRoomTitleToActive() {
+  const addedRoomsTitle = document.getElementById('rooms-title');
+  addedRoomsTitle.classList.remove('text-gray');
+}
+
 function displayValidationButton() {
   const div = document.getElementById('rooms-validation');
-  div.innerHTML = '<%= link_to "Valider toutes mes pièces", housing_path(@housing), class: "btn btn-outline-primary btn-lg btn-block" %>';
+  div.innerHTML = '<%= link_to "Valider toutes mes pièces", housing_path(@housing), class: "btn btn-outline-primary btn-lg btn-block mt-3" %>';
 }
 
 <% if @room.errors.any? %>
@@ -31,5 +36,6 @@ function displayValidationButton() {
   addRoom('<%= j render "show_room", room: @room %>');
   refreshForm('<%= j render "form_room", housing: @housing, room: @new_room %>');
   displayValidationButton();
+  setRoomTitleToActive();
 <% end %>
 detectFileUpload();

@@ -1,6 +1,6 @@
 <!-- Background image -->
 <% if !@image.nil? && if !@image.photo.url.nil? %>
-    <div class="fullscreen fullscreen-img" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(44,44,44,0.6) 50%), url('<%= cl_image_path @image.photo, height: 700, width: 1440, crop: :fill %>')">
+  <div class="fullscreen fullscreen-img" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.5) 0%, rgba(44,44,44,0.6) 50%), url('<%= cl_image_path @image.photo, height: 700, width: 1440, crop: :fill %>')">
   <% end %>
 <% else %>
   <%= render 'shared/banner' %>
@@ -17,90 +17,143 @@
     <div class="row">
 
       <!-- Sticky sidebar navigation -->
-      <div class="col-md-3 housing-show-links">
-        <nav class="nav flex-column housing-nav">
+      <div id="#navbar-sticky" class="col-md-3 housing-show-links">
+        <nav class="navbar sticky-top">
           <a class="nav-link" href="#rental"><h4>Ma location</h4></a>
-          <a class="nav-link" href="#housing"><h4>Ma fiche de bien</h4></a>
+          <% if @rental.present? %>
+            <a class="nav-link" href="#housing"><h4>Mon bien</h4></a>
+          <% end %>
+          <!-- Display rooms link if rooms exist -->
+          <% if @housing.rooms.present? %>
+            <a class="nav-link" href="#rooms"><h4>Mes pièces</h4></a>
+          <% end %>
+          <% if @rental.present? %>
+            <a class="nav-link" href="#renter"><h4>Mon locataire</h4></a>
+          <% end %>
         </nav>
       </div>
 
       <!-- Begin Housing infos -->
       <div class="col-md-9">
         <div class="list-housing">
-          <!-- Info on rental -->
-          <div class="vacant-housings-list">
-            <h2 id="vacant-housing" class="housings-list-title"><span>Ma location</span></h2>
-            <div class="rental-info-cards">
+
+          <!-- Rental column (right side) -->
+          <div id="rental" class="vacant-housings-list">
+            <h2 id="vacant-housing" class="housings-list-title">Ma location</h2>
+
+            <div class="row">
+              <!-- Begin if rental -->
               <% if @rental.present? %>
-                <!-- Contract -->
-                <%= link_to rental_path(@rental) do %>
-                  <div class="rental-info-card">
-                    <div class="rental-info-card-title">
-                      Contrat de location
-                    </div>
-                    <div class="rental-info-card-description">
-                      Visualisez votre contrat de bail en version PDF
-                    </div>
-                  </div>
-                <% end %>
-                <!-- Inventory -->
-                <% if @housing.inventories.present? %>
-                  <%= link_to rental_inventories_path(@rental) do %>
-                    <div class="rental-info-card">
-                      <div class="rental-info-card-title">
-                        Etat des lieux
-                      </div>
-                      <div class="rental-info-card-description">
-                        Visualisez votre état des lieux
-                      </div>
-                    </div>
-                  <% end %>
-                <% else %>
-                  <%= link_to new_rental_inventory_path(@rental) do %>
-                    <div class="rental-info-card">
-                      <div class="rental-info-card-title">
-                        Etat des lieux
-                      </div>
-                      <div class="rental-info-card-title-plus">
-                        <i class="fa fas fa-plus plus-button"></i>
-                      </div>
-                    </div>
-                  <% end %>
-                <% end %>
-                <!-- Receipts -->
-                <%= link_to rental_receipts_path(@rental) do %>
-                  <div class="rental-info-card">
-                    <div class="rental-info-card-title">
-                      Quittances
-                    </div>
-                    <div class="rental-info-card-description">
-                      Générez et visualisez vos quittances de loyers
+
+                <!-- 1 Contract -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h3 class="card-title">Bail</h3>
+                      <h5 class="card-subtitle mb-2 text-gray-dark">Votre contrat de location</h5>
+                      <p class="card-text">
+                        Visualisez votre contrat de bail en version PDF. Envoyez-le par e-mail à votre locataire. Sauvez des arbres.
+                      </p>
+                      <%= link_to "Voir mon contrat", rental_path(@rental), class: 'card-link' %>
                     </div>
                   </div>
-                <% end %>
-              <!-- if there is no rentals -->
+                </div>
+
+                <!-- 2 Receipts -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h3 class="card-title">Quittances</h3>
+                      <h5 class="card-subtitle mb-2 text-gray-dark">Vos quittances de loyer</h5>
+                      <p class="card-text">
+                        Créez, visualisez et envoyez par e-mail vos quittances de loyer. Plus besoin de passer par la case Poste.
+                      </p>
+                      <%= link_to "Voir mes quittances", rental_receipts_path(@rental), class: 'card-link' %>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 3 Inventory -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <div class="card-body">
+                      <h3 class="card-title">État des lieux</h3>
+                      <h5 class="card-subtitle mb-2 text-gray-dark">Votre état des lieux</h5>
+                      <p class="card-text">
+                        Créez, visualisez et envoyez votre état des lieux par e-mail à votre locataire. C’est simple. Ça marche.
+                      </p>
+                      <% if @housing.inventories.present? %>
+                        <%= link_to "Voir mon état des lieux", rental_inventories_path(@rental), class: 'card-link' %>
+                      <% else %>
+                        <%= link_to "Créer mon état des lieux", new_rental_inventory_path(@rental), class: 'card-link' %>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+
+              <!-- if there is no rental yet dispaly rental creation call-to-action -->
               <% else %>
-                <%= link_to new_housing_rental_path(@housing) do %>
-                  <div class="rental-info-card">
-                    <div class="rental-info-card-icon">
-                      <i class="fas fa-plus plus-button"></i>
+                <div class="col-md-12">
+                  <div class="card align-center mb-5">
+                    <div class="card-body my-3">
+                      <h3 class="card-title serif">Votre <%= @housing.type_of_housing.downcase %> n’est pas encore en location</h3>
+                      <p class="card-text">Pour louer votre bien, créez un contrat et ajouter un locataire.</p>
+                      <%= link_to "Commencer les démarches", new_housing_rental_path(@housing), class: "btn btn-primary btn-lg mt-5" %>                    
                     </div>
                   </div>
                 <% end %>
               <% end %>
+              <!-- End if rental -->
+
+            <!-- End nested row -->
             </div>
           </div>
 
           <!-- Info on housing -->
-          <div class="rented-housings-list">
-            <h2 id="housing" class="housings-list-title">Ma fiche de bien</h2>
-            <div class="housing-info">
-              <%= render 'details', housing: @housing %>
+          <% if @rental.present? %>
+            <div id="housing" class="mt-5">
+              <h2 class="text-uppercase">Mon bien</h2>
+              <div class="card">
+                <div class="card-body">
+                  <h3 class="card-title">Informations</h3>
+                    <h5>
+                      Votre <%= @housing.type_of_housing.downcase %> est en location depuis le <%= I18n.localize(@rental.start_date, format: '%e %B %Y') %>
+                    </h5>
+                    <%= render 'details_general', housing: @housing, rental: @rental %>
+                </div>
+              </div>
             </div>
-          </div>
+          <% end %>
+
+          <!-- Info on rooms (if presents) -->
+          <% if @housing.rooms.present? %>
+            <div id="rooms" class="mt-5">
+              <h2 class="text-uppercase">Mes <%= @housing.rooms.count.to_i %> pièces</h2>
+              <div class="row">
+                <% @housing.rooms.each do |room| %>
+                  <%= render 'details_rooms', housing: @housing, room: room %>
+                <% end %>
+              </div>
+              <%= link_to "Ajouter une autre pièce", new_housing_room_path(@housing), class: "btn btn-primary btn-lg mt-3" %>
+            </div>
+          <% end %>
+
+          <!-- Info on renter (if presents) -->
+          <% if @rental.present? %>
+            <div id="renter" class="mt-5">
+              <h2 class="text-uppercase">Mon locataire</h2>
+              <div class="card">
+                <div class="card-body">
+                  <h3 class="card-title"><%= @rental.renter.first_name %> <%= @rental.renter.last_name %></h3>
+                  <%= render 'details_renter', renter: @rental.renter %>
+                </div>
+              </div>
+            </div>
+          <% end %>
 
         </div>
       </div>
+
       <!-- End housings list -->
     </div>
   </div>

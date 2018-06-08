@@ -56,6 +56,7 @@ body {
   color: $black-alt !important;
   font-weight: 400; // normal
   line-height: 1.35; // 21.36px
+  position: relative;
 }
 
 a {
@@ -139,6 +140,10 @@ div.housing-show-links {
   color: $gray;
 }
 
+.text-gray-dark {
+  color: $gray-alt;
+}
+
 .text-black {
   color:$black;
   &:hover {
@@ -168,4 +173,12 @@ div.housing-show-links {
 
 .step-section h5 {
   letter-spacing: .1rem;
+}
+
+#rooms-title {
+  letter-spacing: .025rem;
+}
+
+.active {
+  font-weight: 700 !important;
 }
