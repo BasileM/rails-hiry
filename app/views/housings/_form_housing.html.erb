@@ -1,12 +1,12 @@
 <%= simple_form_for [@housing] do |f| %>
   <%= f.input :type_of_housing, {
     as: :radio_buttons,
-    label: 'Type de bien',
+    label: "Type de bien",
     placeholder: 'Appartement ou maison',
     collection: Housing::TYPE_OF_HOUSING,
     class: 'form-check-input',
     wrapper_html: { class: 'form-check form-check-inline' }
-    }
+  }
   %>
   <%= f.input :street, {
     label: 'Rue',
@@ -29,7 +29,7 @@
   </div>
   <div class="form-row">
   <%= f.input :year_of_construction, {
-    label: 'Année de construction',
+    label: 'Année',
     placeholder: '1950',
     wrapper_html: { class: 'col-4' }
     }
