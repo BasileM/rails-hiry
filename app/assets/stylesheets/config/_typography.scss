@@ -10,6 +10,11 @@ html {
   -webkit-text-size-adjust: none;
 }
 
+// For srollspy to work
+body {
+  position: relative;
+}
+
 h1 {
   font-size: $h1-font-size;
   font-weight: $font-weight-normal; // 400
@@ -172,4 +177,8 @@ div.housing-show-links {
 
 #rooms-title {
   letter-spacing: .025rem;
+}
+
+.active {
+  font-weight: 700 !important;
 }

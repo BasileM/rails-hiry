@@ -39,7 +39,7 @@
     <%= stylesheet_pack_tag 'application' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body>
+  <body data-spy="scroll" data-target="#navbar-sticky" data-offset="0">
     <div class="content">
       <div class="is-absolute">
         <%= render 'shared/flashes' %>

@@ -11,18 +11,14 @@
 	  <div id="index_page" class="row">
 
 			<!-- Sticky sidebar navigation -->
-			<div class="col-md-3 housing-index-links">
-				<ul class="list-unstyled">
-					<li>
-						<a class="text-black" href="#vacant-housing"><h4>À louer</h4></a>
-					</li>
+			<div id="#navbar-sticky" class="col-md-3 housing-index-links">
+				<nav class="navbar sticky-top">
+					<a class="nav-link" href="#vacant-housing"><h4>À louer</h4></a>
 					<!-- Display rented link if rented locations exist -->
 					<% if @rented_housings.present? %>
-						<li>
-							<a class="text-black" href="#rented-housing"><h4>En location</h4></a>
-						</li>
+						<a class="nav-link" href="#rented-housing"><h4>En location</h4></a>
 					<% end %>
-				</ul>
+				</nav>
 			</div>
 
 			<!-- Begin Housings lists -->
