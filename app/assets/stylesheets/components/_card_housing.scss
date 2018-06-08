@@ -117,11 +117,12 @@
 }
 
 .card-edit-links {
-  margin: 1rem .5rem;
+  padding: 1rem 1rem;
   a {
-    text-decoration: none;
+  margin: 1rem .5rem;
+  text-decoration: none !important;
   }
   a:hover {
-  text-decoration: underline;
+  text-decoration: underline !important;
   }
 }
