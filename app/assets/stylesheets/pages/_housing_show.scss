@@ -1,3 +1,9 @@
+// Overide Bootstrapstyle for room card
+.card-header {
+  border-bottom: none !important;
+  background-color: transparent !important;
+}
+
 .rental-info-cards {
   display: flex;
   margin-bottom: 30px;

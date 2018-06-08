@@ -1,0 +1,14 @@
+<ul class="list-unstyled housing-details">
+  <li>Adresse : <%= housing.street %></li>
+  <li>Code postal : <%= housing.zip_code %></li>
+  <li>Type de bien : <%= housing.type_of_housing.downcase %></li>
+  <li>Régime légal : <%= housing.legal_regime.downcase %></li>
+  <li>Année de construction : <%= housing.year_of_construction %></li>
+  <li>Étage : <%= housing.floor %></li>
+  <li>Surface en m<sup>2</sup> : <%= housing.size.to_i %></li>
+  <% if rental.furnished %>
+    <li>Type de location : meublée (bail d’un an)</li>
+  <% else %>
+    <li>Type de location : non meublée (bail de trois ans)</li>
+  <% end %>
+</ul>

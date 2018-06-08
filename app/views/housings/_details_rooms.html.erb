@@ -1,0 +1,52 @@
+<div class="col-3">
+  <div class="card my-3">
+    <div class="card-header">
+      <!-- Display icon associated to room type -->
+      <% if room.type_of_room == "Salon" %>
+        <li class="list-unstyled my-1">
+          <i class="fas fa-icon fa-tv"></i>
+        </li>
+      <% elsif room.type_of_room == "Chambre" %>
+        <li class="list-unstyled my-1">
+          <i class="fas fa-icon fa-bed"></i>
+        </li>
+      <% elsif room.type_of_room == "Cuisine" %>
+        <li class="list-unstyled my-1">
+          <i class="fas fa-icon fa-utensils"></i>
+        </li>
+      <% elsif room.type_of_room == "Salle de bain" %>
+        <li class="list-unstyled my-1">
+          <i class="fas fa-icon fa-bath"></i>
+        </li>
+      <% elsif room.type_of_room == "Salle de bain" %>
+        <li class="list-unstyled my-1">
+          <i class="fas fa-icon fa-bath"></i>
+        </li>
+      <% elsif room.type_of_room == "Toilettes" %>
+        <li class="list-unstyled my-1">
+          <i class="fas fa-icon fa-female"></i></i>
+        </li>
+      <% elsif room.type_of_room == "Buanderie" %>
+        <li class="list-unstyled my-1">
+          <i class="fas fa-icon fa-recycle"></i>
+        </li>
+      <% elsif room.type_of_room == "Bureau" %>
+        <li class="list-unstyled my-1">
+          <i class="fas fa-icon fa-headphones"></i>
+        </li>
+      <% elsif room.type_of_room == "Garage" %>
+        <li class="list-unstyled my-1">
+          <i class="fas fa-icon fa-motorcycle"></i>
+        </li>
+      <% else room.type_of_room == "Dressing" %>
+        <li class="list-unstyled my-1">
+          <i class="fas fa-icon fa-tshirt"></i>
+        </li>
+      <% end %>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title sans-serif text-black text-bold"><%= room.type_of_room %></h5>
+      <p class="card-text"><%= room.size.to_i %>&nbsp;m<sup>2</sup></p>
+    </div>
+  </div>
+</div>
