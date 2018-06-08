@@ -1,1 +1,41 @@
-<li class="list-unstyled my-1"><%= room.type_of_room %> - <%= room.size %>m<sup>2</sup></li>
+<% if room.type_of_room == "Salon" %>
+  <li class="list-unstyled my-1">
+    <i class="fas fa-icon fa-tv"></i> <%= room.type_of_room %> (<%= room.size.to_i %>&nbsp;m<sup>2</sup>)
+  </li>
+<% elsif room.type_of_room == "Chambre" %>
+  <li class="list-unstyled my-1">
+    <i class="fas fa-icon fa-bed"></i> <%= room.type_of_room %> (<%= room.size.to_i %>&nbsp;m<sup>2</sup>)
+  </li>
+<% elsif room.type_of_room == "Cuisine" %>
+  <li class="list-unstyled my-1">
+    <i class="fas fa-icon fa-utensils"></i> <%= room.type_of_room %> (<%= room.size.to_i %>&nbsp;m<sup>2</sup>)
+  </li>
+<% elsif room.type_of_room == "Salle de bain" %>
+  <li class="list-unstyled my-1">
+    <i class="fas fa-icon fa-bath"></i> <%= room.type_of_room %> (<%= room.size.to_i %>&nbsp;m<sup>2</sup>)
+  </li>
+<% elsif room.type_of_room == "Salle de bain" %>
+  <li class="list-unstyled my-1">
+    <i class="fas fa-icon fa-bath"></i> <%= room.type_of_room %> (<%= room.size.to_i %>&nbsp;m<sup>2</sup>)
+  </li>
+<% elsif room.type_of_room == "Toilettes" %>
+  <li class="list-unstyled my-1">
+    <i class="fas fa-icon fa-female"></i></i> <%= room.type_of_room %> (<%= room.size.to_i %>&nbsp;m<sup>2</sup>)
+  </li>
+<% elsif room.type_of_room == "Buanderie" %>
+  <li class="list-unstyled my-1">
+    <i class="fas fa-icon fa-recycle"></i> <%= room.type_of_room %> (<%= room.size.to_i %>&nbsp;m<sup>2</sup>)
+  </li>
+<% elsif room.type_of_room == "Bureau" %>
+  <li class="list-unstyled my-1">
+    <i class="fas fa-icon fa-headphones"></i> <%= room.type_of_room %> (<%= room.size.to_i %>&nbsp;m<sup>2</sup>)
+  </li>
+<% elsif room.type_of_room == "Garage" %>
+  <li class="list-unstyled my-1">
+    <i class="fas fa-icon fa-motorcycle"></i> <%= room.type_of_room %> (<%= room.size.to_i %>&nbsp;m<sup>2</sup>)
+  </li>
+<% else room.type_of_room == "Dressing" %>
+  <li class="list-unstyled my-1">
+    <i class="fas fa-icon fa-tshirt"></i> <%= room.type_of_room %> (<%= room.size.to_i %>&nbsp;m<sup>2</sup>)
+  </li>
+<% end %>

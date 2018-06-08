@@ -27,10 +27,12 @@
 // Style for H3 title of forms
 .form-title {
   margin-bottom: ($spacer * 3) !important;
+  font-weight: 700;
 }
 
 .form-subtitle {
   margin-bottom: ($spacer * 2) !important;
+  font-weight: 700;
 }
 
 // Style for form labels
@@ -82,4 +84,11 @@ div.flex-row {
   select.mx-1:last-child {
     margin-right: 0 !important;
   }
+}
+
+.fa-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.25rem;
+  text-align: center;
 }

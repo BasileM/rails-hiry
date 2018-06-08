@@ -139,6 +139,10 @@ div.housing-show-links {
   color: $gray;
 }
 
+.text-gray-dark {
+  color: $gray-alt;
+}
+
 .text-black {
   color:$black;
   &:hover {
@@ -164,4 +168,8 @@ div.housing-show-links {
 
 .step-section h5 {
   letter-spacing: .1rem;
+}
+
+#rooms-title {
+  letter-spacing: .025rem;
 }
