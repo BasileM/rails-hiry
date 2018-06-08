@@ -19,7 +19,6 @@ class HousingsController < ApplicationController
 
   def show
     authorize @housing
-
     @rentals = @housing.rentals
     @rental  = @rentals.last
     @image   = @housing.images.first

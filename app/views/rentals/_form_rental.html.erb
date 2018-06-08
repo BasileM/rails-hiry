@@ -1,35 +1,41 @@
 <%= simple_form_for [@housing, @rental] do |f| %>
   <%= f.input :furnished, {
-    label: 'Meublé ?',
-    placeholder: 'Meublé ou non meublé',
-    collection: ["Meublé", "Non meublé"]
+    as: :radio_buttons,
+    label: 'Type de location',
+    collection: ["Meublé", "Non meublé"],
+    class: 'form-check-input',
+    wrapper_html: { class: 'form-check form-check-inline' }
     }
   %>
+  <div class="form-row">
   <%= f.input :start_date, {
     label: 'Date de début de la location',
     as: :string,
     required: false,
-    input_html: {class: "datepicker"}
+    input_html: {class: "datepicker"},
+    wrapper_html: { class: 'col-6' }
     }
   %>
   <%= f.input :end_date, {
-    label: 'Date de fin de la location (facultatif)',
+    label: 'Date de fin (facultatif)',
     as: :string,
     required: false,
     input_html: {class: "datepicker"},
+    wrapper_html: { class: 'col-6' }
     }
   %>
-  <div class="row">
+</div>
+  <div class="form-row">
     <%= f.input :monthly_rent, {
       label:'Loyer mensuel',
       placeholder: '1 350 €',
-      wrapper_html: { class: 'col' }
+      wrapper_html: { class: 'col-6' }
       }
     %>
     <%= f.input :monthly_expenses, {
       label:'Charges mensuelles',
       placeholder: '150 €',
-      wrapper_html: { class: 'col' }
+      wrapper_html: { class: 'col-6' }
       }
     %>
   </div>
