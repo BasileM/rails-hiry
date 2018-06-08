@@ -3,6 +3,7 @@
 	  <div class="row">
       <div class="col-md-8 offset-md-2">
         <br>
+
         <div class="navigaton-container">
           <%= link_to housing_path(@housing), class: "button-navigation-small" do %>
             <i class="fa fas fa-long-arrow-alt-left"></i>
@@ -14,9 +15,32 @@
             <i class="fa far fa-envelope-open"></i>
           <% end %>
         </div>
+
+        <!-- Show success or not if contract signed -->
+        <div>
+          <!-- Signed by owner text -->
+          <% if @rental.signed_by_owner %>
+            <h5><i class="fas fa-check-circle text-success"></i><h5>
+            Vous avez bien signé le contrat de bail
+          <% else %>
+            <h5><i class="fas fa-times-circle text-fail"></i><h5>
+            En attente de votre signature
+          <% end %>
+          <!-- Signed by renter text -->
+          <% if @rental.signed_by_renter %>
+            <h5><i class="fas fa-check-circle text-success"></i><h5>
+            Votre locataire a bien signé le contrat de bail
+          <% else %>
+            <h5><i class="far fa-times-circle text-fail"></i><h5>
+            En attente de la signature de votre locataire
+          <% end %>
+        </div>
         <hr>
         <%= render 'rental' %>
       </div>
     </div>
   </div>
 </div>
+
+<i class="far fa-times-circle"></i>
+
