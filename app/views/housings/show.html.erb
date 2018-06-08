@@ -17,20 +17,18 @@
     <div class="row">
 
       <!-- Sticky sidebar navigation -->
-      <div class="col-md-3 housing-show-links">
-        <ul class="list-unstyled">
-          <li>
-            <a class="text-black" href="#rental"><h4>Ma location</h4></a>
-          </li>
-          <li>
-            <a class="text-black" href="#housing"><h4>Mon bien</h4></a>
-          </li>
+      <div id="#navbar-sticky" class="col-md-3 housing-show-links">
+        <nav class="navbar sticky-top">
+          <a class="nav-link" href="#rental"><h4>Ma location</h4></a>
+          <a class="nav-link" href="#housing"><h4>Mon bien</h4></a>
+          <!-- Display rooms link if rooms exist -->
           <% if @housing.rooms.present? %>
-            <li>
-              <a class="text-black" href="#rooms"><h4>Mes pièces</h4></a>
-            </li>
+            <a class="nav-link" href="#rooms"><h4>Mes pièces</h4></a>
           <% end %>
-        </ul>
+          <% if @rental.present? %>
+            <a class="nav-link" href="#renter"><h4>Mon locataire</h4></a>
+          <% end %>
+        </nav>
       </div>
 
       <!-- Begin Housing infos -->

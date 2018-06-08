@@ -7,6 +7,10 @@ nav.sticky-top {
 
 .nav-link {
   padding: 0;
+  &:hover {
+    text-decoration: underline;
+    color: $black-alt;
+  }
 }
 
 /* Main navbar */
