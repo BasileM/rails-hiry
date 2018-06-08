@@ -1,7 +1,15 @@
-<div class="page-content">
+<div id="rental-show" class="page-content">
 	<div class="container">
 	  <div class="row">
-      <div class="col-md-8 offset-md-2">
+
+			<!-- Sticky sidebar navigation -->
+			<div class="col-md-3">
+				<nav class="sticky-top">
+					<a class="text-black" href="#vacant-housing"><h4>À louer</h4></a>
+				</nav>
+			</div>
+
+      <div class="col-md-9">
         <br>
         <div class="navigaton-container">
           <%= link_to housing_path(@housing), class: "button-navigation-small" do %>
@@ -17,6 +25,7 @@
         <hr>
         <%= render 'rental' %>
       </div>
+
     </div>
   </div>
 </div>
