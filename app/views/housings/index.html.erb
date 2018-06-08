@@ -50,7 +50,7 @@
 						<!-- Lists rented housings if they exist -->
 						<% if @rented_housings.present? %>
 							<div class="rented-housings-list">
-			          <h2 id="rented-housing" class="housings-list-title text-uppercase">Mes biens en locations</h2>
+			          <h2 id="rented-housing" class="housings-list-title text-uppercase mt-5">Mes biens en locations</h2>
 								<% @rented_housings.each do |housing| %>
 									<% rental = Rental.where(housing_id: housing.id).last %>
 									<% renter = Renter.where(rental_id: rental.id).last %>

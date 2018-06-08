@@ -1,65 +1,62 @@
-<div class="page-content">
+<div id="receipts-index" class="page-content">
 	<div class="container">
 	  <div class="row">
-      <div class="col-md-8 offset-md-2">
-        <ul class="list-inline align-center">
-          <li class="list-inline-item">
-            <br>
-            <br>
-            <br>
-            <div class="navigaton-container">
-              <%= link_to housing_path(@rental.housing), class: "button-navigation-small" do %>
-                <i class="fa fas fa-long-arrow-alt-left"></i>
-              <% end %>
-            </div>
-            <br>
-            <h1>Mes quittances</h1>
-          </li>
-          <li class="list-inline-item">
-            <%= link_to new_rental_receipt_path(@rental) do %>
-              <i class="fa fas fa-plus plus-button"></i>
-            <% end %>
-         </li>
-        </ul>
 
-        <!-- Info on the housing & renter -->
-        <% if @renter.nil? %>
-          <div>
-            Vous n'avez pas encore défini de locataire
-          </div>
-        <% else %>
-          <div class="card-date-title h6 align-center" >
-            <%= @housing.street %> - <%= @renter.gender %> <%= @renter.first_name %> <%= @renter.last_name %> -
-            <%= link_to "Contrat de location", rental_path(@rental) %> daté du <%= @rental.start_date %>
-          </div>
-        <% end %>
+      	<div class="col-md-8 offset-md-2">
+					<div class="align-center">
+	        	<%= link_to "Revenir au bien", housing_path(@rental.housing), class: "btn btn-outline-primary mb-5 text-center" %>
+					</div>
+	        <h1 class="align-center">Mes quittances</h1>
 
+					<!-- Info on the housing & renter -->
+	        <% if @renter.nil? %>
+	          <div>
+	            Vous n'avez pas encore défini de locataire
+	          </div>
+	        <% else %>
+	          <div class="card-date-title align-center" >
+	            <h4 class="text-black mb-3"><%= @housing.street %></h4>
+							<h5 class="text-gray-alt"><%= @renter.gender %> <%= @renter.first_name %> <%= @renter.last_name %></h5>
+	            <p class="text-black"><%= link_to "Contrat de location", rental_path(@rental) %> daté du <%= I18n.localize(@rental.start_date, format: '%e %B %Y') %></p>
+	          </div>
+	        <% end %>
 
-        <!-- Go to dashboard
-          <%= link_to "Tableau de bord", housing_path(@housing), class: "btn btn-primary btn-lg" %>
-        -->
+					<% unless @receipts.present? %>
+						<div class="card align-center">
+							<div class="card-body my-3">
+								<h3 class="card-title serif">Vous n’avez pas encore créé de quittance</h3>
+								<p class="card-text">Ajoutez une première quittance pour votre location.</p>
+								<%= link_to "Créer une quittance", new_rental_receipt_path(@rental), class: "btn btn-primary my-5" %>
+							</div>
+						</div>
+					<% end %>
 
+	        <!-- All receipts -->
+					<% if @receipts.present? %>
+						<hr class="my-5">
+		        <section id="receipt-index">
+		          <% receipts_sorted = @receipts.sort_by &:date %>
+		          <% receipts_sorted.reverse.each do |receipt| %>
+		            <div class="card-receipt my-3">
+		              <div class="card-receipt-date">
+		                <%= I18n.localize(receipt.date, format: '%B %Y') %>
+		              </div>
+		              <div class="card-receipt-info">
+		                <span>Montant total : <%= receipt.monthly_invoice %> €</span>
+		              </div>
+		              <div class="card-receipt-edit">
+		                <%= link_to receipt_path(receipt, :format => :pdf), target: :_blank do %>
+		                  <i class="fa fas fa-print"></i>
+		                <% end %>
+		              </div>
+		            </div>
+		          <% end %>
+							<%= link_to "Créer une nouvelle quittance", new_rental_receipt_path(@rental), class: "btn btn-primary btn-lg btn-block my-3" %>
+		        </section>
+					<% end %>
 
-        <!-- All receipts -->
-        <section id="receipt-index">
-          <% receipts_sorted = @receipts.sort_by &:date %>
-          <% receipts_sorted.reverse.each do |receipt| %>
-            <div class="card-receipt">
-              <div class="card-receipt-date">
-                <%= receipt.date.strftime("%B, %Y") %>
-              </div>
-              <div class="card-receipt-info">
-                Montant total: <%= receipt.monthly_invoice %>€
-              </div>
-              <div class="card-receipt-edit">
-                <%= link_to receipt_path(receipt, :format => :pdf), target: :_blank do %>
-                  <i class="fa fas fa-print"></i>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        </section>
-      </div>
+				</div>
+
     </div>
   </div>
 </div>

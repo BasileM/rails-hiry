@@ -1,31 +1,58 @@
-<h1 align = "center">État des lieux</h1>
-<p align="justify">L’état des lieux doit être établi de façon contradictoire entre les deux parties lors de la remise des clés au locataire et lors de leur restitution en fin de bail. L'état des lieux prévu à l'article 3-2 de la loi du 6 juillet 1989 doit porter sur l'ensemble des locaux et équipements d'usage privatif mentionnés au contrat de bail et dont le locataire a la jouissance exclusive.</p>
-<hr>
-<p><%= render 'inventories/housing_specs.html.erb', rental: @rental  %></p>
-<hr>
-<p><%= render 'inventories/owner_specs.html.erb', owner: @owner %></p>
-<hr>
-<p><%= render 'inventories/renter_specs.html.erb', renter: @renter %></p>
-<hr>
-<h3>Les pièces</h3>
-<ul class="list-unstyled">
-  <% @rental.inventories.each do |inventory| %>
-  <li>
-    <%= inventory.room.type_of_room %>
-    État : <%= inventory.state %>
-    Observations : <%= inventory.observations %>
-  </li>
-  <% end %>
-</ul>
-<br>
-<hr>
-<p</p>
-<p><b>
-Entretien courant et menues réparations :
-</b></p><br>
-<p align="justify">Le locataire doit veiller à maintenir en l'état le logement qu'il occupe.
-À ce titre, il doit assurer l'entretien normal du logement et de ses éléments d'équipement, ainsi que les menues réparations nécessaires à moins qu'il ne prouve qu'elles sont dues à la vétusté, à une malfaçon ou à la force majeure.
-À défaut, le bailleur peut retenir sur le dépôt de garantie les sommes correspondant aux réparations
-locatives qui n'ont pas été effectuées par le locataire, justificatifs à l'appui.
-</p><br>
- <p align = "right">Fait à (lieu)  , le (date)</p>
+<h1 class="align-center text-uppercase mt-5">État des lieux</h1>
+<p>L’état des lieux doit être établi de façon contradictoire entre les deux parties lors de la remise des clés au locataire et lors de leur restitution en fin de bail. L'état des lieux prévu à l'article 3-2 de la loi du 6 juillet 1989 doit porter sur l'ensemble des locaux et équipements d'usage privatif mentionnés au contrat de bail et dont le locataire a la jouissance exclusive.</p>
+
+<hr class="mt-3 mb-5 d-none">
+
+<h3 class="text-bold mt-5 mb-3">1 - Les locaux</h3>
+<div class="card" id="section-1">
+  <div class="card-body">
+    <p><%= render 'inventories/housing_specs.html.erb', rental: @rental  %></p>
+    <hr class="mt-3 mb-5 d-none">
+  </div>
+</div>
+
+<h3 class="text-bold mt-5 mb-3">2 - Le bailleur</h3>
+<div class="card" id="section-2">
+  <div class="card-body">
+    <p><%= render 'inventories/owner_specs.html.erb', owner: @owner %></p>
+    <hr class="mt-3 mb-5 d-none">
+  </div>
+</div>
+
+<h3 class="text-bold mt-5 mb-3">3 - Le locataire</h3>
+<div class="card" id="section-3">
+  <div class="card-body">
+    <p><%= render 'inventories/renter_specs.html.erb', renter: @renter %></p>
+    <hr class="mt-3 mb-5 d-none">
+  </div>
+</div>
+
+<h3 class="text-bold mt-5 mb-3">4 - Les pièces</h3>
+<div class="card" id="section-4">
+  <div class="card-body">
+    <ul class="list-unstyled">
+      <% @rental.inventories.each do |inventory| %>
+      <li>
+        <%= inventory.room.type_of_room %>
+        État : <%= inventory.state %>
+        Observations : <%= inventory.observations %>
+      </li>
+      <% end %>
+    </ul>
+    <hr class="mt-3 mb-5 d-none">
+  </div>
+</div>
+
+<h3 class="text-bold mt-5 mb-3">5 - Entretien courant et menues réparations</h3>
+<div class="card" id="section-4">
+  <div class="card-body">
+    <p>Le locataire doit veiller à maintenir en l'état le logement qu'il occupe.
+    À ce titre, il doit assurer l'entretien normal du logement et de ses éléments d'équipement, ainsi que les menues réparations nécessaires à moins qu'il ne prouve qu'elles sont dues à la vétusté, à une malfaçon ou à la force majeure.
+    À défaut, le bailleur peut retenir sur le dépôt de garantie les sommes correspondant aux réparations
+    locatives qui n'ont pas été effectuées par le locataire, justificatifs à l'appui.
+    </p>
+    <hr class="mt-3 mb-5 d-none">
+  </div>
+</div>
+
+<p class="mt-5">Fait à (lieu)  , le (date)</p>
