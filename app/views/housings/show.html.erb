@@ -98,10 +98,10 @@
                     <div class="card-body my-3">
                       <h3 class="card-title serif">Votre <%= @housing.type_of_housing.downcase %> n’est pas encore en location</h3>
                       <p class="card-text">Pour louer votre bien, créez un contrat et ajouter un locataire.</p>
-                      <%= link_to "Commencer les démarches", new_housing_rental_path(@housing), class: "btn btn-primary btn-lg mt-5" %>
+                      <%= link_to "Commencer les démarches", new_housing_rental_path(@housing), class: "btn btn-primary btn-lg mt-5" %>                    
                     </div>
                   </div>
-                </div>
+                <% end %>
               <% end %>
               <!-- End if rental -->
 
