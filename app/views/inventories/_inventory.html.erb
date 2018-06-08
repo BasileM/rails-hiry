@@ -1,4 +1,4 @@
-<h1 align = "center">Etat des lieux</h1>
+<h1 align = "center">État des lieux</h1>
 <p align="justify">L’état des lieux doit être établi de façon contradictoire entre les deux parties lors de la remise des clés au locataire et lors de leur restitution en fin de bail. L'état des lieux prévu à l'article 3-2 de la loi du 6 juillet 1989 doit porter sur l'ensemble des locaux et équipements d'usage privatif mentionnés au contrat de bail et dont le locataire a la jouissance exclusive.</p>
 <hr>
 <p><%= render 'inventories/housing_specs.html.erb', rental: @rental  %></p>
@@ -12,7 +12,7 @@
   <% @rental.inventories.each do |inventory| %>
   <li>
     <%= inventory.room.type_of_room %>
-    Etat : <%= inventory.state %>
+    État : <%= inventory.state %>
     Observations : <%= inventory.observations %>
   </li>
   <% end %>

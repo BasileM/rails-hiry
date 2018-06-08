@@ -1,6 +1,19 @@
-<div class="page-content">
-	<div class="container">
-    <div class="row">
+<div id="inventory-index" class="page-content">
+	<div class="container-fluid">
+	  <div class="row">
+
+			<!-- Sticky sidebar navigation -->
+			<div id="#navbar-sticky" class="col-md-4 housing-index-links">
+				<nav class="nav flex-column sticky-top">
+					<a class="nav-link" href="#section-1"><h4>Les locaux</h4></a>
+					<a class="nav-link" href="#section-2"><h4>Le bailleur</h4></a>
+					<a class="nav-link" href="#section-3"><h4>Le locataire</h4></a>
+					<a class="nav-link" href="#section-4"><h4>Les pièces</h4></a>
+					<a class="nav-link" href="#section-5"><h4>Entretien et réparations</h4></a>
+				</nav>
+			</div>
+
+			<!-- Inventory document -->
       <div class="col-md-6 offset-md-3">
         <br>
         <br>
@@ -18,6 +31,8 @@
         <hr>
         <%= render 'inventory' %>
       </div>
+
+
     </div>
   </div>
 </div>

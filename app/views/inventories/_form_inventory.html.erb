@@ -2,10 +2,17 @@
 
   <%= f.simple_fields_for :inventories do |field| %>
     <%= field.input :room_id, as: :hidden %>
-
-    <h4 class="mt-5 mb-3"><%= field.object.room.type_of_room %> | <%= field.object.room.size %> m<sup>2</sup></h4>
-    <%= field.input :state, label: 'État de la pièce', as: :select, collection: Inventory::STATES %>
+    <h4 class="mt-5 mb-3"><%= field.object.room.type_of_room %> (<%= field.object.room.size.to_i %> m<sup>2</sup>)</h4>
+    <%= field.input :state, {
+      as: :radio_buttons,
+      label: 'État de la pièce',
+      collection: Inventory::STATES,
+      class: 'form-check-input',
+      wrapper_html: { class: 'form-check form-check-inline' }
+      }
+    %>
     <%= field.input :observations, label: 'Observations', placeholder: 'Vos commentaires sur la pièce' %>
+    <hr class="mt-5">
   <% end %>
   <%= f.submit "Créer mon état des lieux", class: "btn btn-primary btn-lg btn-block" %>
 <% end %>
