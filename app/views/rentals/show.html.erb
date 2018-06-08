@@ -15,6 +15,7 @@
 				</nav>
 			</div>
 
+			<!-- Rental document -->
       <div class="col-md-7 offset-md-1">
         <div class="row mb-5">
 					<div class="col-md-4 align-center">
@@ -22,12 +23,12 @@
 					</div>
 					<div class="col-md-4 align-center">
 	          <%= link_to rental_path(@rental, :format => :pdf), :target=>'blank', class: "btn btn-primary" do %>
-	            <span>Voir en PDF</span>
+	            <span>Voir la version PDF</span>
 	          <% end %>
 					</div>
 					<div class="col-md-4 align-center">
 	          <%= link_to send_email_contract_rental_path(@rental), class: "btn btn-primary" do %>
-	            <span>Envoyer par e-mail</span>
+	            <span>Signer le document</span>
 	          <% end %>
 					</div>
         </div>

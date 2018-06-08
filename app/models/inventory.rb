@@ -1,5 +1,5 @@
 class Inventory < ApplicationRecord
-  STATES = ["Mauvais état", "Etat moyen", "Bon état", "Très bon état"]
+  STATES = ["Mauvais", "Moyen", "Bon", "Très bon"]
 
   belongs_to :rental
   belongs_to :room
