@@ -31,7 +31,7 @@
 						<div class="vacant-housings-list">
 							<h2 id="vacant-housing" class="housings-list-title text-uppercase">Mes biens à louer</h2>
 							<!-- If vacant housing don't exist yet invite the user to create one -->
-							<% unless @vacant_housings.present? %>
+							<% if !@vacant_housings.present? && !@rented_housings.present? %>
 								<div class="card align-center">
 								  <div class="card-body my-3">
 								    <h3 class="card-title serif">Vous n’avez pas encore de bien en location</h3>
@@ -39,7 +39,15 @@
 										<%= link_to "Ajouter un bien", new_housing_path, class: "btn btn-primary btn-lg mt-5" %>
 								  </div>
 								</div>
-							<% else %>
+							<% elsif !@vacant_housings.present? && @rented_housings.present? %>
+							<div class="card align-center">
+								<div class="card-body my-3">
+									<h3 class="card-title serif">Tous vos biens sont loués</h3>
+									<p class="card-text">Mettez un nouveau bien en location.</p>
+									<%= link_to "Ajouter un nouveau bien", new_housing_path, class: "btn btn-primary btn-lg mt-5" %>
+								</div>
+							</div>
+							<% elsif %>
 							<!-- If vacant housing exist then display them -->
 								<% @vacant_housings.each do |housing| %>
 									<%= render 'list_housings', housing: housing %>
