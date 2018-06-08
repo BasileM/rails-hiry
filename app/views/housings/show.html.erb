@@ -20,7 +20,9 @@
       <div id="#navbar-sticky" class="col-md-3 housing-show-links">
         <nav class="navbar sticky-top">
           <a class="nav-link" href="#rental"><h4>Ma location</h4></a>
-          <a class="nav-link" href="#housing"><h4>Mon bien</h4></a>
+          <% if @rental.present? %>
+            <a class="nav-link" href="#housing"><h4>Mon bien</h4></a>
+          <% end %>
           <!-- Display rooms link if rooms exist -->
           <% if @housing.rooms.present? %>
             <a class="nav-link" href="#rooms"><h4>Mes pièces</h4></a>
@@ -103,9 +105,25 @@
               <% end %>
               <!-- End if rental -->
 
-            <!-- End row -->
+            <!-- End nested row -->
             </div>
           </div>
+
+          <!-- Info on housing -->
+          <% if @rental.present? %>
+            <div id="housing" class="mt-5">
+              <h2 class="text-uppercase">Mon bien</h2>
+              <div class="card">
+                <div class="card-body">
+                  <h3 class="card-title">Informations</h3>
+                    <h5>
+                      Votre <%= @housing.type_of_housing.downcase %> est en location depuis le <%= I18n.localize(@rental.start_date, format: '%e %B %Y') %>
+                    </h5>
+                    <%= render 'details_general', housing: @housing, rental: @rental %>
+                </div>
+              </div>
+            </div>
+          <% end %>
 
           <!-- Info on rooms (if presents) -->
           <% if @housing.rooms.present? %>
