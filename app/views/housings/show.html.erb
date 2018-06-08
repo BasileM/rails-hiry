@@ -43,17 +43,6 @@
                     </div>
                   </div>
                 <% end %>
-                <!-- Receipts -->
-                <%= link_to rental_receipts_path(@rental) do %>
-                  <div class="rental-info-card">
-                    <div class="rental-info-card-title">
-                      Quittances
-                    </div>
-                    <div class="rental-info-card-description">
-                      Générez et visualisez vos quittances de loyers
-                    </div>
-                  </div>
-                <% end %>
                 <!-- Inventory -->
                 <% if @housing.inventories.present? %>
                   <%= link_to rental_inventories_path(@rental) do %>
@@ -77,6 +66,17 @@
                       </div>
                     </div>
                   <% end %>
+                <% end %>
+                <!-- Receipts -->
+                <%= link_to rental_receipts_path(@rental) do %>
+                  <div class="rental-info-card">
+                    <div class="rental-info-card-title">
+                      Quittances
+                    </div>
+                    <div class="rental-info-card-description">
+                      Générez et visualisez vos quittances de loyers
+                    </div>
+                  </div>
                 <% end %>
               <!-- if there is no rentals -->
               <% else %>
