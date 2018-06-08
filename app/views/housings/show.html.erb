@@ -80,13 +80,13 @@
                 <% end %>
               <!-- if there is no rentals -->
               <% else %>
-                <div class="rental-info-card">
-                  <div class="rental-info-card-icon">
-                    <%= link_to new_housing_rental_path(@housing) do %>
+                <%= link_to new_housing_rental_path(@housing) do %>
+                  <div class="rental-info-card">
+                    <div class="rental-info-card-icon">
                       <i class="fas fa-plus plus-button"></i>
-                    <% end %>
+                    </div>
                   </div>
-                </div>
+                <% end %>
               <% end %>
             </div>
           </div>

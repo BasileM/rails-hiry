@@ -15,8 +15,8 @@ class Housing < ApplicationRecord
 
   validates :type_of_housing,      presence: true, inclusion: { in: TYPE_OF_HOUSING }
   validates :legal_regime,         presence: true, inclusion: { in: LEGAL_REGIME_TYPE }
-  validates :floor,                presence: true, numericality: { only_integer: true, greater_than: 0 }, if: :appartement? # Name of private method
-  validates :year_of_construction, presence: true, numericality: { greater_than: 1000,  less_than: 2018 }
+  validates :floor,                presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, if: :appartement? # Name of private method
+  validates :year_of_construction, presence: true, numericality: { less_than: 2018 }
   validates :size,                 presence: true, numericality: { greater_than: 1,  less_than: 10_000 }
   validates :city,                 presence: true
 
